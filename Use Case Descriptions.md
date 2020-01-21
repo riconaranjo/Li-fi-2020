@@ -7,19 +7,23 @@ The main use cases for the features we wish to fulfill.
 **Flow of Events:**
 1. User connects user device to modem device (**includes UC-3**).
 2. User transmits keyboard character from modem device to user device (**includes UC-5**) by pressing on keyboard keys.
-3. User device displays transmitted characters.  
-**Entry Conditions:** (none)  
-**Exit Conditions:**  
+3. User device displays transmitted characters.
+
+**Entry Conditions:** (none)
+**Exit Conditions:**
 - Modem device has not received M3-1 for 90 seconds or,
 - User device has not received M3-2 response for 90 seconds.
-- User sets device to speed transmitting mode.  
-**Quality Requirements:**  
+- User sets device to speed transmitting mode.
+
+**Quality Requirements:**
 - Feedback to the user indicating that a connection is being created, and whether it was created on both modem and user devices.
 - Feedback to the user indicating the transmission mode of the modem device.
-- Feedback to the user displaying transmitted characters in real-time.  
-**Functional Requirements:**   
+- Feedback to the user displaying transmitted characters in real-time.
+
+**Functional Requirements:** 
 -  C1, C3, P1, P2, P3, P5
-**Messages:**   
+
+**Messages:** 
 -  M1, M2, M3
 
 ## UC-2
