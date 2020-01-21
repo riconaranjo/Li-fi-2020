@@ -27,8 +27,8 @@ The main use cases for the features we wish to fulfill.
 -  M1, M2, M3
 
 ## UC-2
-**Name:** Speed Transmission
-**Actors:** Initiated by users
+**Name:** Speed Transmission  
+**Actors:** Initiated by users  
 **Flow of Events:** 
 1. User connects user device to modem (**includes UC-3**).
 2. User transmits large data file from modem device to user device (**includes UC-6**).
@@ -52,8 +52,8 @@ The main use cases for the features we wish to fulfill.
 - M1, M2, M3
 
 ## UC-3
-**Name:** Connect Devices
-**Actors:** Initiated by users
+**Name:** Connect Devices  
+**Actors:** Initiated by users  
 **Flow of Events:**
 1. User turns on modem device.
 2. User turns on user device.
@@ -79,8 +79,8 @@ The main use cases for the features we wish to fulfill.
 -  M1-1, M1-2, M1-3
 
 ## UC-4
-**Name:** Disconnect Devices
-**Actors:** Initiated by users
+**Name:** Disconnect Devices  
+**Actors:** Initiated by users  
 **Flow of Events:**
 1. User sets device A (modem or user device) to end connection
 2. Device A sends request (**M4-1**) to end connection to device B (user or modem device).
@@ -103,8 +103,8 @@ The main use cases for the features we wish to fulfill.
 - M4-1, M4-2
 
 ## UC-5
-**Name:** Transmitting Characters
-**Actors:** Initiated by users
+**Name:** Transmitting Characters  
+**Actors:** Initiated by users  
 **Flow of Events:**
 1. User selects character transmitting mode on modem device.
 2. While user presses keyboard key.
@@ -135,8 +135,8 @@ The main use cases for the features we wish to fulfill.
 - M2-1, M2-2, M2-3, M2-4,  M2-5, M2-6, M3
 
 ## UC-6
-**Name:** Transmitting Data
-**Actors:** Initiated by users
+**Name:** Transmitting Data  
+**Actors:** Initiated by users  
 **Flow of Events:**
 1. User selects speed transmitting mode on modem device.
 2. Modem device sends request (**M2-1**) to send a data message.
