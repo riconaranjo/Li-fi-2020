@@ -10,7 +10,7 @@ These are objects are mapped to persistent information tracked by each use case.
 **Use Cases:** UC-1, UC-2, UC-3, UC-4, UC-5, UC-6  
 
 ## EO-2
-**Name:** Control Message
+**Name:** Control Message  
 **Definition:** Parent class for all control message objects (M1-1, M1-2, M1-3, M2-1, M2-2, M2-3, M2-5, M2-6, M2-6, M3-1, M3-2, M4-1, M4-2)  
 **Use Cases:** UC-1, UC-2, UC-3, UC-4, UC-5, UC-6  
 
@@ -41,7 +41,7 @@ These are objects are mapped to persistent information tracked by each use case.
 
 ## EO-8
 **Name:** Transmission Speed  
-**Definition:** Class for storing metrics for determining transmission speeds.
+**Definition:** Class for storing metrics for determining transmission speeds.  
 **Use Cases:** UC-2, UC-3 UC-6
 
 # Boundary Objects
@@ -77,30 +77,30 @@ These objects dictate control flow. They create entity objects and boundary obje
 
 ## CO-1
 **Name:** Character Transmission Control  
-**Definition:**  Responsible for managing control flow for **UC-1**. Created by FPGA object  (**BO-2**).  
+**Definition:**  Responsible for managing control flow for **UC-1**. Created by Keyboard object  (**BO-1**).  
 **Use Cases:** UC-1  
 
 ## CO-2
 **Name:** Speed Transmission Control  
-**Definition:** Responsible for managing control flow for **UC-2**. Created by FPGA object (**BO-2**).  
-**Use Cases:**UC-2  
+**Definition:** Responsible for managing control flow for **UC-2**. Created by Keyboard object (**BO-1**).  
+**Use Cases:** UC-2  
 
 ## CO-3
 **Name:** Connect Devices Control  
 **Definition:** Responsible for managing control flow for **UC-3**. Created by FPGA object (**BO-2**).  
-**Use Cases:**UC-3  
+**Use Cases:** UC-3  
 
 ## CO-4
 **Name:** Disconnect Devices Control  
 **Definition:** Responsible for managing control flow for **UC-4**. Created by FPGA object (**BO-2**).  
-**Use Cases:**UC-4  
+**Use Cases:** UC-4  
 
 ## CO-5
 **Name:** Transmitting Characters Control  
 **Definition:** Responsible for managing control flow for **UC-5**. Created by Character Transmission Control object (**CO-1**).  
-**Use Cases:**UC-5  
+**Use Cases:** UC-5  
 
 ## CO-6
 **Name:** Transmitting Data Control  
 **Definition:** Responsible for managing control flow for **UC-6**. Created by Speed Transmission Control object (**CO-2**).  
-**Use Cases:**UC-6  
+**Use Cases:** UC-6  
