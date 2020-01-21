@@ -6,7 +6,8 @@ My team is is composed of 4 other members and a supervising professor. My roles 
 
 ## Documentation
 
-[ Use Case Descriptions ][1]
+- [ Use Case Descriptions ][1]
+- [ Object Model ][2]
 
 ## System Objectives
 
@@ -20,3 +21,4 @@ The project objective is to demonstrate the feasibility of using Li-fi Communica
 4. Communication links between users and router shall exclusively use visible light communication.
 
 [1]:	Use%20Case%20Descriptions.md "Use Case Descriptions"
+[2]:	Object%20Model.md "Object Model"
