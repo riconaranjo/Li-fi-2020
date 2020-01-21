@@ -35,7 +35,7 @@ These are objects are mapped to persistent information tracked by each use case.
 **Use Cases:** UC-1, UC-2, UC-3, UC-4, UC-5, UC-6  
 
 ## EO-7
-**Name:**Connection  
+**Name:** Connection  
 **Definition:** Class for connection information and status. Connections between modem and user devices.  
 **Use Cases:** UC-1, UC-2, UC-3, UC-4, UC-5, UC-6  
 
