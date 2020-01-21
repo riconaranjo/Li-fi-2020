@@ -104,7 +104,7 @@ The main use cases for the features we wish to fulfill.
 
 ## UC-5
 **Name:** Transmitting Characters
-**Actors:**Initiated by users
+**Actors:** Initiated by users
 **Flow of Events:**
 1. User selects character transmitting mode on modem device.
 2. While user presses keyboard key.
@@ -136,7 +136,7 @@ The main use cases for the features we wish to fulfill.
 
 ## UC-6
 **Name:** Transmitting Data
-**Actors:**Initiated by users
+**Actors:** Initiated by users
 **Flow of Events:**
 1. User selects speed transmitting mode on modem device.
 2. Modem device sends request (**M2-1**) to send a data message.
