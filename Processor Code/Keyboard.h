@@ -4,8 +4,8 @@
 // include statements //
 
 #include <vector>         // std::vector
-#include "CharacterTransmissionControl.h"
-#include "SpeedTransmissionControl.h"
+#include "CharacterTransmissionControl.h"   // CO-1
+#include "SpeedTransmissionControl.h"       // CO-2
 
 // structs //
 

@@ -2,6 +2,7 @@
 #define CHARACTERTRANSMISSIONCONTROL_H
 
 // include statements //
+#include "TransmittingCharacterControl.h"   // CO-5
 
 // structs //
 

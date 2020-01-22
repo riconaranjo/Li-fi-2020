@@ -5,6 +5,8 @@
 
 #include <string>         // std::string
 #include "Message.h"
+#include "ConnectDevicesControl.h"      // CO-3
+#include "DisconnectDevicesControl.h"   // CO-4
 
 // structs //
 

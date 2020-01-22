@@ -2,6 +2,7 @@
 #define SPEEDTRANSMISSIONCONTROL_H
 
 // include statements //
+#include "TransmittingDataControl.h"    // CO-6
 
 // structs //
 
