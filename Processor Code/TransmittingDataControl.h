@@ -1,5 +1,5 @@
-#ifndef CHARACTERTRANSMISSIONCONTROL_H
-#define CHARACTERTRANSMISSIONCONTROL_H
+#ifndef TRANSMITTINGDATACONTROL_H
+#define TRANSMITTINGDATACONTROL_H
 
 // include statements //
 
@@ -8,14 +8,14 @@
 // class //
 
 // class for control object for UC-6
-// created by the control object CO-2
-class CharacterTransmissionControl {
+// created by the Speed Transmission control object CO-2
+class TransmittingDataControl {
 public:
     // constructors
-    CharacterTransmissionControl();
+    TransmittingDataControl();
 
     // destructor
-    virtual ~CharacterTransmissionControl();
+    virtual ~TransmittingDataControl();
 
     // member functions
     
@@ -41,4 +41,4 @@ private:
 
 };
 
-#endif // CHARACTERTRANSMISSIONCONTROL_H
+#endif // TRANSMITTINGDATACONTROL_H
