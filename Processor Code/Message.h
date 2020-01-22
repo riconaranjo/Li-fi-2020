@@ -21,7 +21,7 @@ struct DestinationID {
 class Message {
 public:
     // constructor
-    Message(SourceID* source, DestinationID* destination);
+    Message(SourceID& source, DestinationID& destination);
 
     // destructor
     virtual ~Message();
