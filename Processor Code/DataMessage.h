@@ -18,7 +18,7 @@ public:
     DataMessage(DataHeader& header, Data& data);
 
     // destructor
-    virtual ~DataMessage();
+    ~DataMessage();
 
     DataHeader& getHeader();
     Data& getData();
