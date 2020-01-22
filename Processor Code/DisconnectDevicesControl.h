@@ -15,7 +15,7 @@ public:
     DisconnectDevicesControl();
 
     // destructor
-    virtual ~DisconnectDevicesControl();
+    ~DisconnectDevicesControl();
 
     // member functions
     
