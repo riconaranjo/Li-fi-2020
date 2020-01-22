@@ -12,6 +12,7 @@
 // constructors
 DataFile::DataFile(std::vector<char>& data): data(data) {
     std::cout << "DataFile::DataFile() not implemented\n";
+    fragmentData(0);
 }
 
 // destructor
@@ -21,7 +22,7 @@ DataFile::~DataFile() {
 
 // n is number of fragments
 bool DataFile::fragmentData(int n) {
-    // fragments = 
+    fragments = std::vector<Data>();
     std::cout << "DataFile::fragmentData() not implemented\n";
     return false;
 }

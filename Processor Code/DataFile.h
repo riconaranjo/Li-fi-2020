@@ -27,7 +27,7 @@ private:
 
     // data members
     std::vector<char>& data;
-    Data fragments[];
+    std::vector<Data> fragments;
 };
 
 #endif // DATAFILE_H
