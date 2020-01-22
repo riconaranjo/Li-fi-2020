@@ -20,8 +20,8 @@ public:
     virtual ~Connection();
 
     // member functions
-    std::string getConnectionID; // ID of this connection
-    std::string getSourceID;     // ID of the other party in the connection
+    std::string getConnectionID(); // ID of this connection
+    std::string getSourceID();     // ID of the other party in the connection
 
 protected:
 
