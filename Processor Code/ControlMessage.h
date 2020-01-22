@@ -8,8 +8,7 @@
 
 // structs //
 
-struct MessageOptions
-{
+struct MessageOptions {
     std::bitset<12> options; // one bit high for each control message type, default bit value is zero
 };
 
