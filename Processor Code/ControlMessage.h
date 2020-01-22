@@ -44,11 +44,10 @@ public:
 protected:
 
 private:
+    void setNthBitHigh(int n);
+    
     // data members
-    MessageOptions& options;
-
-    bool setNthBitHigh(int n);
-
+    MessageOptions options;
 };
 
 #endif // CONTROLMESSAGE_H

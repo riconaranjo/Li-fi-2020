@@ -21,10 +21,12 @@ Connection::~Connection() {
 // ID of this connection
 std::string Connection::getConnectionID() {
     std::cout << "Connection::getConnectionID() not implemented\n";
+    return "";
 }
 
 // ID of the other party in the connection
 std::string Connection::getSourceID() {
     std::cout << "Connection::getSourceID() not implemented\n";
+    return "";
 }
 
