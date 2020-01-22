@@ -10,7 +10,7 @@ CharacterTransmissionControl::CharacterTransmissionControl() {
 
 // destructor
 CharacterTransmissionControl::~CharacterTransmissionControl() {
-    std::cout << "CharacterTransmissionControl::CharacterTransmissionControl() not implemented\n";
+    std::cout << "CharacterTransmissionControl::~CharacterTransmissionControl() not implemented\n";
 }
 
 // member functions //
@@ -41,6 +41,3 @@ bool CharacterTransmissionControl::acceptConnection() {
 bool CharacterTransmissionControl::transmitCharacter() {
     std::cout << "CharacterTransmissionControl::transmitCharacter() not implemented\n";
 }
-
-
-

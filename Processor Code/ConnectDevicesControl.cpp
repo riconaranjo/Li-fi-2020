@@ -10,7 +10,7 @@ ConnectDevicesControl::ConnectDevicesControl() {
 
 // destructor
 ConnectDevicesControl::~ConnectDevicesControl() {
-    std::cout << "ConnectDevicesControl::ConnectDevicesControl() not implemented\n";
+    std::cout << "ConnectDevicesControl::~ConnectDevicesControl() not implemented\n";
 }
 
 // member functions //

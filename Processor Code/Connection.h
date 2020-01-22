@@ -17,7 +17,7 @@ public:
     Connection(std::string connectionID, std::string sourceID);
 
     // destructor
-    virtual ~Connection();
+    ~Connection();
 
     // member functions
     std::string getConnectionID(); // ID of this connection
