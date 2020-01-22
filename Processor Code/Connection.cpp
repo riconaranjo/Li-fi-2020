@@ -2,7 +2,7 @@
 
 #include <string>         // std::string
 #include "Connection.h"
-#include <iostream> // todo: remove after testing
+#include <iostream>       // todo: remove after testing
 
 // class //
 
