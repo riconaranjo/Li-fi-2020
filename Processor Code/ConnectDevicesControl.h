@@ -15,7 +15,7 @@ public:
     ConnectDevicesControl();
 
     // destructor
-    virtual ~ConnectDevicesControl();
+    ~ConnectDevicesControl();
 
     // member functions
     
