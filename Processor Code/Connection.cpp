@@ -1,8 +1,8 @@
 // include statements //
 
 #include <string>         // std::string
-#include "Connection.h"
 #include <iostream>       // todo: remove after testing
+#include "Connection.h"
 
 // class //
 

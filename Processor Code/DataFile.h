@@ -15,16 +15,18 @@
 class DataFile {
 public:
     // constructors
-    DataFile(std::vector<char> data);
+    DataFile(std::vector<char>& data);
 
     // destructor
-    virtual ~DataFile();
+    ~DataFile();
 
 protected:
 
 private:
+    bool fragmentData(int n);
+
     // data members
-    std::vector<char> data;
+    std::vector<char>& data;
     Data fragments[];
 };
 
