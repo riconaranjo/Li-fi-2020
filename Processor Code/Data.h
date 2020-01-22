@@ -52,7 +52,7 @@ public:
     Data(DataHeader& header, BinaryData& data);
 
     // destructor
-    virtual ~Data();
+    ~Data();
 
     // member functions
     DataHeader& getHeader();
