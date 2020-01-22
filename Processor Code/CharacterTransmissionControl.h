@@ -2,13 +2,14 @@
 #define CHARACTERTRANSMISSIONCONTROL_H
 
 // include statements //
+
 #include "TransmittingCharacterControl.h"   // CO-5
 
 // structs //
 
 // class //
 
-// class for control object for UC-1
+// class for control object CO-1 for UC-1
 // created by the keyboard object BO-1
 class CharacterTransmissionControl {
 public:
@@ -16,7 +17,7 @@ public:
     CharacterTransmissionControl();
 
     // destructor
-    virtual ~CharacterTransmissionControl();
+    ~CharacterTransmissionControl();
 
     // member functions
     
