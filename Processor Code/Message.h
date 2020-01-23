@@ -17,24 +17,24 @@ struct DestinationID {
 
 // class //
 
-// this is the abstract message class all message objects inherit from
+// interface for control and data message classes
 class Message {
 public:
     // constructor
-    Message(SourceID& source, DestinationID& destination);
+    Message(SourceID source, DestinationID destination);
 
     // destructor
     virtual ~Message();
 
-    SourceID& getSourceID();
-    DestinationID& getDestinationID();
+    virtual SourceID& getSourceID() = 0;
+    virtual DestinationID& getDestinationID() = 0;
 
 protected:
-
-private:
     // data members
     SourceID& sourceID;
     DestinationID& destinationID;
+
+private:
 
 };
 
