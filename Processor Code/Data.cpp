@@ -18,7 +18,8 @@ Data::~Data() {
     std::cout << "Data::~Data() not implemented\n";
 }
 
-// member functions
+// member functions //
+
 DataHeader& Data::getHeader() {
     return header;
 }

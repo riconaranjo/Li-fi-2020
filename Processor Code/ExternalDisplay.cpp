@@ -17,7 +17,8 @@ ExternalDisplay::~ExternalDisplay() {
 
 }
 
-// member functions
+// member functions//
+
 std::string ExternalDisplay::read() {
     std::cout << "ExternalDisplay::read() not implemented\n";
     text = "";
