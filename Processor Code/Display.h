@@ -9,25 +9,21 @@
 
 // class //
 
-// containter class for connection ID and source ID
+// interface display objects
 class Display {
 public:
-    // constructors
-    Display();
-
     // destructor
     virtual ~Display();
 
     // abstract member functions
-    std::string read();
-    bool write();
+    virtual std::string read() = 0;
+    virtual bool write() = 0;
 
 protected:
 
 private:
     // data members
     std::string text;
-
 };
 
 #endif // DISPLAY_H
