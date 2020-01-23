@@ -31,8 +31,8 @@ public:
 
 protected:
     // data members
-    SourceID& sourceID;
-    DestinationID& destinationID;
+    SourceID sourceID;
+    DestinationID destinationID;
 
 private:
 
