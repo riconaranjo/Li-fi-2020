@@ -17,7 +17,7 @@ public:
     SevenSegmentDisplay();
 
     // destructor
-    virtual ~SevenSegmentDisplay();
+    ~SevenSegmentDisplay();
 
     // member functions
     std::string read();
