@@ -4,15 +4,16 @@
 // include statements //
 
 #include <string>         // std::string
-#include "Message.h"
+#include <vector>         // std::vector
 #include "ConnectDevicesControl.h"      // CO-3
 #include "DisconnectDevicesControl.h"   // CO-4
+#include "Message.h"
 
 // structs //
 
 // class //
 
-// containter class for connection ID and source ID
+// class for interfacing with FPGA
 class FPGA {
 public:
     // constructors
@@ -22,7 +23,7 @@ public:
     virtual ~FPGA();
 
     // member functions
-    Message& write();
+    bool write(Message& message);
     Message& read();
 
 protected:

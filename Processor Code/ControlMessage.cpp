@@ -8,7 +8,7 @@
 // class //
 
 // constructor
-ControlMessage::ControlMessage(SourceID& source, DestinationID& destination): Message(source, destination), options(MessageOptions()) {
+ControlMessage::ControlMessage(SourceID source, DestinationID destination): Message(source, destination), options(MessageOptions()) {
     std::cout << "ControlMessage::ControlMessage() not implemented\n";
 }
 
@@ -21,6 +21,14 @@ ControlMessage::~ControlMessage() {
 
 MessageOptions& ControlMessage::getOptions() {
     return options;
+}
+
+SourceID& ControlMessage::getSourceID() {
+    return sourceID;
+}
+
+DestinationID& ControlMessage::getDestinationID() {
+    return destinationID;
 }
 
 // M1-1 connect

@@ -19,13 +19,16 @@ struct MessageOptions {
 class ControlMessage: public Message {
 public:
     // constructor
-    ControlMessage(SourceID& source, DestinationID& destination);
+    ControlMessage(SourceID source, DestinationID destination);
 
     // destructor
     ~ControlMessage();
 
     // member functions
     MessageOptions& getOptions();
+
+    SourceID& getSourceID();
+    DestinationID& getDestinationID();
 
     bool setOptionAsM1_1();     // M1-1 connect
     bool setOptionAsM1_2();     // M1-2 ack_connect

@@ -15,13 +15,16 @@
 class DataMessage: public Message {
 public:
     // constructor
-    DataMessage(DataHeader& header, Data& data);
+    DataMessage(DataHeader header, Data data);
 
     // destructor
     ~DataMessage();
 
     DataHeader& getHeader();
     Data& getData();
+
+    SourceID& getSourceID();
+    DestinationID& getDestinationID();
 
 protected:
 
