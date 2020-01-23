@@ -10,8 +10,8 @@
 
 // class //
 
-// containter class for connection ID and source ID
-class ExternalDisplay {
+// class for interfacing with external display
+class ExternalDisplay: Display {
 public:
     // constructors
     ExternalDisplay();

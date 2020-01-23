@@ -20,10 +20,11 @@ public:
     virtual bool write() = 0;
 
 protected:
-
-private:
     // data members
     std::string text;
+
+private:
+
 };
 
 #endif // DISPLAY_H
