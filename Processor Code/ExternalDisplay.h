@@ -17,7 +17,7 @@ public:
     ExternalDisplay();
 
     // destructor
-    virtual ~ExternalDisplay();
+    ~ExternalDisplay();
 
     // member functions
     std::string read();
