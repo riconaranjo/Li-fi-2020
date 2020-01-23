@@ -20,15 +20,15 @@ public:
     Modem();
 
     // destructor
-    virtual ~Modem();
+    ~Modem();
 
     // member functions
-    bool sendControlMessage(ControlMessage* message);
-    bool receiveControlMessage(ControlMessage* message);
-    bool sendDataMessage(DataMessage* message);
-    bool receiveDataMessage(DataMessage* message);
-    bool addConnection(Connection* connection);
-    bool endConnection(Connection* connection);
+    bool sendControlMessage(ControlMessage& message);
+    bool receiveControlMessage(ControlMessage& message);
+    bool sendDataMessage(DataMessage& message);
+    bool receiveDataMessage(DataMessage& message);
+    bool addConnection(Connection& connection);
+    bool endConnection(Connection& connection);
     KeyboardInput readKeyboardInput();
 
 protected:
