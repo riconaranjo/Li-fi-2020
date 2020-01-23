@@ -22,7 +22,7 @@ public:
     Keyboard();
 
     // destructor
-    virtual ~Keyboard();
+    ~Keyboard();
 
     // member functions
     KeyboardInput read();
@@ -36,7 +36,7 @@ private:
     bool initiateSpeedTransmission();      // UC-2.2 creates UC-6
 
     CharacterTransmissionControl characterControl;
-    CharacterTransmissionControl characterControl;
+    SpeedTransmissionControl speedControl;
 };
 
 #endif // KEYBOARD_H
