@@ -115,6 +115,8 @@ bool ControlMessage::setOptionAsM4_2() {
     return false;
 }
 
+//
 void ControlMessage::setNthBitHigh(int n) {
-    std::cout << "ControlMessage::setNthBitHigh() not implemented\n";
+    options.options.reset();    // set all bits to zero
+    options.options.set(n);     // set nth bit to one
 }
