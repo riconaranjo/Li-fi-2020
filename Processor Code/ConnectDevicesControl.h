@@ -7,7 +7,7 @@
 
 // class //
 
-// class for control object for UC-3
+// class for control object (CO-3) for UC-3
 // created by the FPGA object BO-2
 class ConnectDevicesControl {
 public:
