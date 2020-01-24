@@ -9,14 +9,14 @@
 
 // class //
 
-// containter class for connection ID and source ID
+// entity class for data transmission speed
 class TransmissionSpeed {
 public:
     // constructors
     TransmissionSpeed();
 
     // destructor
-    virtual ~TransmissionSpeed();
+    ~TransmissionSpeed();
 
     // member functions
     int getLatestSpeed();
