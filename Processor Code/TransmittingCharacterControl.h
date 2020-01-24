@@ -15,7 +15,7 @@ public:
     TransmittingCharacterControl();
 
     // destructor
-    virtual ~TransmittingCharacterControl();
+    ~TransmittingCharacterControl();
 
     // member functions
     
@@ -33,7 +33,7 @@ public:
     bool receiveDataMessageRequestResponse();   // UC-5.2.2.1
     bool sendDataMessage();                     // UC-5.2.3
     bool receiveDataMessageResponse();          // UC-5.2.3.1
-    bool reattemptDataMessageRequest();            // UC-5.2.4
+    bool reattemptDataMessageRequest();         // UC-5.2.4
     bool receiveDataMessageResponse();          // UC-5.2.3
     bool resendDataMessage();                   // UC-5.2.3
 
