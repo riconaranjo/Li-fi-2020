@@ -15,7 +15,7 @@ public:
     TransmittingDataControl();
 
     // destructor
-    virtual ~TransmittingDataControl();
+    ~TransmittingDataControl();
 
     // member functions
     
