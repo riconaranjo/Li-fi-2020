@@ -16,12 +16,12 @@ IntegrationTests::~IntegrationTests() {
 // tests //
 
 void IntegrationTests::runAll() {
-    CharacterTransmissionTest();
-    SpeedTransmissionTest();
-    ConnectDevicesTest();
-    DisconnectDevicesTest();
-    TransmittingCharactersTest();
-    TransmittingDataTest();
+    CharacterTransmissionTest();    // UC-1
+    SpeedTransmissionTest();        // UC-2
+    ConnectDevicesTest();           // UC-3
+    DisconnectDevicesTest();        // UC-4
+    TransmittingCharactersTest();   // UC-5
+    TransmittingDataTest();         // UC-6
 }
 
 // UC-1
