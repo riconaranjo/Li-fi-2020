@@ -61,6 +61,7 @@ public:
 
 private:
     bool DisplayTransmittedCharacter();
+    bool DisplayTransmissionSpeed();
 };
 
 

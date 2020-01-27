@@ -37,15 +37,12 @@ bool IntegrationTests::CharacterTransmissionTest() {
         assert(assert && "- UC-1.1: user device was unable to connect to modem device");
 
         // 2. User transmits keyboard character from modem device to user device (includes UC-5) by pressing on keyboard keys.
-
         result = TransmittingCharactersTest();
         assert(assert && "- UC-1.2: keyboard character was unable to be transmitted");
 
         // 3. User device displays transmitted characters.
-
         result = DisplayTransmittedCharacter();
         assert(assert && "- UC-1.3: transmitted character was unable to be displayed");
-        
     } catch {
         std::cout << "- CharacterTransmissionTest (UC-1) failed\n"
         return false;
@@ -57,16 +54,30 @@ bool IntegrationTests::CharacterTransmissionTest() {
 
 // UC-2
 bool IntegrationTests::SpeedTransmissionTest() {
-    bool result = false;
+    try {
+        bool result = false;
 
-    std::cout << "IntegrationTests::SpeedTransmissionTest() not implemented\n";
+        std::cout << "IntegrationTests::SpeedTransmissionTest() not implemented\n";
 
-    if (result) {
+
+        // 1. User connects user device to modem device (includes UC-3).
+        result = ConnectDevicesTest();
+        assert(assert && "- UC-1.1: user device was unable to connect to modem device");
+
+        // 2. User transmits large data file from modem device to user device (includes UC-6).
+        result = TransmittingDataTest();
+        assert(assert && "- UC-1.2: keyboard character was unable to be transmitted");
+
+        // 3. User device displays final transmission speed.
+        result = DisplayTransmissionSpeed();
+        assert(assert && "- UC-1.3: transmitted character was unable to be displayed");
+    } catch {
         std::cout << "- SpeedTransmissionTest (UC-2) failed\n"
-    } else {
-        std::cout << "+ SpeedTransmissionTest (UC-2) passed\n"
+        return false;
     }
-    return false;
+
+    std::cout << "+ SpeedTransmissionTest (UC-2) passed\n"
+    return true;
 }
 
 // UC-3
@@ -129,6 +140,14 @@ bool IntegrationTests::DisplayTransmittedCharacter() {
     bool result = false;
 
     std::cout << "IntegrationTests::DisplayTransmittedCharacter() not implemented\n";
+
+    return false;
+}
+
+bool IntegrationTests::DisplayTransmissionSpeed() {
+    bool result = false;
+
+    std::cout << "IntegrationTests::DisplayTransmissionSpeed() not implemented\n";
 
     return false;
 }
