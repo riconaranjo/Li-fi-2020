@@ -58,6 +58,9 @@ public:
     bool DisconnectDevicesTest();       // UC-4
     bool TransmittingCharactersTest();  // UC-5
     bool TransmittingDataTest();        // UC-6
+
+private:
+    bool DisplayTransmittedCharacter();
 };
 
 

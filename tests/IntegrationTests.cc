@@ -66,6 +66,7 @@ bool IntegrationTests::SpeedTransmissionTest() {
     } else {
         std::cout << "+ SpeedTransmissionTest (UC-2) passed\n"
     }
+    return false;
 }
 
 // UC-3
@@ -79,6 +80,7 @@ bool IntegrationTests::ConnectDevicesTest() {
     } else {
         std::cout << "+ ConnectDevicesTest (UC-3) passed\n"
     }
+    return false;
 }
 
 // UC-4
@@ -92,6 +94,7 @@ bool IntegrationTests::DisconnectDevicesTest() {
     } else {
         std::cout << "+ DisconnectDevicesTest (UC-4) passed\n"
     }
+    return false;
 }
 
 // UC-5
@@ -105,6 +108,7 @@ bool IntegrationTests::TransmittingCharactersTest() {
     } else {
         std::cout << "+ TransmittingCharactersTest (UC-5) passed\n"
     }
+    return false;
 }
 
 // UC-6
@@ -118,4 +122,13 @@ bool IntegrationTests::TransmittingDataTest() {
     } else {
         std::cout << "+ TransmittingDataTest (UC-6) passed\n"
     }
+    return false;
+}
+
+bool IntegrationTests::DisplayTransmittedCharacter() {
+    bool result = false;
+
+    std::cout << "IntegrationTests::DisplayTransmittedCharacter() not implemented\n";
+
+    return false;
 }
