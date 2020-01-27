@@ -1,6 +1,7 @@
 // include statements //
 
 #include <iostream>       // std::cout
+#include <assert.h>       // assert
 #include "IntegrationTests.h"
 
 // constructor
@@ -26,15 +27,32 @@ void IntegrationTests::runAll() {
 
 // UC-1
 bool IntegrationTests::CharacterTransmissionTest() {
-    bool result = false;
+    try {
+        bool result = false;
 
-    std::cout << "IntegrationTests::CharacterTransmissionTest() not implemented\n";
+        std::cout << "IntegrationTests::CharacterTransmissionTest() not implemented\n";
 
-    if (result) {
+        // 1. User connects user device to modem device (includes UC-3).
+        result = ConnectDevicesTest();
+        assert(assert && "- UC-1.1: user device was unable to connect to modem device");
+
+        // 2. User transmits keyboard character from modem device to user device (includes UC-5) by pressing on keyboard keys.
+
+        result = TransmittingCharactersTest();
+        assert(assert && "- UC-1.2: keyboard character was unable to be transmitted");
+
+        // 3. User device displays transmitted characters.
+
+        result = DisplayTransmittedCharacter();
+        assert(assert && "- UC-1.3: transmitted character was unable to be displayed");
+        
+    } catch {
         std::cout << "- CharacterTransmissionTest (UC-1) failed\n"
-    } else {
-        std::cout << "+ CharacterTransmissionTest (UC-1) passed\n"
+        return false;
     }
+
+    std::cout << "+ CharacterTransmissionTest (UC-1) passed\n"
+    return true;
 }
 
 // UC-2

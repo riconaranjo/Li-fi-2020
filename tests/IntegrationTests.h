@@ -50,7 +50,7 @@ public:
     // tests //
 
     void runAll();
-    void setUpTest();
+    // void setUpTest();
 
     bool CharacterTransmissionTest();   // UC-1
     bool SpeedTransmissionTest();       // UC-2
