@@ -62,6 +62,16 @@ public:
 private:
     bool DisplayTransmittedCharacter();
     bool DisplayTransmissionSpeed();
+    bool PowerOnModemDevice();
+    bool PowerOnUserDevice();
+    bool UserRequestToConnect();
+    bool ModemReceivesUserRequestToTransmit();
+    bool ModemAcceptsUserRequestToTransmit();
+    bool UserReceivesConnectionRequestResponse();
+    bool UserSendsHeartbeat();
+    bool ModemReceivesHeartbeat();
+    bool ModemSendsHeartbeat();
+    bool UserReceivesHeartbeat();
 };
 
 

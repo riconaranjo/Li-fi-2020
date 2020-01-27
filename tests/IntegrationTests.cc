@@ -59,18 +59,17 @@ bool IntegrationTests::SpeedTransmissionTest() {
 
         std::cout << "IntegrationTests::SpeedTransmissionTest() not implemented\n";
 
-
         // 1. User connects user device to modem device (includes UC-3).
         result = ConnectDevicesTest();
-        assert(assert && "- UC-1.1: user device was unable to connect to modem device");
+        assert(assert && "- UC-2.1: user device was unable to connect to modem device");
 
         // 2. User transmits large data file from modem device to user device (includes UC-6).
         result = TransmittingDataTest();
-        assert(assert && "- UC-1.2: keyboard character was unable to be transmitted");
+        assert(assert && "- UC-2.2: data was unable to be transmitted");
 
         // 3. User device displays final transmission speed.
         result = DisplayTransmissionSpeed();
-        assert(assert && "- UC-1.3: transmitted character was unable to be displayed");
+        assert(assert && "- UC-2.3: transmitted speed was unable to be displayed");
     } catch {
         std::cout << "- SpeedTransmissionTest (UC-2) failed\n"
         return false;
@@ -82,16 +81,57 @@ bool IntegrationTests::SpeedTransmissionTest() {
 
 // UC-3
 bool IntegrationTests::ConnectDevicesTest() {
-    bool result = false;
+    try {
+        bool result = false;
 
-    std::cout << "IntegrationTests::ConnectDevicesTest() not implemented\n";
+        std::cout << "IntegrationTests::ConnectDevicesTest() not implemented\n";
 
-    if (result) {
+        // 1. User turns on modem device.
+        result = PowerOnModemDevice();
+        assert(assert && "- UC-3.1: modem device did not power on");
+
+        // 2. User turns on user device.
+        result = PowerOnUserDevice();
+        assert(assert && "- UC-3.2: user device did not power on");
+
+        // 3. User device transmits request to connect (M1-1). 
+        result = UserRequestToConnect();
+        assert(assert && "- UC-3.3: user device was unable to send connection request M1-1");
+
+        // 3.1. Modem device receives and processes user message (M1-1).
+        result = ModemReceivesUserRequestToTransmit();
+        assert(assert && "- UC-3.3.1: modem device was unable to receive connection request M1-1");
+
+        // 3.2. Modem device transmits response to initiate or not the connection (M1-2, M1-3).
+        result = ModemAcceptsUserRequestToTransmit();
+        assert(assert && "- UC-3.3.2: modem device was unable to send connection request response M1-2");
+
+        // 4. User device receives connection request response (M1-2, M1-3).
+        result = UserReceivesConnectionRequestResponse();
+        assert(assert && "- UC-3.4: user device did not receive connection request response M1-2");
+        
+        // 5. User device sends message (M3-1) to modem device to indicate connection is still valid, every 30 seconds.
+        result = UserSendsHeartbeat();
+        assert(assert && "- UC-3.5: user device did not send connection alive signal M3-1");
+
+        // 5.1. Modem device receives the message (M3-1).
+        result = ModemReceivesHeartbeat();
+        assert(assert && "- UC-3.5.1: modem device did not receive connection alive signal M3-1");
+        
+        // 5.2. Modem device acknowledges the message (M3-2).
+        result = ModemSendsHeartbeat();
+        assert(assert && "- UC-3.5.2: modem device did not send connection alive signal M3-2");
+
+        // 5.3. User device receives the message (M3-2).
+        result = UserReceivesHeartbeat();
+        assert(assert && "- UC-3.5.3: user device did not receive connection alive signal M3-2");
+    } catch {
         std::cout << "- ConnectDevicesTest (UC-3) failed\n"
-    } else {
-        std::cout << "+ ConnectDevicesTest (UC-3) passed\n"
+        return false;
     }
-    return false;
+
+    std::cout << "+ ConnectDevicesTest (UC-3) passed\n"
+    return true;
 }
 
 // UC-4
