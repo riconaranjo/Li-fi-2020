@@ -136,16 +136,39 @@ bool IntegrationTests::ConnectDevicesTest() {
 
 // UC-4
 bool IntegrationTests::DisconnectDevicesTest() {
-    bool result = false;
+    // devices must already be connected
+    try {
+        bool result = false;
 
-    std::cout << "IntegrationTests::DisconnectDevicesTest() not implemented\n";
+        std::cout << "IntegrationTests::DisconnectDevicesTest() not implemented\n";
 
-    if (result) {
+        // 1. User sets device A (modem) to end connection
+
+        // 2. Device A (modem) sends request (M4-1) to end connection to device B (user).
+        result = ModemSendsRequestToDisconnect();
+        assert(assert && "- UC-4.2: modem device did not send request to disconnect M4-1");
+
+        // 2.1. Device B (user) receives the request to end connection (M4-1).
+        result = UserReceivesRequestToDisconnect();
+        assert(assert && "- UC-4.2.1: user device did not receive request to disconnect M4-1");
+
+        // 2.2. Device B (user) responds with acknowledgement  (M4-2) to end connection. 
+        result = UserAcceptsRequestToDisconnect();
+        assert(assert && "- UC-4.2.2: user device was unable to send response for request to disconnect M4-2");
+
+        // 2.3. Device A (modem) receives with acknowledgement  (M4-2) to end connection. 
+        result = ModemReceivesRequestToDisconnect();
+        assert(assert && "- UC-4.2.3: modem device was unable to receive response for request to disconnect M4-2");
+    } catch {
         std::cout << "- DisconnectDevicesTest (UC-4) failed\n"
     } else {
         std::cout << "+ DisconnectDevicesTest (UC-4) passed\n"
     }
-    return false;
+        return false;
+    }
+
+    std::cout << "+ DisconnectDevicesTest (UC-4) passed\n"
+    return true;
 }
 
 // UC-5
