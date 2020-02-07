@@ -72,6 +72,25 @@ private:
     bool ModemReceivesHeartbeat();
     bool ModemSendsHeartbeat();
     bool UserReceivesHeartbeat();
+    bool ModemSendsRequestToDisconnect();
+    bool UserReceivesRequestToDisconnect();
+    bool UserAcceptsRequestToDisconnect();
+    bool ModemReceivesRequestToDisconnect();
+    bool ModemSetToTransmitCharacters();
+    bool ModemReadsKeyboard();
+    bool ModemDisplaysKeyboardInput();
+    bool ModemSendsDataMessageRequest();
+    bool UserReceivesDataMessageRequest();
+    bool UserRejectsDataMessageRequest()
+    bool ModemReceivesDataMessageRequestRejection();
+    bool ModemSendsDataMessageRequest();
+    bool UserReceivesDataMessageRequest();
+    bool UserAcceptsDataMessageRequest();
+    bool ModemReceivesDataMessageRequestAcceptance();
+    bool ModemSendsDataMessage();
+    bool UserReceivesDataMessage();
+    bool UserSendsDataMessageNACK();
+    bool ModemReceivesDataMessageNACK();
 };
 
 

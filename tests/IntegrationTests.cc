@@ -161,9 +161,6 @@ bool IntegrationTests::DisconnectDevicesTest() {
         assert(assert && "- UC-4.2.3: modem device was unable to receive response for request to disconnect M4-2");
     } catch {
         std::cout << "- DisconnectDevicesTest (UC-4) failed\n"
-    } else {
-        std::cout << "+ DisconnectDevicesTest (UC-4) passed\n"
-    }
         return false;
     }
 
@@ -173,16 +170,102 @@ bool IntegrationTests::DisconnectDevicesTest() {
 
 // UC-5
 bool IntegrationTests::TransmittingCharactersTest() {
-    bool result = false;
+    try {
+        bool result = false;
 
-    std::cout << "IntegrationTests::TransmittingCharactersTest() not implemented\n";
+        std::cout << "IntegrationTests::TransmittingCharactersTest() not implemented\n";
 
-    if (result) {
+        // 1. User selects character transmitting mode on modem device.
+        result = ModemSetToTransmitCharacters();
+        assert(assert && "- UC-5.1: modem not set to transmitting mode");
+
+        // 2. User pressed keyboard key
+        result = ModemReadsKeyboard();
+        assert(assert && "- UC-5.2: keyboard press did not work");
+
+        // 2.1. Modem device will show inputted character in its 7-segment display.
+        result = ModemDisplaysKeyboardInput();
+        assert(assert && "- UC-5.2.1: character not outputted to 7-segment display");
+
+        // 2.2. Modem device sends request (M2-1) to send a data message.
+        result = ModemSendsDataMessageRequest();
+        assert(assert && "- UC-5.2.2: modem could not send request to send data M2-1");
+
+        // 2.2.1. User device receives request (M2-1) to send a data message.
+        result = UserReceivesDataMessageRequest();
+        assert(assert && "- UC-5.2.2: user could not receive request to send data M2-1");
+
+        // 2.2.2. User device responds with acknowledgement (M2-2) or rejection (M2-3). -- send M2-3, wait for reattempt then send M2-2
+        result = UserRejectsDataMessageRequest()
+        assert(assert && "- UC-5.2.2.1: user could not send data request rejection M2-3");
+
+        // 2.4. If Modem device receives a rejection message (M2-3) then it will wait 0.1 seconds and attempt again; if it gets 25 repeated rejections then transmission will be aborted. -- not testing abort
+        result = ModemReceivesDataMessageRequestRejection();
+        assert(assert && "- UC-5.2.4: modem could not receive data request rejection M2-3");
+
+        // resend M2-1
+        result = ModemSendsDataMessageRequest();
+        assert(assert && "- UC-5.2.2.1: modem could not resend data request M2-1");
+
+        // receive M2-1 again
+        result = UserReceivesDataMessageRequest();
+        assert(assert && "- UC-5.2.2: user could not receive request to send data M2-1");
+
+        // user sends M2-2
+        result = UserAcceptsDataMessageRequest();
+        assert(assert && "- UC-5.2.2.1: user could not send data request acknowledgement M2-2");
+
+        // 2.3. If Modem device receives an acknowledgement message (M2-2) then it will send a data message (M2-4) with the pressed key character.
+        result = ModemReceivesDataMessageRequestAcceptance();
+        assert(assert && "- UC-5.2.3: modem could not receive data request acknowledgement M2-2");
+
+        // modem sends data message
+        result = ModemSendsDataMessage();
+        assert(assert && "- UC-5.2.3: modem could not send data message M2-4");
+
+        // 2.3.1. User device will respond with either and acknowledgement (M2-5) or a request for retransmission (M2-6). -- send M2-6, wait for retransmission, then send M2-5
+        result = UserReceivesDataMessage();
+        assert(assert && "- UC-5.2.3.1: user could not receive data message M2-4");
+
+        // user sends M2-6
+        result = UserSendsDataMessageNACK();
+        assert(assert && "- UC-5.2.3.1: user could not send data message NACK M2-6");
+
+        // modem receives M2-6
+        result = ModemReceivesDataMessageNACK();
+        assert(assert && "- UC-5.2.3.1: modem could not receive data message NACK M2-6");
+
+        // 2.3.2. If the modem device receives a request for retransmission (M2-6) then it will resend the last data message (M2-4). -- modem retransmits M2-4 then user sends acknowledgement M2-5
+
+        // modem resends M2-4
+        result = ModemSendsDataMessage();
+        assert(assert && "- UC-5.2.3.2: modem could not send data message M2-4");
+
+        // user receives M2-4
+        result = UserReceivesDataMessage();
+        assert(assert && "- UC-5.2.3.2: user could not receive data message M2-4");
+
+        // user sends M2-5
+        result = UserSendsDataMessageACK();
+        assert(assert && "- UC-5.2.3.2: user could not send data message ACK M2-5");
+
+        result = ModemReceivesDataMessageACK();
+        assert(assert && "- UC-5.2.3.2: modem could not receive data message ACK M2-5");
+
+        // 2.4 already covered above...
+
+        // 3. User device receives and decodes the data message.
+
+        // 4. User devices displays the character on its 7-segment display.
+        result = DisplayTransmittedCharacter();
+        assert(assert && "- UC-5.4: could not display characters on 7-segment display");
+    } catch {
         std::cout << "- TransmittingCharactersTest (UC-5) failed\n"
-    } else {
-        std::cout << "+ TransmittingCharactersTest (UC-5) passed\n"
+        return false;
     }
-    return false;
+
+    std::cout << "+ TransmittingCharactersTest (UC-5) passed\n"
+    return true;
 }
 
 // UC-6
