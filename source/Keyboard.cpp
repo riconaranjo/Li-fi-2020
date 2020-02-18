@@ -1,7 +1,7 @@
 // include statements //
 
 #include <vector>         // std::vector
-#include <iostream>       // todo: remove after testing
+#include <iostream>       // TODO: remove after testing
 #include "CharacterTransmissionControl.h"   // CO-1
 #include "Keyboard.h"
 #include "SpeedTransmissionControl.h"       // CO-2
@@ -21,6 +21,18 @@ Keyboard::~Keyboard() {
 // member functions
 KeyboardInput Keyboard::read() {
     std::cout << "Keyboard::read() not implemented\n";
+
+    // add timestamp to each keypress
+    std::time_t current_time = std::time(nullptr);
+
+    KeyboardInput keyboard = KeyboardInput();
+    keyboard.text = "";
+    keyboard.time = current_time;
+
+    // TODO: actually read from keyboard here
+    // update keyboard struct
+
+    return keyboard;
 }
 
 // member functions

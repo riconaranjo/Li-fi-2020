@@ -1,7 +1,7 @@
 // include statements //
 
 #include "ConnectDevicesControl.h"
-#include <iostream> // todo: remove after testing
+#include <iostream> // TODO: remove after testing
 
 // constructors
 ConnectDevicesControl::ConnectDevicesControl() {

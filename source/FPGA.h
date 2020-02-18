@@ -11,6 +11,11 @@
 
 // structs //
 
+struct FPGAResponse {
+    MessageType type;
+    Message& message; // TODO: this reference may not work
+};
+
 // class //
 
 // class for interfacing with FPGA

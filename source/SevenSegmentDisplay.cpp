@@ -1,6 +1,6 @@
 // include statements //
 
-#include <iostream>       // todo: remove after testing
+#include <iostream>       // TODO: remove after testing
 #include <string>         // std::string
 #include "Display.h"
 #include "SevenSegmentDisplay.h"
@@ -23,6 +23,10 @@ std::string SevenSegmentDisplay::read() {
     std::cout << "SevenSegmentDisplay::read() not implemented\n";
 }
 
-bool SevenSegmentDisplay::write() {
-    std::cout << "SevenSegmentDisplay::write() not implemented\n";
+bool SevenSegmentDisplay::write(KeyboardInput) {
+    std::cout << "SevenSegmentDisplay::write(KeyboardInput) not implemented\n";
+}
+
+bool SevenSegmentDisplay::write(std::string) {
+    std::cout << "SevenSegmentDisplay::write(std::string) not implemented\n";
 }

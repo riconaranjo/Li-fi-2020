@@ -2,7 +2,7 @@
 
 #include <bitset>         // std::bitset
 #include <vector>         // std::vecto
-#include <iostream>       // todo: remove after testing
+#include <iostream>       // TODO: remove after testing
 #include "DataFile.h"
 
 // structs //

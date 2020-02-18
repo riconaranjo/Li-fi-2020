@@ -5,6 +5,7 @@
 
 #include <string>         // std::string
 #include "Display.h"
+#include "Keyboard.h"
 
 // structs //
 
@@ -21,7 +22,8 @@ public:
 
     // member functions
     std::string read();
-    bool write();
+    bool write(KeyboardInput);
+    bool write(std::string);
 
 protected:
 

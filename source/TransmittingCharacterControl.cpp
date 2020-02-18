@@ -1,6 +1,6 @@
 // include statements //
 
-#include <iostream>       // todo: remove after testing
+#include <iostream>       // TODO: remove after testing
 #include "TransmittingCharacterControl.h"
 
 // class //

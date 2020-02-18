@@ -4,6 +4,7 @@
 // include statements //
 
 #include <vector>         // std::vector
+#include <ctime>          // std::time
 #include "CharacterTransmissionControl.h"   // CO-1
 #include "SpeedTransmissionControl.h"       // CO-2
 
@@ -11,6 +12,7 @@
 
 struct KeyboardInput {
     std::vector<char> text;
+    std::time_t time;
 };
 
 // class //

@@ -2,7 +2,7 @@
 
 #include <bitset>         // std::bitset
 #include <vector>         // std::vector
-#include <iostream>       // todo: remove after testing
+#include <iostream>       // TODO: remove after testing
 #include "Message.h"      // SourceID, DestinationID
 #include "Data.h"
 

@@ -1,7 +1,7 @@
 // include statements //
 
 #include "CharacterTransmissionControl.h"   // CO-5
-#include <iostream> // todo: remove after testing
+#include <iostream> // TODO: remove after testing
 
 // constructors
 CharacterTransmissionControl::CharacterTransmissionControl() {
