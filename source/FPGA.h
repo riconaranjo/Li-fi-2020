@@ -20,7 +20,7 @@ public:
     FPGA();
 
     // destructor
-    virtual ~FPGA();
+    ~FPGA();
 
     // member functions
     bool write(Message& message);
