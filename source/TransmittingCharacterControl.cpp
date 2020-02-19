@@ -11,7 +11,7 @@ TransmittingCharacterControl::TransmittingCharacterControl() {
 }
 
 // destructor
-~TransmittingCharacterControl::TransmittingCharacterControl() {
+~TransmittingCharacterControl::~TransmittingCharacterControl() {
     std::cout << "TransmittingCharacterControl::~TransmittingCharacterControl() not implemented\n";
 }
 
@@ -90,12 +90,6 @@ bool TransmittingCharacterControl::receiveDataMessageResponse() {
 // UC-5.2.4
 bool TransmittingCharacterControl::reattemptDataMessageRequest() {
     std::cout << "TransmittingCharacterControl::reattemptDataMessageRequest() not implemented\n";
-    return false;
-}
-
-// UC-5.2.3
-bool TransmittingCharacterControl::receiveDataMessageResponse() {
-    std::cout << "TransmittingCharacterControl::receiveDataMessageResponse() not implemented\n";
     return false;
 }
 
