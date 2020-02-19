@@ -41,6 +41,7 @@ class Message {
 public:
     // constructor
     Message(SourceID source, DestinationID destination);
+    Message();
 
     // destructor
     virtual ~Message();

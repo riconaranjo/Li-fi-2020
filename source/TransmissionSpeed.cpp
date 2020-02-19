@@ -12,7 +12,7 @@ TransmissionSpeed::TransmissionSpeed(): speed(std::vector<int>()) {
 }
 
 // destructor
-~TransmissionSpeed::TransmissionSpeed() {
+TransmissionSpeed::~TransmissionSpeed() {
     std::cout << "TransmissionSpeed::~TransmissionSpeed() not implemented\n";
 }
 

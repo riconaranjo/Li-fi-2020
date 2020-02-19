@@ -10,7 +10,7 @@ TransmittingDataControl::TransmittingDataControl() {
 }
 
 // destructor
-~TransmittingDataControl::TransmittingDataControl() {
+TransmittingDataControl::~TransmittingDataControl() {
     std::cout << "TransmittingDataControl::~TransmittingDataControl() not implemented\n";
 }
 

@@ -30,31 +30,40 @@ Modem::~Modem() {
 // sends the control message to the FPGA
 bool Modem::sendControlMessage(ControlMessage& message) {
     std::cout << "Modem::sendControlMessage() not implemented\n";
+    return false;
 }
 
 // sends the data message to the FPGA
 bool Modem::sendDataMessage(DataMessage& message) {
     std::cout << "Modem::sendDataMessage() not implemented\n";
+    return false;
 }
 
 // receives the control message from the FPGA
 ControlMessage& Modem::receiveControlMessage() {
     std::cout << "Modem::receiveControlMessage() not implemented\n";
+    ControlMessage& message = ControlMessage();
+    return message;
 }
 
 // receives the data message to the FPGA
 DataMessage& Modem::receiveDataMessage() {
     std::cout << "Modem::receiveDataMessage() not implemented\n";
+    return DataMessage();
 }
 
 bool Modem::addConnection(Connection& connection) {
     std::cout << "Modem::addConnection() adding...\n";
     connections.insert(connection);
+
+    return false;
 }
 
 bool Modem::endConnection(Connection& connection) {
     std::cout << "Modem::endConnection() removing...\n";
     connections.erase(connection.connectionID);
+
+    return false;
 }
 
 KeyboardInput Modem::readKeyboardInput() {

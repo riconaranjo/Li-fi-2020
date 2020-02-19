@@ -2,7 +2,6 @@
 #define TRANSMITTINGDATACONTROL_H
 
 // include statements //
-#include "TransmittingDataControl.cpp"    // CO-6
 
 // structs //
 

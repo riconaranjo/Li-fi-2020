@@ -16,6 +16,7 @@ class DataMessage: public Message {
 public:
     // constructor
     DataMessage(DataHeader header, Data data);
+    DataMessage();
 
     // destructor
     ~DataMessage();

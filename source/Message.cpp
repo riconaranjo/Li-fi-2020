@@ -12,3 +12,5 @@ Message::Message(SourceID source, DestinationID destination) {
     sourceID = source;
     destinationID = destination;
 }
+
+Message::Message() { }

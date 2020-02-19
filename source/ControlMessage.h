@@ -20,6 +20,7 @@ class ControlMessage: public Message {
 public:
     // constructor
     ControlMessage(SourceID source, DestinationID destination);
+    ControlMessage();
 
     // destructor
     ~ControlMessage();

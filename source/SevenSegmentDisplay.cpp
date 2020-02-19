@@ -21,12 +21,18 @@ SevenSegmentDisplay::~SevenSegmentDisplay() {
 
 std::string SevenSegmentDisplay::read() {
     std::cout << "SevenSegmentDisplay::read() not implemented\n";
+
+    return "";
 }
 
 bool SevenSegmentDisplay::write(KeyboardInput) {
     std::cout << "SevenSegmentDisplay::write(KeyboardInput) not implemented\n";
+
+    return false;
 }
 
 bool SevenSegmentDisplay::write(std::string) {
     std::cout << "SevenSegmentDisplay::write(std::string) not implemented\n";
+
+    return false;
 }

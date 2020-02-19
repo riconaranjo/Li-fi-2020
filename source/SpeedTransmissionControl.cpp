@@ -1,4 +1,5 @@
 // include statements //
+#include <iostream>       // TODO: remove after testing
 #include "SpeedTransmissionControl.h"
 // #include "TransmittingDataControl.h"    // CO-6
 
@@ -7,12 +8,12 @@
 // class for control object for UC-2
 // created by the keyboard object BO-1
 // constructors
-void SpeedTransmissionControl::SpeedTransmissionControl() {
+SpeedTransmissionControl::SpeedTransmissionControl() {
     std::cout << "SpeedTransmissionControl::SpeedTransmissionControl() not implemented\n";
 }
 
 // destructor
-void SpeedTransmissionControl::~SpeedTransmissionControl() {
+SpeedTransmissionControl::~SpeedTransmissionControl() {
     std::cout << "SpeedTransmissionControl::~SpeedTransmissionControl() not implemented\n";
 }
 

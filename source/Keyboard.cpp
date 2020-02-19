@@ -26,7 +26,7 @@ KeyboardInput Keyboard::read() {
     std::time_t current_time = std::time(nullptr);
 
     KeyboardInput keyboard = KeyboardInput();
-    keyboard.text = "";
+    // keyboard.text = ""; // TODO: fix this
     keyboard.time = current_time;
 
     // TODO: actually read from keyboard here
@@ -39,14 +39,22 @@ KeyboardInput Keyboard::read() {
 // UC-1.1 creates UC-3
 bool Keyboard::initiateConnectionRequest() {
     std::cout << "Keyboard::initiateConnectionRequest() not implemented\n";
+
+    return false;
 }
+
 // UC-1.2 creates UC-5
 bool Keyboard::initiateCharacterTransmission() {
     std::cout << "Keyboard::initiateCharacterTransmission() not implemented\n";
     characterControl = CharacterTransmissionControl();
+
+    return false;
 }
+
 // UC-2.2 creates UC-6
 bool Keyboard::initiateSpeedTransmission() {
     std::cout << "Keyboard::initiateSpeedTransmission() not implemented\n";
     speedControl = SpeedTransmissionControl();
+
+    return false;
 }

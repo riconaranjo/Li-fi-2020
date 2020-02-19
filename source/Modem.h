@@ -11,6 +11,7 @@
 #include "Keyboard.h"
 #include "SevenSegmentDisplay.h"
 #include "ExternalDisplay.h"
+#include "FPGA.h"
 
 // structs //
 
@@ -60,7 +61,7 @@ private:
 
     KeyboardInput keyboardInput;
     Keyboard keyboard;
-    SevenSegmentDisplay sevenSegmentDisplay;
+    // SevenSegmentDisplay sevenSegmentDisplay; // TODO: is an abstract class?
     ExternalDisplay externalDisplay;
 };
 

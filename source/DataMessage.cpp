@@ -2,11 +2,16 @@
 
 #include <iostream>       // TODO: remove after testing
 #include "DataMessage.h"
+#include "Message.h"
 
 // class //
 
 // constructor
-DataMessage::DataMessage(DataHeader header, Data data): header(header), data(data) {
+DataMessage::DataMessage(DataHeader header, Data data): Message(header.source, header.destination), header(header), data(data) {
+    std::cout << "DataMessage::Data(...) not implemented\n";
+}
+
+DataMessage::DataMessage(): Message(), header(DataHeader()), data(Data()) {
     std::cout << "DataMessage::Data() not implemented\n";
 }
 

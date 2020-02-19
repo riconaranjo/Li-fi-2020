@@ -12,15 +12,14 @@
 // class //
 
 // constructor
-void Controller::Controller(): {
-    modem = Modem();
+Controller::Controller(): modem(Modem()) {
     isModem = false;
-    inCharacterTransmissionMode = false
+    inCharacterTransmissionMode = false;
     inDataTransmissionMode = false;
 }
 
 // destructor
-void Controller::~Controller() {
+Controller::~Controller() {
 }
 
 void Controller::LaunchModem() {

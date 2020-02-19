@@ -9,6 +9,11 @@
 
 // constructor
 ControlMessage::ControlMessage(SourceID source, DestinationID destination): Message(source, destination), options(MessageOptions()) {
+    std::cout << "ControlMessage::ControlMessage(...) not implemented\n";
+}
+
+// default constructor
+ControlMessage::ControlMessage(): Message() {
     std::cout << "ControlMessage::ControlMessage() not implemented\n";
 }
 

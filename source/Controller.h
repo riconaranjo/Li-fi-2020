@@ -39,7 +39,7 @@ private:
     bool isModem;
     bool inCharacterTransmissionMode;
     bool inDataTransmissionMode;
-    Modem* modem;
+    Modem modem;
 };
 
 #endif // CONTROLLER_H
