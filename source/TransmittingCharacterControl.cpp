@@ -11,7 +11,7 @@ TransmittingCharacterControl::TransmittingCharacterControl() {
 }
 
 // destructor
-~TransmittingCharacterControl::~TransmittingCharacterControl() {
+TransmittingCharacterControl::~TransmittingCharacterControl() {
     std::cout << "TransmittingCharacterControl::~TransmittingCharacterControl() not implemented\n";
 }
 
