@@ -13,4 +13,8 @@ Message::Message(SourceID source, DestinationID destination) {
     destinationID = destination;
 }
 
+// default constructor
 Message::Message() { }
+
+// destructor
+Message::~Message() { }

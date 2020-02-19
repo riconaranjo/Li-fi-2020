@@ -9,7 +9,11 @@
 // class //
 
 // constructors
-Data::Data(DataHeader& header, BinaryData& data): header(header), data(data) {
+Data::Data(DataHeader* header, BinaryData* data): header(header), data(data) {
+    std::cout << "Data::Data() not implemented\n";
+}
+
+Data::Data(): header(nullptr), data(nullptr) {
     std::cout << "Data::Data() not implemented\n";
 }
 
@@ -21,9 +25,9 @@ Data::~Data() {
 // member functions //
 
 DataHeader& Data::getHeader() {
-    return header;
+    return *header;
 }
 
 BinaryData& Data::getData() {
-    return data;
+    return *data;
 }

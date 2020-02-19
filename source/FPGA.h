@@ -13,7 +13,9 @@
 
 struct FPGAResponse {
     MessageType type;
-    Message& message; // TODO: this reference may not work
+    Message* message; // TODO: this reference may not work
+
+    FPGAResponse() : type(MessageType::NONE), message(NULL) {}    
 };
 
 // class //

@@ -4,6 +4,7 @@
 #include "Display.h"
 
 // class //
+Display::Display(): text(std::string()) { }
 
 // destructor
 Display::~Display() { }

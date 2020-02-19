@@ -11,7 +11,7 @@
 // structs //
 
 struct KeyboardInput {
-    std::vector<char> text;
+    std::string text;
     std::time_t time;
 };
 
@@ -27,7 +27,7 @@ public:
     ~Keyboard();
 
     // member functions
-    KeyboardInput read();
+    KeyboardInput* read();
 
 protected:
 

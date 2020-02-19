@@ -34,13 +34,13 @@ struct BinaryData {
 };
 
 struct DataHeader {
-    SourceID& source;
-    DestinationID& destination;
-    DataLength& length;
-    FragmentOffset& fragment;
-    MoreFragments& MF;
-    Security& security;
-    HeaderCRC& headerCRC; // set to 0s for transmission
+    SourceID source;
+    DestinationID destination;
+    DataLength length;
+    FragmentOffset fragment;
+    MoreFragments MF;
+    Security security;
+    HeaderCRC headerCRC; // set to 0s for transmission
 };
 
 // class //
@@ -49,7 +49,8 @@ struct DataHeader {
 class Data {
 public:
     // constructors
-    Data(DataHeader& header, BinaryData& data);
+    Data(DataHeader* header, BinaryData* data);
+    Data();
 
     // destructor
     ~Data();
@@ -62,8 +63,8 @@ protected:
 
 private:
     // data members
-    DataHeader& header;
-    BinaryData& data;
+    DataHeader* header;
+    BinaryData* data;
 };
 
 #endif // DATA_H

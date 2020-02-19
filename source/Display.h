@@ -12,8 +12,10 @@
 // interface display objects
 class Display {
 public:
+    // constructor
+    Display();
     // destructor
-    virtual ~Display();
+    ~Display();
 
     // abstract member functions
     virtual std::string read() = 0;

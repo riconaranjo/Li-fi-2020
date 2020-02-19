@@ -33,8 +33,10 @@ public:
     DataMessage& receiveDataMessage();
     bool addConnection(Connection& connection);
     bool endConnection(Connection& connection);
-    KeyboardInput readKeyboardInput();
+    KeyboardInput* readKeyboardInput();
     FPGAResponse readFPGAInput();
+
+    void display(KeyboardInput*);
 
     // modem member functions
     void SendModemAcceptRequestToConnect();              // M1-2
@@ -61,7 +63,7 @@ private:
 
     KeyboardInput keyboardInput;
     Keyboard keyboard;
-    // SevenSegmentDisplay sevenSegmentDisplay; // TODO: is an abstract class?
+//    SevenSegmentDisplay sevenSegmentDisplay; // TODO: is an abstract class?
     ExternalDisplay externalDisplay;
 };
 

@@ -7,11 +7,11 @@
 // class //
 
 // constructor
-DataMessage::DataMessage(DataHeader header, Data data): Message(header.source, header.destination), header(header), data(data) {
+DataMessage::DataMessage(DataHeader* header, Data* data): Message(header->source, header->destination), header(header), data(data) {
     std::cout << "DataMessage::Data(...) not implemented\n";
 }
 
-DataMessage::DataMessage(): Message(), header(DataHeader()), data(Data()) {
+DataMessage::DataMessage(): Message(), header(new DataHeader()), data(new Data()) {
     std::cout << "DataMessage::Data() not implemented\n";
 }
 
@@ -21,11 +21,11 @@ DataMessage::~DataMessage() {
 }
 
 DataHeader& DataMessage::getHeader() {
-    return header;
+    return *header;
 }
 
 Data& DataMessage::getData() {
-    return data;
+    return *data;
 }
 
 SourceID& DataMessage::getSourceID() {

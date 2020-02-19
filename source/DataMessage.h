@@ -15,7 +15,7 @@
 class DataMessage: public Message {
 public:
     // constructor
-    DataMessage(DataHeader header, Data data);
+    DataMessage(DataHeader* header, Data* data);
     DataMessage();
 
     // destructor
@@ -31,8 +31,8 @@ protected:
 
 private:
     // data members
-    DataHeader& header;
-    Data& data;
+    DataHeader* header;
+    Data* data;
 
 };
 
