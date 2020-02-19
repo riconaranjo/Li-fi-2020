@@ -9,16 +9,6 @@
 
 // structs //
 
-struct DataHeader {
-    SourceID& source;
-    DestinationID& destination;
-    DataLength& length; 
-    FragmentOffset& fragment; 
-    MoreFragments& MF; 
-    Security& security; 
-    HeaderCRC& headerCRC; // set to 0s for transmission
-};
-
 struct DataLength {
     std::bitset<12> length;
 };
@@ -41,6 +31,16 @@ struct HeaderCRC {
 
 struct BinaryData {
     std::vector<char> data; // max size is 2^12 bits
+};
+
+struct DataHeader {
+    SourceID& source;
+    DestinationID& destination;
+    DataLength& length;
+    FragmentOffset& fragment;
+    MoreFragments& MF;
+    Security& security;
+    HeaderCRC& headerCRC; // set to 0s for transmission
 };
 
 // class //
