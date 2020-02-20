@@ -4,8 +4,8 @@
 // include statements //
 
 #include <string>         // std::string
-#include "Display.h"
-#include "Keyboard.h"
+#include "Display.hpp"
+#include "Keyboard.hpp"
 
 // structs //
 

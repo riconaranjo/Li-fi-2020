@@ -2,8 +2,8 @@
 
 #include <bitset>         // std::bitset
 #include <iostream>       // TODO: remove after testing
-#include "Message.h"
-#include "ControlMessage.h"
+#include "Message.hpp"
+#include "ControlMessage.hpp"
 
 // class //
 

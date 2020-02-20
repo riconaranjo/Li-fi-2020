@@ -5,9 +5,9 @@
 
 #include <string>         // std::string
 #include <vector>         // std::vector
-#include "ConnectDevicesControl.h"      // CO-3
-#include "DisconnectDevicesControl.h"   // CO-4
-#include "Message.h"
+#include "ConnectDevicesControl.hpp"      // CO-3
+#include "DisconnectDevicesControl.hpp"   // CO-4
+#include "Message.hpp"
 
 // structs //
 

@@ -2,7 +2,7 @@
 
 #include <string>         // std::string
 #include <iostream>       // TODO: remove after testing
-#include "ExternalDisplay.h"
+#include "ExternalDisplay.hpp"
 
 // class //
 

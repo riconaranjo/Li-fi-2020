@@ -2,12 +2,12 @@
 
 #include <string>         // std::string
 #include <iostream>       // TODO: remove after testing
-#include "ConnectDevicesControl.h"      // CO-3
-#include "ControlMessage.h"
-#include "DataMessage.h"
-#include "DisconnectDevicesControl.h"   // CO-4
-#include "FPGA.h"
-#include "Message.h"
+#include "ConnectDevicesControl.hpp"      // CO-3
+#include "ControlMessage.hpp"
+#include "DataMessage.hpp"
+#include "DisconnectDevicesControl.hpp"   // CO-4
+#include "FPGA.hpp"
+#include "Message.hpp"
 
 // class //
 

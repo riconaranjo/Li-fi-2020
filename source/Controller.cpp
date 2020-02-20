@@ -5,9 +5,9 @@
 #include <ctime>          // std::time
 #include <thread>         // std::this_thread::sleep_for
 #include <chrono>         // std::chrono::milliseconds
-#include "Controller.h"
-#include "Keyboard.h"
-#include "FPGA.h"
+#include "Controller.hpp"
+#include "Keyboard.hpp"
+#include "FPGA.hpp"
 
 // class //
 
@@ -30,7 +30,8 @@ void Controller::LaunchModem() {
 
         // error checking
         if (inCharacterTransmissionMode && inDataTransmissionMode) {
-            throw "cannot not be in both character and data transmission modes at the same time!";
+            // throw "cannot not be in both character and data transmission modes at the same time!";
+            std::cout << "!! cannot not be in both character and data transmission modes at the same time!";
         }
 
         if (inCharacterTransmissionMode) {
@@ -68,10 +69,10 @@ void Controller::CharacterTransmissionMode() {
         // if no message or , try again
         if (response.type == MessageType::NONE) {
             count++;
-            std::this_thread::sleep_for(std::chrono::milliseconds(100));
+            // std::this_thread::sleep_for(std::chrono::milliseconds(100));
             if (response.type == MessageType::M2_3) {
                 count++;
-                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                // std::this_thread::sleep_for(std::chrono::milliseconds(100));
             } else if (response.type == MessageType::M2_2) {
                 modem.SendModemDataMessage(); // send M2-4
                 data_not_sent = false;
@@ -85,7 +86,7 @@ void Controller::CharacterTransmissionMode() {
                     // if no message or , try again
                     if (response.type == MessageType::NONE) {
                         count++;
-                        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                        // std::this_thread::sleep_for(std::chrono::milliseconds(100));
                     } else if (response.type == MessageType::M2_2) {
                         modem.SendModemDataMessage(); // send M2-4
                         data_not_sent = false;

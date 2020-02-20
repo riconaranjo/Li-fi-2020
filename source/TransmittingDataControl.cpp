@@ -1,6 +1,6 @@
 // include statements //
 #include <iostream>       // TODO: remove after testing
-#include "TransmittingDataControl.h"
+#include "TransmittingDataControl.hpp"
 
 // class //
 

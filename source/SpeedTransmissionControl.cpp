@@ -1,7 +1,7 @@
 // include statements //
 #include <iostream>       // TODO: remove after testing
-#include "SpeedTransmissionControl.h"
-// #include "TransmittingDataControl.h"    // CO-6
+#include "SpeedTransmissionControl.hpp"
+// #include "TransmittingDataControl.hpp"    // CO-6
 
 // class //
 

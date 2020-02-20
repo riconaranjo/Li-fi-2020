@@ -5,13 +5,13 @@
 
 #include <vector>         // std::vector
 #include <unordered_map>  // std::unordered_map
-#include "Connection.h"
-#include "ControlMessage.h"
-#include "DataMessage.h"
-#include "Keyboard.h"
-#include "SevenSegmentDisplay.h"
-#include "ExternalDisplay.h"
-#include "FPGA.h"
+#include "Connection.hpp"
+#include "ControlMessage.hpp"
+#include "DataMessage.hpp"
+#include "Keyboard.hpp"
+#include "SevenSegmentDisplay.hpp"
+#include "ExternalDisplay.hpp"
+#include "FPGA.hpp"
 
 // structs //
 

@@ -2,8 +2,8 @@
 #define SPEEDTRANSMISSIONCONTROL_H
 
 // include statements //
-#include "ConnectDevicesControl.h"      // CO-3
-#include "TransmittingDataControl.h"    // CO-6
+#include "ConnectDevicesControl.hpp"      // CO-3
+#include "TransmittingDataControl.hpp"    // CO-6
 
 // structs //
 

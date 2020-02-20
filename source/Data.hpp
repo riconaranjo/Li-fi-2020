@@ -5,7 +5,7 @@
 
 #include <bitset>         // std::bitset
 #include <vector>         // std::vector
-#include "Message.h"      // SourceID, DestinationID
+#include "Message.hpp"      // SourceID, DestinationID
 
 // structs //
 

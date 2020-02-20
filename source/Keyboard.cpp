@@ -3,9 +3,9 @@
 #include <vector>         // std::vector
 #include <iostream>       // TODO: remove after testing
 #include <string>         // std::string
-#include "CharacterTransmissionControl.h"   // CO-1
-#include "Keyboard.h"
-#include "SpeedTransmissionControl.h"       // CO-2
+#include "CharacterTransmissionControl.hpp"   // CO-1
+#include "Keyboard.hpp"
+#include "SpeedTransmissionControl.hpp"       // CO-2
 
 // class //
 

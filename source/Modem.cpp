@@ -3,11 +3,11 @@
 #include <iostream>       // TODO: remove after testing
 #include <unordered_map>  // std::unordered_map
 #include <vector>         // std::vector
-#include "Connection.h"
-#include "ControlMessage.h"
-#include "DataMessage.h"
-#include "Keyboard.h"
-#include "Modem.h"
+#include "Connection.hpp"
+#include "ControlMessage.hpp"
+#include "DataMessage.hpp"
+#include "Keyboard.hpp"
+#include "Modem.hpp"
 
 // class //
 

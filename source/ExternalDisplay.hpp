@@ -4,7 +4,7 @@
 // include statements //
 
 #include <string>         // std::string
-#include "Display.h"
+#include "Display.hpp"
 
 // structs //
 

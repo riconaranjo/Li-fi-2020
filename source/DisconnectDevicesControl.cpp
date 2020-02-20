@@ -1,6 +1,6 @@
 // include statements //
 #include <iostream>       // TODO: remove after testing
-#include "DisconnectDevicesControl.h"
+#include "DisconnectDevicesControl.hpp"
 
 // class //
 

@@ -1,7 +1,7 @@
 // include statements //
 
 #include <string>         // std::string
-#include "Display.h"
+#include "Display.hpp"
 
 // class //
 Display::Display(): text(std::string()) { }

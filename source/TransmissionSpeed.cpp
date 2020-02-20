@@ -2,7 +2,7 @@
 
 #include <iostream>       // TODO: remove after testing
 #include <vector>         // std::vector
-#include "TransmissionSpeed.h"
+#include "TransmissionSpeed.hpp"
 
 // class //
 

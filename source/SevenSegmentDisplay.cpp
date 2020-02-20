@@ -2,8 +2,8 @@
 
 #include <iostream>       // TODO: remove after testing
 #include <string>         // std::string
-#include "Display.h"
-#include "SevenSegmentDisplay.h"
+#include "Display.hpp"
+#include "SevenSegmentDisplay.hpp"
 
 // class //
 

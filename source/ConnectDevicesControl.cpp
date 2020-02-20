@@ -1,6 +1,6 @@
 // include statements //
 
-#include "ConnectDevicesControl.h"
+#include "ConnectDevicesControl.hpp"
 #include <iostream> // TODO: remove after testing
 
 // constructors

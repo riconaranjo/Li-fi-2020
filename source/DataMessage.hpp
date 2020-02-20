@@ -3,8 +3,8 @@
 
 // include statements //
 
-#include "Message.h"
-#include "Data.h"
+#include "Message.hpp"
+#include "Data.hpp"
 
 // structs //
 

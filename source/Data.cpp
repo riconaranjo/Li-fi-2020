@@ -3,8 +3,8 @@
 #include <bitset>         // std::bitset
 #include <vector>         // std::vector
 #include <iostream>       // TODO: remove after testing
-#include "Message.h"      // SourceID, DestinationID
-#include "Data.h"
+#include "Message.hpp"      // SourceID, DestinationID
+#include "Data.hpp"
 
 // class //
 

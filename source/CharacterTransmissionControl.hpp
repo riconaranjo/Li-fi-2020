@@ -3,7 +3,7 @@
 
 // include statements //
 
-#include "TransmittingCharacterControl.h"   // CO-5
+#include "TransmittingCharacterControl.hpp"   // CO-5
 
 // structs //
 

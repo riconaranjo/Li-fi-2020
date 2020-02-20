@@ -1,7 +1,7 @@
 // include statements //
 
 #include <iostream>       // TODO: remove after testing
-#include "TransmittingCharacterControl.h"
+#include "TransmittingCharacterControl.hpp"
 
 // class //
 

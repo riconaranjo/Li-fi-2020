@@ -2,7 +2,7 @@
 
 #include <bitset>         // std::bitset
 #include <iostream>       // TODO: remove after testing
-#include "Message.h"
+#include "Message.hpp"
 
 // class //
 

@@ -1,8 +1,8 @@
 // include statements //
 
 #include <iostream>       // TODO: remove after testing
-#include "DataMessage.h"
-#include "Message.h"
+#include "DataMessage.hpp"
+#include "Message.hpp"
 
 // class //
 

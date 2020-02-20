@@ -2,7 +2,7 @@
 
 #include <iostream>       // std::cout
 #include <assert.h>       // assert
-#include "IntegrationTests.h"
+#include "IntegrationTests.hpp"
 
 // constructor
 IntegrationTests::IntegrationTests() {

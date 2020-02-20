@@ -4,7 +4,7 @@
 // include statements //
 
 #include <vector>         // std::vector
-#include "Modem.h"
+#include "Modem.hpp"
 
 // structs //
 
