@@ -30,7 +30,7 @@ The main use cases for the features we wish to fulfill.
 **Name:** Speed Transmission  
 **Actors:** Initiated by users  
 **Flow of Events:** 
-1. User connects user device to modem (**includes UC-3**).
+1. User connects user device to modem device (**includes UC-3**).
 2. User transmits large data file from modem device to user device (**includes UC-6**).
 3. User device displays final transmission speed.
 
@@ -62,7 +62,9 @@ The main use cases for the features we wish to fulfill.
 	2. Modem device transmits response to initiate or not the connection (**M1-2, M1-3**).
 4. User device receives connection request response (**M1-2, M1-3**).
 5. User device sends message (**M3-1**) to modem device to indicate connection is still valid, every 30 seconds.
-	1. Modem device acknowledges the message (**M3-2**).
+	1. Modem device receives the message (**M3-1**).
+	2. Modem device acknowledges the message (**M3-2**).
+	3. User device receives the message (**M3-2**).
 
 **Entry Conditions:**  (none)  
 **Exit Conditions:**
@@ -84,7 +86,9 @@ The main use cases for the features we wish to fulfill.
 **Flow of Events:**
 1. User sets device A (modem or user device) to end connection
 2. Device A sends request (**M4-1**) to end connection to device B (user or modem device).
-	1. Device B responds with acknowledgement  (**M4-2**) to end connection.
+	1. Device B receives the request to end connection (**M4-1**).
+	2. Device B responds with acknowledgement  (**M4-2**) to end connection.
+	3. Device A receives the acknowledgement  (**M4-2**) to end connection.
 
 **Entry Conditions:**
 - Modem and user devices must already be connected.
@@ -108,15 +112,16 @@ The main use cases for the features we wish to fulfill.
 **Flow of Events:**
 1. User selects character transmitting mode on modem device.
 2. While user presses keyboard key.
-	1. Modem device will show inputted character in its 7-segment display.
+	1. Modem device will show inputted character on its external display.
 	2. Modem device sends request (**M2-1**) to send a data message.
-		1. User device responds with acknowledgement (**M2-2**) or rejection (**M2-3**).
+		1. User device receives request (**M2-1**) to send a data message.
+		2. User device responds with acknowledgement (**M2-2**) or rejection (**M2-3**).
 	3. If Modem device receives an acknowledgement message (**M2-2**) then it will send a data message (**M2-4**) with the pressed key character.
-		1. User device will respond with either and acknowledgement (**M2-5**) or a request for retransmission (**M2-6**).
+		1. User device will respond with either an acknowledgement (**M2-5**) or a request for retransmission (**M2-6**).
 		2. If the modem device receives a request for retransmission (**M2-6**) then it will resend the last data message (**M2-4**).
 	4. If Modem device receives a rejection message (**M2-3**) then it will wait 0.1 seconds and attempt again; if it gets 25 repeated rejections then transmission will be aborted.
 3. User device receives and decodes the data message.
-4. User devices displays the character on its 7-segment display
+4. User devices displays the character on its external display.
 
 **Entry Conditions:**
 - Modem device must be connected with a user device.
@@ -147,7 +152,7 @@ The main use cases for the features we wish to fulfill.
 4. If Modem device receives a rejection (**M2-3**) then it will wait 0.1 seconds and attempt again; if it gets 100 repeated rejections then transmission will be aborted.
 5. User device receives and decodes the data message.
 6. User device reconstructs the entire data file and displays it on the external display.
-7. User devices displays the overall transmission speed on the 7-segment display.
+7. User devices displays the overall transmission speed on the external display.
 
 **Entry Conditions:**
 - Modem device must be connected with a user device.
