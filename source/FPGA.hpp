@@ -31,11 +31,12 @@ public:
 
     // member functions
     bool write(Message& message);
-    Message& read();
+    FPGAResponse* read();
 
 protected:
 
 private:
+    MessageType getMessageType();
 
 };
 

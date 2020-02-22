@@ -8,10 +8,10 @@
 #include "Connection.hpp"
 #include "ControlMessage.hpp"
 #include "DataMessage.hpp"
-#include "Keyboard.hpp"
-#include "SevenSegmentDisplay.hpp"
 #include "ExternalDisplay.hpp"
 #include "FPGA.hpp"
+#include "Keyboard.hpp"
+#include "SevenSegmentDisplay.hpp"
 
 // structs //
 
@@ -61,9 +61,10 @@ private:
     std::vector<ControlMessage> controlMessages;
     std::vector<DataMessage> dataMessages;
 
+    FPGA fpga;
     KeyboardInput keyboardInput;
     Keyboard keyboard;
-//    SevenSegmentDisplay sevenSegmentDisplay; // TODO: is an abstract class?
+    // SevenSegmentDisplay sevenSegmentDisplay; // TODO: is an abstract class?
     ExternalDisplay externalDisplay;
 };
 

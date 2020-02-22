@@ -25,11 +25,30 @@ FPGA::~FPGA() {
 
 bool FPGA::write(Message& message) {
     // Serial.Print("FPGA::FPGA() not implemented\n");
+
+    // TODO: figure out how to actually write data to FPGA
+
     return false;
 }
 
-Message& FPGA::read() {
+FPGAResponse* FPGA::read() {
     // Serial.Print("FPGA::FPGA() not implemented\n");
-    ControlMessage* message = new ControlMessage(SourceID(), DestinationID());
-    return *message;
+    
+    // TODO: figure out how to actually read data from FPGA
+    Message* message = new ControlMessage(SourceID(), DestinationID());
+
+    MessageType type = getMessageType(message);
+
+    FPGAResponse* response = FPGAResponse();
+    response->message = message;
+    response->type = type;
+
+    return response;
+}
+
+MessageType FPGA::getMessageType(Message* message) {
+    // Serial.Print("FPGA::getMessageType() not implemented\n");
+    // TODO: figure out how to parse out message type
+
+    return MessageType::NONE;
 }

@@ -76,9 +76,10 @@ KeyboardInput* Modem::readKeyboardInput() {
     return keyboard.read();
 }
 
-FPGAResponse Modem::readFPGAInput() {
+FPGAResponse* Modem::readFPGAInput() {
     // Serial.Print("Modem::readFPGAInput() not implemented\n");
-    return FPGAResponse() = {};
+
+    return fpga.read();;
 }
 
 void Modem::display(KeyboardInput*) {
