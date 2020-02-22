@@ -8,24 +8,24 @@
 
 // constructors
 ExternalDisplay::ExternalDisplay(): Display() {
-    std::cout << "ExternalDisplay::ExternalDisplay() not implemented\n";
+    Serial.Print("ExternalDisplay::ExternalDisplay() not implemented\n");
 }
 
 // destructor
 ExternalDisplay::~ExternalDisplay() {
-    std::cout << "ExternalDisplay::~ExternalDisplay() not implemented\n";
+    Serial.Print("ExternalDisplay::~ExternalDisplay() not implemented\n");
 
 }
 
 // member functions//
 
 std::string ExternalDisplay::read() {
-    std::cout << "ExternalDisplay::read() not implemented\n";
+    Serial.Print("ExternalDisplay::read() not implemented\n");
     text = "";
     return "";
 }
 
 bool ExternalDisplay::write() {
-    std::cout << "ExternalDisplay::write() not implemented\n";
+    Serial.Print("ExternalDisplay::write() not implemented\n");
     return false;
 }

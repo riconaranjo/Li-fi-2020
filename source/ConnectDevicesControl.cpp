@@ -5,12 +5,12 @@
 
 // constructors
 ConnectDevicesControl::ConnectDevicesControl() {
-    std::cout << "ConnectDevicesControl::ConnectDevicesControl() not implemented\n";
+    Serial.Print("ConnectDevicesControl::ConnectDevicesControl() not implemented\n");
 }
 
 // destructor
 ConnectDevicesControl::~ConnectDevicesControl() {
-    std::cout << "ConnectDevicesControl::~ConnectDevicesControl() not implemented\n";
+    Serial.Print("ConnectDevicesControl::~ConnectDevicesControl() not implemented\n");
 }
 
 // member functions //
@@ -19,25 +19,25 @@ ConnectDevicesControl::~ConnectDevicesControl() {
 
 // UC-3.3
 bool ConnectDevicesControl::requestToConnect() {
-    std::cout << "ConnectDevicesControl::requestToConnect() not implemented\n";
+    Serial.Print("ConnectDevicesControl::requestToConnect() not implemented\n");
     return false;
 }
 
 // UC-3.4
 bool ConnectDevicesControl::receiveConnectionResponse() {
-    std::cout << "ConnectDevicesControl::receiveConnectionResponse() not implemented\n";
+    Serial.Print("ConnectDevicesControl::receiveConnectionResponse() not implemented\n");
     return false;
 }
 
 // UC-3.5
 bool ConnectDevicesControl::sendHeartbeat() {
-    std::cout << "ConnectDevicesControl::sendHeartbeat() not implemented\n";
+    Serial.Print("ConnectDevicesControl::sendHeartbeat() not implemented\n");
     return false;
 }
 
 // UC-3.5
 bool ConnectDevicesControl::receiveHeartbeatResponse() {
-    std::cout << "ConnectDevicesControl::receiveHeartbeatResponse() not implemented\n";
+    Serial.Print("ConnectDevicesControl::receiveHeartbeatResponse() not implemented\n");
     return false;
 }
 
@@ -45,25 +45,25 @@ bool ConnectDevicesControl::receiveHeartbeatResponse() {
 
 // UC-3.3.1
 bool ConnectDevicesControl::receiveConnectionRequest() {
-    std::cout << "ConnectDevicesControl::receiveConnectionRequest() not implemented\n";
+    Serial.Print("ConnectDevicesControl::receiveConnectionRequest() not implemented\n");
     return false;
 }
 
 // UC-3.3.2
 bool ConnectDevicesControl::respondToConnectionRequest() {
-    std::cout << "ConnectDevicesControl::respondToConnectionRequest() not implemented\n";
+    Serial.Print("ConnectDevicesControl::respondToConnectionRequest() not implemented\n");
     return false;
 }
 
 // UC-3.5.1
 bool ConnectDevicesControl::receiveHeartbeat() {
-    std::cout << "ConnectDevicesControl::receiveHeartbeat() not implemented\n";
+    Serial.Print("ConnectDevicesControl::receiveHeartbeat() not implemented\n");
     return false;
 }
 
 // UC-3.5.2
 bool ConnectDevicesControl::acknowledgeHeartbeat() {
-    std::cout << "ConnectDevicesControl::acknowledgeHeartbeat() not implemented\n";
+    Serial.Print("ConnectDevicesControl::acknowledgeHeartbeat() not implemented\n");
     return false;
 }
 

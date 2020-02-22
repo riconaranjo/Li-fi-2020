@@ -9,12 +9,12 @@
 // created by the keyboard object BO-1
 // constructors
 SpeedTransmissionControl::SpeedTransmissionControl() {
-    std::cout << "SpeedTransmissionControl::SpeedTransmissionControl() not implemented\n";
+    Serial.Print("SpeedTransmissionControl::SpeedTransmissionControl() not implemented\n");
 }
 
 // destructor
 SpeedTransmissionControl::~SpeedTransmissionControl() {
-    std::cout << "SpeedTransmissionControl::~SpeedTransmissionControl() not implemented\n";
+    Serial.Print("SpeedTransmissionControl::~SpeedTransmissionControl() not implemented\n");
 }
 
 // member functions //
@@ -23,21 +23,21 @@ SpeedTransmissionControl::~SpeedTransmissionControl() {
 
 // UC-2.1 creates UC-3 (CO-3)
 bool SpeedTransmissionControl::initiateConnection() {
-    std::cout << "SpeedTransmissionControl::initiateConnection() not implemented\n";
+    Serial.Print("SpeedTransmissionControl::initiateConnection() not implemented\n");
     connectControl = ConnectDevicesControl();
     return false;
 }
 
 // UC-2.2 creates UC-6 (CO-6)
 bool SpeedTransmissionControl::receiveData() {
-    std::cout << "SpeedTransmissionControl::receiveData() not implemented\n";
+    Serial.Print("SpeedTransmissionControl::receiveData() not implemented\n");
     dataControl = TransmittingDataControl();
     return false;
 }
 
 // UC-2.3
 bool SpeedTransmissionControl::displayDataSpeed() {
-    std::cout << "SpeedTransmissionControl::displayDataSpeed() not implemented\n";
+    Serial.Print("SpeedTransmissionControl::displayDataSpeed() not implemented\n");
     return false;
 }
 
@@ -45,14 +45,14 @@ bool SpeedTransmissionControl::displayDataSpeed() {
 
 // UC-2.1 creates UC-3 (CO-3)
 bool SpeedTransmissionControl::acceptConnection() {
-    std::cout << "SpeedTransmissionControl::acceptConnection() not implemented\n";
+    Serial.Print("SpeedTransmissionControl::acceptConnection() not implemented\n");
     connectControl = ConnectDevicesControl();
     return false;
 }
 
 // UC-2.2 creates UC-6 (CO-6)
 bool SpeedTransmissionControl::transmitCharacter() {
-    std::cout << "SpeedTransmissionControl::transmitCharacter() not implemented\n";
+    Serial.Print("SpeedTransmissionControl::transmitCharacter() not implemented\n");
     dataControl = TransmittingDataControl();
     return false;
 }

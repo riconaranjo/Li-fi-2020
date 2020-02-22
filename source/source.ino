@@ -3,10 +3,11 @@
 
 unsigned __exidx_start;
 unsigned __exidx_end;
+unsigned _gettimeofday;
 
 void setup() {
   // put your setup code here, to run once:
-  std::cout << "setup\n";
+  Serial.Print("setup\n");
   Controller controller;
   controller.LaunchModem();
   std::cout <<"running??\n";
@@ -15,11 +16,11 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  std::cout << "~";
+  Serial.Print("~");
 
 }
 
-void abort(void)
-{
-  for (;;) { }
-}
+//void abort(void)
+//{
+//  for (;;) { }
+//}

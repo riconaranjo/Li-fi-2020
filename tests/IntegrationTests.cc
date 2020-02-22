@@ -30,7 +30,7 @@ bool IntegrationTests::CharacterTransmissionTest() {
     try {
         bool result = false;
 
-        std::cout << "IntegrationTests::CharacterTransmissionTest() not implemented\n";
+        Serial.Print("IntegrationTests::CharacterTransmissionTest() not implemented\n");
 
         // 1. User connects user device to modem device (includes UC-3).
         result = ConnectDevicesTest();
@@ -57,7 +57,7 @@ bool IntegrationTests::SpeedTransmissionTest() {
     try {
         bool result = false;
 
-        std::cout << "IntegrationTests::SpeedTransmissionTest() not implemented\n";
+        Serial.Print("IntegrationTests::SpeedTransmissionTest() not implemented\n");
 
         // 1. User connects user device to modem device (includes UC-3).
         result = ConnectDevicesTest();
@@ -84,7 +84,7 @@ bool IntegrationTests::ConnectDevicesTest() {
     try {
         bool result = false;
 
-        std::cout << "IntegrationTests::ConnectDevicesTest() not implemented\n";
+        Serial.Print("IntegrationTests::ConnectDevicesTest() not implemented\n");
 
         // 1. User turns on modem device.
         result = PowerOnModemDevice();
@@ -140,7 +140,7 @@ bool IntegrationTests::DisconnectDevicesTest() {
     try {
         bool result = false;
 
-        std::cout << "IntegrationTests::DisconnectDevicesTest() not implemented\n";
+        Serial.Print("IntegrationTests::DisconnectDevicesTest() not implemented\n");
 
         // 1. User sets device A (modem) to end connection
 
@@ -173,7 +173,7 @@ bool IntegrationTests::TransmittingCharactersTest() {
     try {
         bool result = false;
 
-        std::cout << "IntegrationTests::TransmittingCharactersTest() not implemented\n";
+        Serial.Print("IntegrationTests::TransmittingCharactersTest() not implemented\n");
 
         // 1. User selects character transmitting mode on modem device.
         result = ModemSetToTransmitCharacters();
@@ -272,7 +272,7 @@ bool IntegrationTests::TransmittingCharactersTest() {
 bool IntegrationTests::TransmittingDataTest() {
     bool result = false;
 
-    std::cout << "IntegrationTests::TransmittingDataTest() not implemented\n";
+    Serial.Print("IntegrationTests::TransmittingDataTest() not implemented\n");
 
     if (result) {
         std::cout << "- TransmittingDataTest (UC-6) failed\n"
@@ -285,7 +285,7 @@ bool IntegrationTests::TransmittingDataTest() {
 bool IntegrationTests::DisplayTransmittedCharacter() {
     bool result = false;
 
-    std::cout << "IntegrationTests::DisplayTransmittedCharacter() not implemented\n";
+    Serial.Print("IntegrationTests::DisplayTransmittedCharacter() not implemented\n");
 
     return false;
 }
@@ -293,7 +293,7 @@ bool IntegrationTests::DisplayTransmittedCharacter() {
 bool IntegrationTests::DisplayTransmissionSpeed() {
     bool result = false;
 
-    std::cout << "IntegrationTests::DisplayTransmissionSpeed() not implemented\n";
+    Serial.Print("IntegrationTests::DisplayTransmissionSpeed() not implemented\n");
 
     return false;
 }

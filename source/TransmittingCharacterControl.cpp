@@ -7,12 +7,12 @@
 
 // constructors
 TransmittingCharacterControl::TransmittingCharacterControl() {
-    std::cout << "TransmittingCharacterControl::TransmittingCharacterControl() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::TransmittingCharacterControl() not implemented\n");
 }
 
 // destructor
 TransmittingCharacterControl::~TransmittingCharacterControl() {
-    std::cout << "TransmittingCharacterControl::~TransmittingCharacterControl() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::~TransmittingCharacterControl() not implemented\n");
 }
 
 // member functions //
@@ -21,31 +21,31 @@ TransmittingCharacterControl::~TransmittingCharacterControl() {
 
 // UC-5.2.2.1
 bool TransmittingCharacterControl::receiveDataMessageRequest() {
-    std::cout << "TransmittingCharacterControl::receiveDataMessageRequest() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::receiveDataMessageRequest() not implemented\n");
     return false;
 }
 
 // UC-5.2.2.1
 bool TransmittingCharacterControl::acknowledgeDataMessageRequest() {
-    std::cout << "TransmittingCharacterControl::acknowledgeDataMessageRequest() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::acknowledgeDataMessageRequest() not implemented\n");
     return false;
 }
 
 // UC-5.2.3.1
 bool TransmittingCharacterControl::receiveDataMessage() {
-    std::cout << "TransmittingCharacterControl::receiveDataMessage() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::receiveDataMessage() not implemented\n");
     return false;
 }
 
 // UC-5.2.3.1
 bool TransmittingCharacterControl::acknowledgeDataMessage() {
-    std::cout << "TransmittingCharacterControl::acknowledgeDataMessage() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::acknowledgeDataMessage() not implemented\n");
     return false;
 }
 
 // UC-5.2.4
 bool TransmittingCharacterControl::displayDataMessage() {
-    std::cout << "TransmittingCharacterControl::displayDataMessage() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::displayDataMessage() not implemented\n");
     return false;
 }
 
@@ -53,49 +53,49 @@ bool TransmittingCharacterControl::displayDataMessage() {
 
 // UC-5.2
 bool TransmittingCharacterControl::readKeyboardInput() {
-    std::cout << "TransmittingCharacterControl::readKeyboardInput() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::readKeyboardInput() not implemented\n");
     return false;
 }
 
 // UC-5.2.1
 bool TransmittingCharacterControl::displayCharacter() {
-    std::cout << "TransmittingCharacterControl::displayCharacter() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::displayCharacter() not implemented\n");
     return false;
 }
 
 // UC-5.2.2
 bool TransmittingCharacterControl::sendDataMessageRequest() {
-    std::cout << "TransmittingCharacterControl::sendDataMessageRequest() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::sendDataMessageRequest() not implemented\n");
     return false;
 }
 
 // UC-5.2.2.1
 bool TransmittingCharacterControl::receiveDataMessageRequestResponse() {
-    std::cout << "TransmittingCharacterControl::receiveDataMessageRequestResponse() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::receiveDataMessageRequestResponse() not implemented\n");
     return false;
 }
 
 // UC-5.2.3
 bool TransmittingCharacterControl::sendDataMessage() {
-    std::cout << "TransmittingCharacterControl::sendDataMessage() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::sendDataMessage() not implemented\n");
     return false;
 }
 
 // UC-5.2.3.1
 bool TransmittingCharacterControl::receiveDataMessageResponse() {
-    std::cout << "TransmittingCharacterControl::receiveDataMessageResponse() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::receiveDataMessageResponse() not implemented\n");
     return false;
 }
 
 // UC-5.2.4
 bool TransmittingCharacterControl::reattemptDataMessageRequest() {
-    std::cout << "TransmittingCharacterControl::reattemptDataMessageRequest() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::reattemptDataMessageRequest() not implemented\n");
     return false;
 }
 
 // UC-5.2.3
 bool TransmittingCharacterControl::resendDataMessage() {
-    std::cout << "TransmittingCharacterControl::resendDataMessage() not implemented\n";
+    Serial.Print("TransmittingCharacterControl::resendDataMessage() not implemented\n");
     return false;
 }
 

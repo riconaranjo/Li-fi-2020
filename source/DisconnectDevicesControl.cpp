@@ -1,4 +1,5 @@
 // include statements //
+
 #include <iostream>       // TODO: remove after testing
 #include "DisconnectDevicesControl.hpp"
 
@@ -6,12 +7,12 @@
 
 // constructors
 DisconnectDevicesControl::DisconnectDevicesControl() {
-    std::cout << "DisconnectDevicesControl::DisconnectDevicesControl() not implemented\n";
+    Serial.Print("DisconnectDevicesControl::DisconnectDevicesControl() not implemented\n");
 }
 
 // destructor
 DisconnectDevicesControl::~DisconnectDevicesControl() {
-    std::cout << "DisconnectDevicesControl::~DisconnectDevicesControl() not implemented\n";
+    Serial.Print("DisconnectDevicesControl::~DisconnectDevicesControl() not implemented\n");
 }
 
 // member functions
@@ -19,25 +20,25 @@ DisconnectDevicesControl::~DisconnectDevicesControl() {
 // device A perspective
 // UC-4.1
 bool DisconnectDevicesControl::initiateEndConnection() {
-    std::cout << "DisconnectDevicesControl::() not implemented\n";
+    Serial.Print("DisconnectDevicesControl::() not implemented\n");
     return false;
 }
 
 // UC-4.3
 bool DisconnectDevicesControl::receiveEndConnectionResponse() {
-    std::cout << "DisconnectDevicesControl::receiveEndConnectionResponse() not implemented\n";
+    Serial.Print("DisconnectDevicesControl::receiveEndConnectionResponse() not implemented\n");
     return false;
 }
 
 // device B perspective
 // UC-4.2
 bool DisconnectDevicesControl::receiveEndConnectionRequest() {
-    std::cout << "DisconnectDevicesControl::receiveEndConnectionRequest() not implemented\n";
+    Serial.Print("DisconnectDevicesControl::receiveEndConnectionRequest() not implemented\n");
     return false;
 }
 
 // UC-4.2.1
 bool DisconnectDevicesControl::acknowledgeEndConnection() {
-    std::cout << "DisconnectDevicesControl::acknowledgeEndConnection() not implemented\n";
+    Serial.Print("DisconnectDevicesControl::acknowledgeEndConnection() not implemented\n");
     return false;
 }

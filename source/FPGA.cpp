@@ -13,23 +13,23 @@
 
 // constructors
 FPGA::FPGA() {
-    std::cout << "FPGA::FPGA() not implemented\n";
+    Serial.Print("FPGA::FPGA() not implemented\n");
 }
 
 // destructor
 FPGA::~FPGA() {
-    std::cout << "FPGA::~FPGA() not implemented\n";
+    Serial.Print("FPGA::~FPGA() not implemented\n");
 }
 
 // member functions //
 
 bool FPGA::write(Message& message) {
-    std::cout << "FPGA::FPGA() not implemented\n";
+    Serial.Print("FPGA::FPGA() not implemented\n");
     return false;
 }
 
 Message& FPGA::read() {
-    std::cout << "FPGA::FPGA() not implemented\n";
+    Serial.Print("FPGA::FPGA() not implemented\n");
     ControlMessage* m = new ControlMessage(SourceID(), DestinationID());
     return *m;
 }

@@ -5,12 +5,12 @@
 
 // constructors
 CharacterTransmissionControl::CharacterTransmissionControl() {
-    std::cout << "CharacterTransmissionControl::CharacterTransmissionControl() not implemented\n";
+    Serial.Print("CharacterTransmissionControl::CharacterTransmissionControl() not implemented\n");
 }
 
 // destructor
 CharacterTransmissionControl::~CharacterTransmissionControl() {
-    std::cout << "CharacterTransmissionControl::~CharacterTransmissionControl() not implemented\n";
+    Serial.Print("CharacterTransmissionControl::~CharacterTransmissionControl() not implemented\n");
 }
 
 // member functions //
@@ -19,18 +19,18 @@ CharacterTransmissionControl::~CharacterTransmissionControl() {
 
 // UC-1.1 creates UC-3
 bool CharacterTransmissionControl::initiateConnection() {
-    std::cout << "CharacterTransmissionControl::initiateConnection() not implemented\n";
+    Serial.Print("CharacterTransmissionControl::initiateConnection() not implemented\n");
     return false;
 }
 // UC-1.2 creates UC-5
 bool CharacterTransmissionControl::receiveCharacter() {
-    std::cout << "CharacterTransmissionControl::receiveCharacter() not implemented\n";
+    Serial.Print("CharacterTransmissionControl::receiveCharacter() not implemented\n");
     return false;
 
 }
 // UC-1.3
 bool CharacterTransmissionControl::displayCharacter() {
-    std::cout << "CharacterTransmissionControl::displayCharacter() not implemented\n";
+    Serial.Print("CharacterTransmissionControl::displayCharacter() not implemented\n");
     return false;
 }
 
@@ -38,11 +38,11 @@ bool CharacterTransmissionControl::displayCharacter() {
 
 // UC-1.1 creates UC-3
 bool CharacterTransmissionControl::acceptConnection() {
-    std::cout << "CharacterTransmissionControl::acceptConnection() not implemented\n";
+    Serial.Print("CharacterTransmissionControl::acceptConnection() not implemented\n");
     return false;
 }
 // UC-1.2 creates UC-5
 bool CharacterTransmissionControl::transmitCharacter() {
-    std::cout << "CharacterTransmissionControl::transmitCharacter() not implemented\n";
+    Serial.Print("CharacterTransmissionControl::transmitCharacter() not implemented\n");
     return false;
 }
