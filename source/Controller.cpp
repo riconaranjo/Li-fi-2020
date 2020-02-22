@@ -1,13 +1,6 @@
 // include statements //
 
-#include <iostream>       // TODO: remove after testing
-#include <vector>         // std::vector
-#include <ctime>          // std::time
-#include <thread>         // std::this_thread::sleep_for
-#include <chrono>         // std::chrono::milliseconds
 #include "Controller.hpp"
-#include "FPGA.hpp"
-#include "Keyboard.hpp"
 
 // class //
 

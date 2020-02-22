@@ -3,7 +3,6 @@
 
 // include statements //
 
-#include <vector>         // std::vector
 #include "Modem.hpp"
 
 // structs //
