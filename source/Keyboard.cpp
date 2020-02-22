@@ -25,7 +25,7 @@ KeyboardInput* Keyboard::read() {
 
     if (!Serial.available()) return nullptr;
 
-    int characters[100];
+    int characters[25];
     int length = 0;
     
     characters[0] = Serial.read();  // will not be -1
