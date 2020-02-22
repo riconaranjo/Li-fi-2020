@@ -10,11 +10,11 @@
 // class //
 
 // class for control object CO-1 for UC-1
-// created by the keyboard object BO-1
+// created by Controller object
 class CharacterTransmissionControl {
 public:
     // constructors
-    CharacterTransmissionControl();
+    CharacterTransmissionControl(bool);
 
     // destructor
     ~CharacterTransmissionControl();
@@ -28,12 +28,16 @@ public:
 
     // modem device perspective
     bool acceptConnection();    // UC-1.1 creates UC-3
+    bool getKeyboardInput();    // UC-1.2
     bool transmitCharacter();   // UC-1.2 creates UC-5
 
 protected:
 
 private:
     // data members
+    bool isModem;
+    ConnectDevicesControl* connectControl;
+    TransmittingCharacterControl* characterControl;
 
 };
 

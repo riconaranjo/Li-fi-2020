@@ -8,27 +8,30 @@
 // class for control object for UC-2
 // created by the keyboard object BO-1
 // constructors
-SpeedTransmissionControl::SpeedTransmissionControl() {
+SpeedTransmissionControl::SpeedTransmissionControl(bool isModem): isModem(isModem) {
     // Serial.Print("SpeedTransmissionControl::SpeedTransmissionControl() not implemented\n");
 }
 
 // destructor
 SpeedTransmissionControl::~SpeedTransmissionControl() {
     // Serial.Print("SpeedTransmissionControl::~SpeedTransmissionControl() not implemented\n");
+    delete connectControl;
+    delete dataControl;
 }
 
 // member functions //
 
 // user device perspective //
 
-// UC-2.1 creates UC-3 (CO-3)
+// UC-2.1 creates UC-3
 bool SpeedTransmissionControl::initiateConnection() {
     // Serial.Print("SpeedTransmissionControl::initiateConnection() not implemented\n");
     connectControl = ConnectDevicesControl();
     return false;
 }
 
-// UC-2.2 creates UC-6 (CO-6)
+// UC-2.2 creates UC-6
+// S2u - handles connection signals - creates UC-6
 bool SpeedTransmissionControl::receiveData() {
     // Serial.Print("SpeedTransmissionControl::receiveData() not implemented\n");
     dataControl = TransmittingDataControl();
@@ -36,6 +39,7 @@ bool SpeedTransmissionControl::receiveData() {
 }
 
 // UC-2.3
+// S3u
 bool SpeedTransmissionControl::displayDataSpeed() {
     // Serial.Print("SpeedTransmissionControl::displayDataSpeed() not implemented\n");
     return false;
@@ -43,16 +47,24 @@ bool SpeedTransmissionControl::displayDataSpeed() {
 
 // modem device perspective //
 
-// UC-2.1 creates UC-3 (CO-3)
+// UC-2.1 creates UC-3
 bool SpeedTransmissionControl::acceptConnection() {
     // Serial.Print("SpeedTransmissionControl::acceptConnection() not implemented\n");
-    connectControl = ConnectDevicesControl();
+    connectControl = new ConnectDevicesControl();
     return false;
 }
 
-// UC-2.2 creates UC-6 (CO-6)
-bool SpeedTransmissionControl::transmitCharacter() {
-    // Serial.Print("SpeedTransmissionControl::transmitCharacter() not implemented\n");
-    dataControl = TransmittingDataControl();
+// UC-2.2
+// S2m - handles connection signals
+bool SpeedTransmissionControl::waitForCue() {
+    // Serial.Print("SpeedTransmissionControl::waitForCue() not implemented\n");
+    return false;
+}
+
+// UC-2.2 creates UC-6
+// S3m - creates UC-6
+bool SpeedTransmissionControl::transmitData() {
+    // Serial.Print("SpeedTransmissionControl::transmitData() not implemented\n");
+    dataControl = new TransmittingDataControl();
     return false;
 }

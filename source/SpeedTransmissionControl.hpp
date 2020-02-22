@@ -14,7 +14,7 @@
 class SpeedTransmissionControl {
 public:
     // constructors
-    SpeedTransmissionControl();
+    SpeedTransmissionControl(bool);
 
     // destructor
     ~SpeedTransmissionControl();
@@ -28,14 +28,17 @@ public:
 
     // modem device perspective
     bool acceptConnection();    // UC-2.1 creates UC-3
-    bool transmitCharacter();   // UC-2.2 creates UC-6
+    bool waitForCue();          // UC-2.2
+    bool transmitData();        // UC-2.2 creates UC-6
 
 protected:
 
 private:
     // data members
-    TransmittingDataControl dataControl;
-    ConnectDevicesControl connectControl;
+    bool isModem;
+    ConnectDevicesControl* connectControl;
+    TransmittingDataControl* dataControl;
+
 };
 
 #endif // SPEEDTRANSMISSIONCONTROL_H

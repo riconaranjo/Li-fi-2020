@@ -48,7 +48,7 @@ void Controller::LaunchUser() {
             uc_2.acceptConnection();  // S1u - creates UC-3
             while (true) {
                 uc_1.receiveData();         // S2u - handles connection signals
-                uc_1.displayDataSpeed();    // S3u - creates UC-5
+                uc_1.displayDataSpeed();    // S3u - creates UC-6
             }
         }
     } // end while
@@ -86,8 +86,8 @@ void Controller::LaunchModem() {
             SpeedTransmissionControl uc_2 = SpeedTransmissionControl();
             uc_2.acceptConnection();  // S1m - creates UC-3
             while (true) {
-                uc_1.receiveData();         // S2m - handles connection signals
-                uc_1.displayDataSpeed();    // S3m - creates UC-6
+                uc_1.waitForCue();          // S2m - handles connection signals
+                uc_1.transmitData();        // S3m - creates UC-6
             }
         }
     } // end while
