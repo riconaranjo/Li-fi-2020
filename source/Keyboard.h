@@ -3,8 +3,9 @@
 
 // include statements //
 
-#include <vector>         // std::vector
 #include <ctime>          // std::time
+#include <iostream>       // TODO: remove after testing
+#include <vector>         // std::vector
 #include "CharacterTransmissionControl.hpp"   // CO-1
 #include "SpeedTransmissionControl.hpp"       // CO-2
 
