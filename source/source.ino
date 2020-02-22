@@ -7,7 +7,7 @@ unsigned _gettimeofday;
 
 void setup() {
   // put your setup code here, to run once:
-  Serial.Print("setup\n");
+  // Serial.Print("setup\n");
   Controller controller;
   controller.LaunchModem();
   std::cout <<"running??\n";
@@ -16,7 +16,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.Print("~");
+  // Serial.Print("~");
 
 }
 

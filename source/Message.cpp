@@ -8,7 +8,7 @@
 
 // constructor
 Message::Message(SourceID source, DestinationID destination) {
-    Serial.Print("Message::Message() not implemented\n");
+    // Serial.Print("Message::Message() not implemented\n");
     sourceID = source;
     destinationID = destination;
 }

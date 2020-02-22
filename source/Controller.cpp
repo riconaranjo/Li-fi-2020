@@ -31,7 +31,7 @@ void Controller::LaunchModem() {
         // error checking
         if (inCharacterTransmissionMode && inDataTransmissionMode) {
             // throw "cannot not be in both character and data transmission modes at the same time!";
-            Serial.Print("!! cannot not be in both character and data transmission modes at the same time!");
+            // Serial.Print("!! cannot not be in both character and data transmission modes at the same time!");
         }
 
         if (inCharacterTransmissionMode) {
