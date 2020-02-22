@@ -99,12 +99,3 @@ void Controller::LaunchModem() {
         }
     } // end while
 }
-
-// UC-1: character transmission mode logic
-void Controller::CharacterTransmissionMode() {
-
-}
-
-// UC-2: data transmission mode logic
-void Controller::DataTransmissionMode() {
-}

@@ -22,15 +22,6 @@ public:
     // general member functions
     void LaunchModem();
     void LaunchUser();
-    void InitiateConnection();                           // ...
-    void SendRequestToEndConnection();                   // M4-1
-    void SendAcceptRequestToEndConnection();             // M4-2
-
-    // modem member functions
-    void SetCharacterTransmissionMode();
-    void SetDataTransmissionMode();
-    void CharacterTransmissionMode();                    // character tx logic
-    void DataTransmissionMode();                         // data tx logic
 
 protected:
 
