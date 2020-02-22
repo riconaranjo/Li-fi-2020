@@ -23,15 +23,33 @@ Keyboard::~Keyboard() {
 KeyboardInput* Keyboard::read() {
     // Serial.Print("Keyboard::read() not implemented\n");
 
+    if (!Serial.available()) return nullptr;
+
+    int characters[100];
+    int length = 0;
+    
+    characters[0] = Serial.read();  // will not be -1
+
+    for (length = 1; Serial.available(); length++) {
+        characters[length] = Serial.read();
+        if (characters[length] == 10) break;
+    }
+
+    String input = "";
+    for (int j = 0; j <= length; j++) {
+      input += String(characters[j], DEC);
+      input += " ";
+    }
+
+    // TODO: remove after debugging
+    Serial.print(input);
+
     // add timestamp to each keypress
     std::time_t current_time = std::time(nullptr);
 
     KeyboardInput* keyboard = new KeyboardInput();
-    keyboard->text = ""; // TODO: fix this
+    keyboard->text = input;
     keyboard->time = current_time;
-
-    // TODO: actually read from keyboard here
-    // update keyboard struct
 
     return keyboard;
 }
