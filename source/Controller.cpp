@@ -6,8 +6,8 @@
 #include <thread>         // std::this_thread::sleep_for
 #include <chrono>         // std::chrono::milliseconds
 #include "Controller.hpp"
-#include "Keyboard.hpp"
 #include "FPGA.hpp"
+#include "Keyboard.hpp"
 
 // class //
 
@@ -23,16 +23,21 @@ Controller::~Controller() {
 }
 
 void Controller::LaunchModem() {
-    KeyboardInput* last_input = nullptr; // keyboard input used to 
-    while (true) {
-        // check for fpga input for general messages
-        modem.readFPGAInput(); // TODO: do something with this
 
-        // error checking
-        if (inCharacterTransmissionMode && inDataTransmissionMode) {
-            // throw "cannot not be in both character and data transmission modes at the same time!";
-            // Serial.Print("!! cannot not be in both character and data transmission modes at the same time!");
-        }
+    // error checking
+    if (inCharacterTransmissionMode && inDataTransmissionMode) {
+        // throw "cannot not be in both character and data transmission modes at the same time!"; // need to enable exceptions...
+        Serial.Print("!! cannot not be in both character and data transmission modes at the same time!");
+        exit(-1);
+    }
+
+    KeyboardInput* last_keyboard_input = nullptr;
+    FPGAResponse* last_FPGA_input = nullptr;
+
+    while (true) {
+        // read FPGA for new messages
+        last_FPGA_input = modem.readFPGAInput();
+        last_keyboard_input = modem.readKeyboardInput();
 
         if (inCharacterTransmissionMode) {
             CharacterTransmissionMode();
