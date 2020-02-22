@@ -11,10 +11,10 @@
 // structs //
 
 struct KeyboardInput {
-    std::string text;
+    String text;
     std::time_t time;
 
-    KeyboardInput(): text(std::string()), time(std::time_t())  { }
+    KeyboardInput(): text(String()), time(std::time_t())  { }
 };
 
 // class //

@@ -1,8 +1,8 @@
 // include statements //
 
-#include <vector>         // std::vector
+// #include <string>         // std::string TODO: replaced with arduino String
 #include <iostream>       // TODO: remove after testing
-#include <string>         // std::string
+#include <vector>         // std::vector
 #include "CharacterTransmissionControl.hpp"   // CO-1
 #include "Keyboard.hpp"
 #include "SpeedTransmissionControl.hpp"       // CO-2

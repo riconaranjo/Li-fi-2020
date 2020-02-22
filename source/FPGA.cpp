@@ -1,7 +1,7 @@
 // include statements //
 
-#include <string>         // std::string
-#include <iostream>       // TODO: remove after testing
+// #include <string>         // std::string TODO: replaced with arduino String
+// #include <iostream>       // TODO: remove after testing
 #include "ConnectDevicesControl.hpp"      // CO-3
 #include "ControlMessage.hpp"
 #include "DataMessage.hpp"
@@ -30,6 +30,6 @@ bool FPGA::write(Message& message) {
 
 Message& FPGA::read() {
     // Serial.Print("FPGA::FPGA() not implemented\n");
-    ControlMessage* m = new ControlMessage(SourceID(), DestinationID());
-    return *m;
+    ControlMessage* message = new ControlMessage(SourceID(), DestinationID());
+    return *message;
 }

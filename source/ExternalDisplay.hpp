@@ -3,7 +3,7 @@
 
 // include statements //
 
-#include <string>         // std::string
+// #include <string>         // std::string TODO replaced with arduino string
 #include "Display.hpp"
 
 // structs //
@@ -20,7 +20,7 @@ public:
     ~ExternalDisplay();
 
     // member functions
-    std::string read();
+    String read();
     bool write();
 
 protected:

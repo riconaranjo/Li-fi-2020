@@ -3,7 +3,7 @@
 
 // include statements //
 
-#include <string>         // std::string
+// #include <string>         // std::string TODO: replaced with Arduino String
 #include "Display.hpp"
 #include "Keyboard.hpp"
 
@@ -21,9 +21,9 @@ public:
     ~SevenSegmentDisplay();
 
     // member functions
-    std::string read();
+    String read();
     bool write(KeyboardInput);
-    bool write(std::string);
+    bool write(String);
 
 protected:
 

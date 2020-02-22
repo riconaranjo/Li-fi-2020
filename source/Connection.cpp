@@ -1,13 +1,13 @@
 // include statements //
 
-#include <string>         // std::string
-#include <iostream>       // TODO: remove after testing
+// #include <string>         // std::string TODO: replaced with arduino String
+// #include <iostream>       // TODO: remove after testing
 #include "Connection.hpp"
 
 // class //
 
 // constructors
-Connection::Connection(std::string connectionID, std::string sourceID) {
+Connection::Connection(String connectionID, String sourceID) {
     // Serial.Print("Connection::Connection() not implemented\n");
 }
 
@@ -19,13 +19,13 @@ Connection::~Connection() {
 // member functions //
 
 // ID of this connection
-std::string Connection::getConnectionID() {
+String Connection::getConnectionID() {
     // Serial.Print("Connection::getConnectionID() not implemented\n");
     return "";
 }
 
 // ID of the other party in the connection
-std::string Connection::getSourceID() {
+String Connection::getSourceID() {
     // Serial.Print("Connection::getSourceID() not implemented\n");
     return "";
 }

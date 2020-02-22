@@ -3,7 +3,7 @@
 
 // include statements //
 
-#include <string>         // std::string
+// #include <string>         // std::string // TODO replaced with arduino String
 
 // structs //
 
@@ -18,12 +18,12 @@ public:
     ~Display();
 
     // abstract member functions
-    virtual std::string read() = 0;
+    virtual String read() = 0;
     virtual bool write() = 0;
 
 protected:
     // data members
-    std::string text;
+    String text;
 
 private:
 

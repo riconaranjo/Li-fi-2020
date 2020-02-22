@@ -1,6 +1,6 @@
 // include statements //
 
-#include <string>         // std::string
+// #include <string>         // std::string TODO replaced with arduino String
 #include <iostream>       // TODO: remove after testing
 #include "ExternalDisplay.hpp"
 
@@ -19,10 +19,10 @@ ExternalDisplay::~ExternalDisplay() {
 
 // member functions//
 
-std::string ExternalDisplay::read() {
+String ExternalDisplay::read() {
     // Serial.Print("ExternalDisplay::read() not implemented\n");
     text = "";
-    return "";
+    return text;
 }
 
 bool ExternalDisplay::write() {

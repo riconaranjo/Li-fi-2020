@@ -1,10 +1,10 @@
 // include statements //
 
-#include <string>         // std::string
+// #include <string>         // std::string TODO replace with arduino String
 #include "Display.hpp"
 
 // class //
-Display::Display(): text(std::string()) { }
+Display::Display(): text(String()) { }
 
 // destructor
 Display::~Display() { }

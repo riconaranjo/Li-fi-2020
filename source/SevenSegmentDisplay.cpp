@@ -1,7 +1,7 @@
 // include statements //
 
 #include <iostream>       // TODO: remove after testing
-#include <string>         // std::string
+// #include <string>         // std::string TODO: replaced with arduino String
 #include "Display.hpp"
 #include "SevenSegmentDisplay.hpp"
 
@@ -19,7 +19,7 @@ SevenSegmentDisplay::~SevenSegmentDisplay() {
 
 // member functions //
 
-std::string SevenSegmentDisplay::read() {
+String SevenSegmentDisplay::read() {
     // Serial.Print("SevenSegmentDisplay::read() not implemented\n");
 
     return "";
@@ -31,8 +31,8 @@ bool SevenSegmentDisplay::write(KeyboardInput) {
     return false;
 }
 
-bool SevenSegmentDisplay::write(std::string) {
-    // Serial.Print("SevenSegmentDisplay::write(std::string) not implemented\n");
+bool SevenSegmentDisplay::write(String) {
+    // Serial.Print("SevenSegmentDisplay::write(String) not implemented\n");
 
     return false;
 }

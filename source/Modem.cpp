@@ -1,6 +1,6 @@
 // include statements //
 
-#include <iostream>       // TODO: remove after testing
+// #include <iostream>       // TODO: remove after testing
 #include <unordered_map>  // std::unordered_map
 #include <vector>         // std::vector
 #include "Connection.hpp"
@@ -14,7 +14,7 @@
 // constructors
 Modem::Modem() {
     // Serial.Print("Modem::Modem() not implemented\n");
-    std::unordered_map<std::string,Connection> connections = std::unordered_map<std::string,Connection>();
+    std::unordered_map<String,Connection> connections = std::unordered_map<String,Connection>();
     std::vector<ControlMessage> controlMessages = std::vector<ControlMessage>();
     std::vector<DataMessage> dataMessages = std::vector<DataMessage>();
 

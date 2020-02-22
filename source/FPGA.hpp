@@ -3,7 +3,7 @@
 
 // include statements //
 
-#include <string>         // std::string
+// #include <string>         // std::string TODO: replaced with arduino String
 #include <vector>         // std::vector
 #include "ConnectDevicesControl.hpp"      // CO-3
 #include "DisconnectDevicesControl.hpp"   // CO-4

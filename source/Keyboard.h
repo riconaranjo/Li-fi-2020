@@ -4,7 +4,7 @@
 // include statements //
 
 #include <ctime>          // std::time
-#include <iostream>       // TODO: remove after testing
+// #include <iostream>       // TODO: remove after testing
 #include <vector>         // std::vector
 #include "CharacterTransmissionControl.hpp"   // CO-1
 #include "SpeedTransmissionControl.hpp"       // CO-2
@@ -12,10 +12,10 @@
 // structs //
 
 struct KeyboardInput {
-    std::string text;
+    String text;
     std::time_t time;
 
-    KeyboardInput(): text(std::string()), time(std::time_t())  { }
+    KeyboardInput(): text(String()), time(std::time_t())  { }
 };
 
 // class //
