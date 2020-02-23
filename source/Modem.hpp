@@ -34,16 +34,9 @@ public:
     bool addConnection(Connection& connection);
     bool endConnection(Connection& connection);
     KeyboardInput* readKeyboardInput();
-    FPGAResponse readFPGAInput();
+    FPGAResponse* readFPGAInput();
 
     void display(KeyboardInput*);
-
-    // modem member functions
-    void SendModemAcceptRequestToConnect();              // M1-2
-    void SendModemRejectRequestToConnect();              // M1-3
-    void SendModemRequestToSendDataMessage();            // M2-1
-    void SendModemDataMessage();                         // M2-4
-    void SendModemHeartBeat();                           // M3-2
 
     // user member functions
     void SendUserRequestToConnect();                     // M1-1
@@ -52,6 +45,13 @@ public:
     void SendUserDataMessageACK();                       // M2-5
     void SendUserDataMessageNACK();                      // M2-6
     void SendUserHeartBeat();                            // M3-1
+
+    // modem member functions
+    void SendModemAcceptRequestToConnect();              // M1-2
+    void SendModemRejectRequestToConnect();              // M1-3
+    void SendModemRequestToSendDataMessage();            // M2-1
+    void SendModemDataMessage();                         // M2-4
+    void SendModemHeartBeat();                           // M3-2
 
 protected:
 

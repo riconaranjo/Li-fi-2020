@@ -5,8 +5,7 @@
 
 #include <vector>         // std::vector
 #include <ctime>          // std::time
-#include "CharacterTransmissionControl.hpp"   // CO-1
-#include "SpeedTransmissionControl.hpp"       // CO-2
+#include "Arduino.h"
 
 // structs //
 
@@ -34,13 +33,7 @@ public:
 protected:
 
 private:
-    // member functions
-    bool initiateConnectionRequest();      // UC-1.1 creates UC-3
-    bool initiateCharacterTransmission();  // UC-1.2 creates UC-5
-    bool initiateSpeedTransmission();      // UC-2.2 creates UC-6
 
-    CharacterTransmissionControl characterControl;
-    SpeedTransmissionControl speedControl;
 };
 
 #endif // KEYBOARD_H

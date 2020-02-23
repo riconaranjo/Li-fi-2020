@@ -7,12 +7,12 @@
 
 // constructors
 TransmittingDataControl::TransmittingDataControl() {
-    // Serial.Print("TransmittingDataControl::TransmittingDataControl() not implemented\n");
+    // Serial.print("TransmittingDataControl::TransmittingDataControl() not implemented\n");
 }
 
 // destructor
 TransmittingDataControl::~TransmittingDataControl() {
-    // Serial.Print("TransmittingDataControl::~TransmittingDataControl() not implemented\n");
+    // Serial.print("TransmittingDataControl::~TransmittingDataControl() not implemented\n");
 }
 
 // member functions //
@@ -21,37 +21,37 @@ TransmittingDataControl::~TransmittingDataControl() {
 
 // UC-6.2.1
 bool TransmittingDataControl::receiveDataMessageRequest() {
-    // Serial.Print("TransmittingDataControl::receiveDataMessageRequest() not implemented\n");
+    // Serial.print("TransmittingDataControl::receiveDataMessageRequest() not implemented\n");
     return false;
 }
 
 // UC-6.2.1
 bool TransmittingDataControl::acknowledgeDataMessageRequest() {
-    // Serial.Print("TransmittingDataControl::acknowledgeDataMessageRequest() not implemented\n");
+    // Serial.print("TransmittingDataControl::acknowledgeDataMessageRequest() not implemented\n");
     return false;
 }
 
 // UC-6.3.1
 bool TransmittingDataControl::receiveDataMessage() {
-    // Serial.Print("TransmittingDataControl::receiveDataMessage() not implemented\n");
+    // Serial.print("TransmittingDataControl::receiveDataMessage() not implemented\n");
     return false;
 }
 
 // UC-6.3.1
 bool TransmittingDataControl::acknowledgeDataMessage() {
-    // Serial.Print("TransmittingDataControl::acknowledgeDataMessage() not implemented\n");
+    // Serial.print("TransmittingDataControl::acknowledgeDataMessage() not implemented\n");
     return false;
 }
 
 // UC-6.6
 bool TransmittingDataControl::reconstructDataMessage() {
-    // Serial.Print("TransmittingDataControl::reconstructDataMessage() not implemented\n");
+    // Serial.print("TransmittingDataControl::reconstructDataMessage() not implemented\n");
     return false;
 }
 
 // UC-6.7
 bool TransmittingDataControl::displayTransmissionSpeed() {
-    // Serial.Print("TransmittingDataControl::displayTransmissionSpeed() not implemented\n");
+    // Serial.print("TransmittingDataControl::displayTransmissionSpeed() not implemented\n");
     return false;
 }
 
@@ -59,31 +59,31 @@ bool TransmittingDataControl::displayTransmissionSpeed() {
 
 // UC-6.2
 bool TransmittingDataControl::sendDataMessageRequest() {
-    // Serial.Print("TransmittingDataControl::sendDataMessageRequest() not implemented\n");
+    // Serial.print("TransmittingDataControl::sendDataMessageRequest() not implemented\n");
     return false;
 }
 
 // UC-6.3
 bool TransmittingDataControl::sendDataMessage() {
-    // Serial.Print("TransmittingDataControl::sendDataMessage() not implemented\n");
+    // Serial.print("TransmittingDataControl::sendDataMessage() not implemented\n");
     return false;
 }
 
 // UC-6.3.2
 bool TransmittingDataControl::receiveDataMessageResponse() {
-    // Serial.Print("TransmittingDataControl::receiveDataMessageResponse() not implemented\n");
+    // Serial.print("TransmittingDataControl::receiveDataMessageResponse() not implemented\n");
     return false;
 }
 
 // UC-6.3.2
 bool TransmittingDataControl::resendDataMessage() {
-    // Serial.Print("TransmittingDataControl::resendDataMessage() not implemented\n");
+    // Serial.print("TransmittingDataControl::resendDataMessage() not implemented\n");
     return false;
 }
 
 // UC-6.4
 bool TransmittingDataControl::reattemptDataMessageRequest() {
-    // Serial.Print("TransmittingDataControl::reattemptDataMessageRequest() not implemented\n");
+    // Serial.print("TransmittingDataControl::reattemptDataMessageRequest() not implemented\n");
     return false;
 }
 

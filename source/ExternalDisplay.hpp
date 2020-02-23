@@ -11,7 +11,7 @@
 // class //
 
 // class for interfacing with external display
-class ExternalDisplay: Display {
+class ExternalDisplay: public Display {
 public:
     // constructors
     ExternalDisplay();
@@ -21,7 +21,7 @@ public:
 
     // member functions
     String read();
-    bool write();
+    bool write(String);
 
 protected:
 

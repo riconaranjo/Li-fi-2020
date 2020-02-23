@@ -3,6 +3,9 @@
 
 // include statements //
 
+#include "AbstractController.hpp"
+#include "Modem.hpp"
+#include "ConnectDevicesControl.hpp"          // CO-3
 #include "TransmittingCharacterControl.hpp"   // CO-5
 
 // structs //
@@ -11,10 +14,10 @@
 
 // class for control object CO-1 for UC-1
 // created by Controller object
-class CharacterTransmissionControl {
+class CharacterTransmissionControl: public AbstractController {
 public:
     // constructors
-    CharacterTransmissionControl(bool);
+    CharacterTransmissionControl();
 
     // destructor
     ~CharacterTransmissionControl();
@@ -35,10 +38,8 @@ protected:
 
 private:
     // data members
-    bool isModem;
     ConnectDevicesControl* connectControl;
     TransmittingCharacterControl* characterControl;
-
 };
 
 #endif // CHARACTERTRANSMISSIONCONTROL_H

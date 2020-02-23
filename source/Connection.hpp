@@ -3,6 +3,7 @@
 
 // include statements //
 
+#include <Arduino.h>
 // #include <string>         // std::string TODO replaced with arduino String
 
 // structs //

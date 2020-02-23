@@ -1,27 +1,24 @@
 // include statements //
 
 // #include <string>         // std::string TODO: replaced with arduino String
-#include <iostream>       // TODO: remove after testing
 #include <vector>         // std::vector
-#include "CharacterTransmissionControl.hpp"   // CO-1
 #include "Keyboard.hpp"
-#include "SpeedTransmissionControl.hpp"       // CO-2
 
 // class //
 
 // constructors
 Keyboard::Keyboard() {
-    // Serial.Print("Keyboard::Keyboard() not implemented\n");
+    // Serial.print("Keyboard::Keyboard() not implemented\n");
 }
 
 // destructor
 Keyboard::~Keyboard() {
-    // Serial.Print("Keyboard::~Keyboard() not implemented\n");
+    // Serial.print("Keyboard::~Keyboard() not implemented\n");
 }
 
 // member functions
 KeyboardInput* Keyboard::read() {
-    // Serial.Print("Keyboard::read() not implemented\n");
+    // Serial.print("Keyboard::read() not implemented\n");
 
     if (!Serial.available()) return nullptr;
 
@@ -55,25 +52,3 @@ KeyboardInput* Keyboard::read() {
 }
 
 // member functions
-// UC-1.1 creates UC-3
-bool Keyboard::initiateConnectionRequest() {
-    // Serial.Print("Keyboard::initiateConnectionRequest() not implemented\n");
-
-    return false;
-}
-
-// UC-1.2 creates UC-5
-bool Keyboard::initiateCharacterTransmission() {
-    // Serial.Print("Keyboard::initiateCharacterTransmission() not implemented\n");
-    characterControl = CharacterTransmissionControl();
-
-    return false;
-}
-
-// UC-2.2 creates UC-6
-bool Keyboard::initiateSpeedTransmission() {
-    // Serial.Print("Keyboard::initiateSpeedTransmission() not implemented\n");
-    speedControl = SpeedTransmissionControl();
-
-    return false;
-}

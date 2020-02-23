@@ -8,16 +8,16 @@
 
 // constructor
 DataMessage::DataMessage(DataHeader* header, Data* data): Message(header->source, header->destination), header(header), data(data) {
-    // Serial.Print("DataMessage::Data(...) not implemented\n");
+    // Serial.print("DataMessage::Data(...) not implemented\n");
 }
 
 DataMessage::DataMessage(): Message(), header(new DataHeader()), data(new Data()) {
-    // Serial.Print("DataMessage::Data() not implemented\n");
+    // Serial.print("DataMessage::Data() not implemented\n");
 }
 
 // destructor
 DataMessage::~DataMessage() {
-    // Serial.Print("DataMessage::~DataMessage() not implemented\n");
+    // Serial.print("DataMessage::~DataMessage() not implemented\n");
 }
 
 DataHeader& DataMessage::getHeader() {

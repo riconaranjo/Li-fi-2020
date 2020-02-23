@@ -10,16 +10,16 @@
 
 // constructors
 Data::Data(DataHeader* header, BinaryData* data): header(header), data(data) {
-    // Serial.Print("Data::Data() not implemented\n");
+    // Serial.print("Data::Data() not implemented\n");
 }
 
 Data::Data(): header(nullptr), data(nullptr) {
-    // Serial.Print("Data::Data() not implemented\n");
+    // Serial.print("Data::Data() not implemented\n");
 }
 
 // destructor
 Data::~Data() {
-    // Serial.Print("Data::~Data() not implemented\n");
+    // Serial.print("Data::~Data() not implemented\n");
 }
 
 // member functions //

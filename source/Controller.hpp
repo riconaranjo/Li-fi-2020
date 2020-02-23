@@ -3,14 +3,15 @@
 
 // include statements //
 
-#include "Modem.hpp"
+#include "AbstractController.hpp"
+// #include "Modem.hpp" // TODO: remove
 
 // structs //
 
 // class //
 
 // main entity class for modem, manages all messages and connections
-class Controller {
+class Controller: public AbstractController {
 public:
     // constructors
     Controller();
@@ -26,10 +27,10 @@ protected:
 
 private:
     // data members
-    bool isModem;
+    // bool isModem;
     bool inCharacterTransmissionMode;
     bool inDataTransmissionMode;
-    Modem modem;
+    // Modem* modem;
 };
 
 #endif // CONTROLLER_H

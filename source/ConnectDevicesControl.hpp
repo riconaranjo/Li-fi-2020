@@ -3,13 +3,15 @@
 
 // include statements //
 
+#include "AbstractController.hpp"
+
 // structs //
 
 // class //
 
 // class for control object (CO-3) for UC-3
 // created by the FPGA object BO-2
-class ConnectDevicesControl {
+class ConnectDevicesControl: public AbstractController {
 public:
     // constructors
     ConnectDevicesControl();
@@ -35,7 +37,6 @@ protected:
 
 private:
     // data members
-
 };
 
 #endif // CONNECTDEVICESCONTROL_H

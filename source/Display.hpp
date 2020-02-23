@@ -3,6 +3,7 @@
 
 // include statements //
 
+#include <Arduino.h>
 // #include <string>         // std::string // TODO replaced with arduino String
 
 // structs //
@@ -19,7 +20,7 @@ public:
 
     // abstract member functions
     virtual String read() = 0;
-    virtual bool write() = 0;
+    virtual bool write(String) = 0;
 
 protected:
     // data members

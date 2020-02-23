@@ -5,7 +5,6 @@
 
 // #include <string>         // std::string TODO: replaced with Arduino String
 #include "Display.hpp"
-#include "Keyboard.hpp"
 
 // structs //
 
@@ -22,7 +21,6 @@ public:
 
     // member functions
     String read();
-    bool write(KeyboardInput);
     bool write(String);
 
 protected:

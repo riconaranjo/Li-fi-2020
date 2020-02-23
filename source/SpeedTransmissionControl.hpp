@@ -2,6 +2,7 @@
 #define SPEEDTRANSMISSIONCONTROL_H
 
 // include statements //
+#include "AbstractController.hpp"
 #include "ConnectDevicesControl.hpp"      // CO-3
 #include "TransmittingDataControl.hpp"    // CO-6
 
@@ -10,11 +11,11 @@
 // class //
 
 // class for control object for UC-2
-// created by the keyboard object BO-1
-class SpeedTransmissionControl {
+// created by the Controller object
+class SpeedTransmissionControl: public AbstractController {
 public:
     // constructors
-    SpeedTransmissionControl(bool);
+    SpeedTransmissionControl();
 
     // destructor
     ~SpeedTransmissionControl();
@@ -35,7 +36,6 @@ protected:
 
 private:
     // data members
-    bool isModem;
     ConnectDevicesControl* connectControl;
     TransmittingDataControl* dataControl;
 

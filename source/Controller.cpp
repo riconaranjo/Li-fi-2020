@@ -1,18 +1,21 @@
 // include statements //
 
 #include "Controller.hpp"
+#include "CharacterTransmissionControl.hpp"
+#include "SpeedTransmissionControl.hpp"
 
 // class //
 
 // constructor
-Controller::Controller(): modem(Modem()) {
-    isModem = false;
+Controller::Controller(): AbstractController() {
+// Controller::Controller(): AbstractController() {
     inCharacterTransmissionMode = false;
     inDataTransmissionMode = false;
 }
 
 // destructor
 Controller::~Controller() {
+    // delete modem;
 }
 
 // main controller logic as user device
@@ -21,7 +24,7 @@ void Controller::LaunchUser() {
         // error checking
         if (inCharacterTransmissionMode && inDataTransmissionMode) {
             // throw "cannot not be in both character and data transmission modes at the same time!"; // need to enable exceptions...
-            Serial.Print("!! cannot not be in both character and data transmission modes at the same time!");
+            Serial.print("!! cannot not be in both character and data transmission modes at the same time!");
             exit(-1);
         }
 
@@ -29,12 +32,12 @@ void Controller::LaunchUser() {
         FPGAResponse* last_FPGA_input = nullptr;
 
         // read FPGA for new messages
-        last_FPGA_input = modem.readFPGAInput();
-        last_keyboard_input = modem.readKeyboardInput();
+        last_FPGA_input = modem->readFPGAInput();
+        last_keyboard_input = modem->readKeyboardInput();
 
         if (inCharacterTransmissionMode) {
             // starts UC-1
-            CharacterTransmissionControl uc_1 = CharacterTransmissionControl(isModem); // SO
+            CharacterTransmissionControl uc_1 = CharacterTransmissionControl(); // SO
             uc_1.initiateConnection();  // S1u - creates UC-3
 
             while (true) {
@@ -47,8 +50,8 @@ void Controller::LaunchUser() {
             SpeedTransmissionControl uc_2 = SpeedTransmissionControl();
             uc_2.acceptConnection();  // S1u - creates UC-3
             while (true) {
-                uc_1.receiveData();         // S2u - handles connection signals
-                uc_1.displayDataSpeed();    // S3u - creates UC-6
+                uc_2.receiveData();         // S2u - handles connection signals
+                uc_2.displayDataSpeed();    // S3u - creates UC-6
             }
         }
     } // end while
@@ -60,7 +63,7 @@ void Controller::LaunchModem() {
         // error checking
         if (inCharacterTransmissionMode && inDataTransmissionMode) {
             // throw "cannot not be in both character and data transmission modes at the same time!"; // need to enable exceptions...
-            Serial.Print("!! cannot not be in both character and data transmission modes at the same time!");
+            Serial.print("!! cannot not be in both character and data transmission modes at the same time!");
             exit(-1);
         }
 
@@ -68,12 +71,12 @@ void Controller::LaunchModem() {
         FPGAResponse* last_FPGA_input = nullptr;
 
         // read FPGA for new messages
-        last_FPGA_input = modem.readFPGAInput();
-        last_keyboard_input = modem.readKeyboardInput();
+        last_FPGA_input = modem->readFPGAInput();
+        last_keyboard_input = modem->readKeyboardInput();
 
         if (inCharacterTransmissionMode) {
             // starts UC-1
-            CharacterTransmissionControl uc_1 = CharacterTransmissionControl(isModem); // SO
+            CharacterTransmissionControl uc_1 = CharacterTransmissionControl(); // SO
             uc_1.acceptConnection();  // S1m - creates UC-3
 
             while (true) {
@@ -86,8 +89,8 @@ void Controller::LaunchModem() {
             SpeedTransmissionControl uc_2 = SpeedTransmissionControl();
             uc_2.acceptConnection();  // S1m - creates UC-3
             while (true) {
-                uc_1.waitForCue();          // S2m - handles connection signals
-                uc_1.transmitData();        // S3m - creates UC-6
+                uc_2.waitForCue();          // S2m - handles connection signals
+                uc_2.transmitData();        // S3m - creates UC-6
             }
         }
     } // end while

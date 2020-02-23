@@ -13,18 +13,18 @@
 
 // constructors
 FPGA::FPGA() {
-    // Serial.Print("FPGA::FPGA() not implemented\n");
+    // Serial.print("FPGA::FPGA() not implemented\n");
 }
 
 // destructor
 FPGA::~FPGA() {
-    // Serial.Print("FPGA::~FPGA() not implemented\n");
+    // Serial.print("FPGA::~FPGA() not implemented\n");
 }
 
 // member functions //
 
 bool FPGA::write(Message& message) {
-    // Serial.Print("FPGA::FPGA() not implemented\n");
+    // Serial.print("FPGA::FPGA() not implemented\n");
 
     // TODO: figure out how to actually write data to FPGA
 
@@ -32,22 +32,22 @@ bool FPGA::write(Message& message) {
 }
 
 FPGAResponse* FPGA::read() {
-    // Serial.Print("FPGA::FPGA() not implemented\n");
+    // Serial.print("FPGA::FPGA() not implemented\n");
     
     // TODO: figure out how to actually read data from FPGA
     Message* message = new ControlMessage(SourceID(), DestinationID());
 
-    MessageType type = getMessageType(message);
+    MessageType type = getMessageType(*message);
 
-    FPGAResponse* response = FPGAResponse();
+    FPGAResponse* response = new FPGAResponse(); // TODO: make sure deallocated
     response->message = message;
     response->type = type;
 
     return response;
 }
 
-MessageType FPGA::getMessageType(Message* message) {
-    // Serial.Print("FPGA::getMessageType() not implemented\n");
+MessageType FPGA::getMessageType(Message& message) {
+    // Serial.print("FPGA::getMessageType() not implemented\n");
     // TODO: figure out how to parse out message type
 
     return MessageType::NONE;
