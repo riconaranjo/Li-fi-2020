@@ -2,20 +2,19 @@
 
 #include "SpeedTransmissionControl.hpp"
 
-// #include "TransmittingDataControl.hpp"    // CO-6
-
 // class //
 
 // constructors
-SpeedTransmissionControl::SpeedTransmissionControl(): modem(modem), isModem(isModem) {
+SpeedTransmissionControl::SpeedTransmissionControl() {
     // Serial.print("SpeedTransmissionControl::SpeedTransmissionControl() not implemented\n");
 }
 
 // destructor
 SpeedTransmissionControl::~SpeedTransmissionControl() {
     // Serial.print("SpeedTransmissionControl::~SpeedTransmissionControl() not implemented\n");
-    delete connectControl;
-    delete dataControl;
+    
+    if (connectControl) delete connectControl;
+    if (dataControl) delete dataControl;
 }
 
 // member functions //
@@ -37,7 +36,7 @@ bool SpeedTransmissionControl::initiateConnection() {
 // S2u - handles connection signals - creates UC-6
 bool SpeedTransmissionControl::receiveData() {
     // Serial.print("SpeedTransmissionControl::receiveData() not implemented\n");
-    dataControl = TransmittingDataControl();
+    dataControl = new TransmittingDataControl();
     return false;
 }
 

@@ -3,6 +3,7 @@
 
 // include statements //
 #include "AbstractController.hpp"
+#include "Modem.hpp"
 #include "ConnectDevicesControl.hpp"      // CO-3
 #include "TransmittingDataControl.hpp"    // CO-6
 
@@ -36,9 +37,8 @@ protected:
 
 private:
     // data members
-    ConnectDevicesControl* connectControl;
-    TransmittingDataControl* dataControl;
-
+    ConnectDevicesControl* connectControl = nullptr;
+    TransmittingDataControl* dataControl = nullptr;
 };
 
 #endif // SPEEDTRANSMISSIONCONTROL_H

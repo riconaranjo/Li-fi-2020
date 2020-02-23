@@ -3,8 +3,9 @@
 
 // include statements //
 
-#include <Arduino.h>
-// #include <string>         // std::string TODO replaced with arduino String
+#include <string>         // std::string
+#include "Arduino.h"
+#include "Constants.cpp"
 
 // structs //
 
@@ -15,21 +16,24 @@
 class Connection {
 public:
     // constructors
+    Connection();
     Connection(String connectionID, String sourceID);
 
     // destructor
     ~Connection();
 
     // member functions
-    String getConnectionID(); // ID of this connection
-    String getSourceID();     // ID of the other party in the connection
+    String getConnectionID_a(); // ID of this connection
+    String getSourceID_a();     // ID of the other party in the connection
+    std::string getSourceID();
+    std::string getConnectionID();
 
 protected:
 
 private:
     // data members
-    String connectionID;
-    String sourceID;
+    char connectionID[MAX_STRING_SIZE];
+    char sourceID[MAX_STRING_SIZE];
 
 };
 

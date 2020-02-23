@@ -7,7 +7,12 @@
 // class //
 
 // constructors
+Connection::Connection() { }
+
 Connection::Connection(String connectionID, String sourceID) {
+    connectionID.toCharArray(this->connectionID, connectionID.length());
+    sourceID.toCharArray(this->sourceID, sourceID.length());
+
     // Serial.print("Connection::Connection() not implemented\n");
 }
 
@@ -19,14 +24,25 @@ Connection::~Connection() {
 // member functions //
 
 // ID of this connection
-String Connection::getConnectionID() {
+String Connection::getConnectionID_a() {
+    // Serial.print("Connection::getConnectionID() not implemented\n");
+    return String(connectionID);
+}
+
+// ID of the other party in the connection
+String Connection::getSourceID_a() {
+    // Serial.print("Connection::getSourceID() not implemented\n");
+    return String(sourceID);
+}
+
+// ID of this connection
+std::string Connection::getConnectionID() {
     // Serial.print("Connection::getConnectionID() not implemented\n");
     return "";
 }
 
 // ID of the other party in the connection
-String Connection::getSourceID() {
+std::string Connection::getSourceID() {
     // Serial.print("Connection::getSourceID() not implemented\n");
     return "";
 }
-

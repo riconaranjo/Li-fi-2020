@@ -4,6 +4,7 @@
 // include statements //
 
 #include <vector>         // std::vector
+#include <string>         // std::string
 #include <unordered_map>  // std::unordered_map
 #include "Connection.hpp"
 #include "ControlMessage.hpp"

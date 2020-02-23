@@ -3,6 +3,7 @@
 // #include <string>         // std::string TODO: replaced with arduino String
 #include <vector>         // std::vector
 #include "Keyboard.hpp"
+#include "Constants.cpp"
 
 // class //
 
@@ -22,7 +23,7 @@ KeyboardInput* Keyboard::read() {
 
     if (!Serial.available()) return nullptr;
 
-    int characters[25];
+    int characters[MAX_STRING_SIZE];
     int length = 0;
     
     characters[0] = Serial.read();  // will not be -1

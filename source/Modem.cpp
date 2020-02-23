@@ -14,7 +14,7 @@
 // constructors
 Modem::Modem() {
     // Serial.print("Modem::Modem() not implemented\n");
-    std::unordered_map<String,Connection> connections = std::unordered_map<String,Connection>();
+    std::unordered_map<std::string,Connection> connections = std::unordered_map<std::string,Connection>();
     std::vector<ControlMessage> controlMessages = std::vector<ControlMessage>();
     std::vector<DataMessage> dataMessages = std::vector<DataMessage>();
 
@@ -58,7 +58,7 @@ DataMessage& Modem::receiveDataMessage() {
 
 bool Modem::addConnection(Connection& connection) {
     // Serial.print("Modem::addConnection() adding...\n");
-    connections.[connection.getConnectionId] = connection;
+    connections[connection.getConnectionID()] = connection;
 
     return false;
 }
