@@ -4,12 +4,34 @@ unsigned __exidx_start;
 unsigned __exidx_end;
 unsigned _gettimeofday;
 
+void setupDisplay();
+
 void setup() {
+    Serial.begin(9600);
+    Serial.println("running setup...");
+
+    // set up LCD display
+    setupDisplay();
+
+    // set up modem
     Controller controller;
     controller.LaunchModem();
-    Serial.print("running??\n");
 }
 
 void loop() {
-    Serial.print("~\n");
+    Serial.println("~");
+}
+
+// set up LCD display
+void setupDisplay() {
+    Serial2.begin(9600);
+    lcd.begin(Serial2);
+    lcd.setBacklight(0x005F5F5F);
+
+    // splash screen
+    delay(500);
+    lcd.clear();
+    lcd.print("Fuck this       Shit");  // 16x2 display
+    lcd.saveSplash();
+    delay(5000);
 }
