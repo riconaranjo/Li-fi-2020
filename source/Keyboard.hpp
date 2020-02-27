@@ -5,15 +5,15 @@
 
 #include <vector>         // std::vector
 #include <ctime>          // std::time
+#include <SerLCD.h>
 #include "Arduino.h"
 
 // structs //
 
 struct KeyboardInput {
     String text;
-    std::time_t time;
 
-    KeyboardInput(): text(String()), time(std::time_t())  { }
+    KeyboardInput(): text(String())  { }
 };
 
 // class //
@@ -22,7 +22,7 @@ struct KeyboardInput {
 class Keyboard {
 public:
     // constructors
-    Keyboard();
+    Keyboard(SerLCD&);
 
     // destructor
     ~Keyboard();
@@ -33,7 +33,7 @@ public:
 protected:
 
 private:
-
+    SerLCD& display;
 };
 
 #endif // KEYBOARD_H

@@ -1,7 +1,5 @@
 // include statements //
 
-// #include <string>         // std::string TODO: replaced with arduino String
-#include <vector>         // std::vector
 #include "Keyboard.hpp"
 #include "Constants.cpp"
 
@@ -17,39 +15,37 @@ Keyboard::~Keyboard() {
     // Serial.print("Keyboard::~Keyboard() not implemented\n");
 }
 
-// member functions
+// member functions //
+
 KeyboardInput* Keyboard::read() {
-    // Serial.print("Keyboard::read() not implemented\n");
 
     if (!Serial.available()) return nullptr;
 
-    int characters[MAX_STRING_SIZE];
+    char characters[MAX_STRING_SIZE];
     int length = 0;
-    
-    characters[0] = Serial.read();  // will not be -1
+    characters[0] = Serial.read();  // will not be -1 since available
 
-    for (length = 1; Serial.available(); length++) {
+    for (length = 1; Serial.available() && length < MAX_STRING_SIZE ; length++) {
         characters[length] = Serial.read();
         if (characters[length] == 10) break;
     }
 
     String input = "";
-    for (int j = 0; j <= length; j++) {
-      input += String(characters[j], DEC);
-      input += " ";
+    // exclude last ASCII character `10` 
+    for (int j = 0; j < length; j++) {
+      input += String(characters[j]);
     }
 
-    // TODO: remove after debugging
-    Serial.print(input);
+    Serial.println(input);  // TODO: remove after debugging
 
-    // add timestamp to each keypress
-    std::time_t current_time = std::time(nullptr);
+    display.clear();
+    display.print(input);
 
     KeyboardInput* keyboard = new KeyboardInput();
     keyboard->text = input;
-    keyboard->time = current_time;
 
+    delay(2000);
+
+    display.clear();
     return keyboard;
 }
-
-// member functions

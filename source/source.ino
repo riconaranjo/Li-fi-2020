@@ -23,15 +23,17 @@ void loop() {
 }
 
 // set up LCD display
+// pin 8 (teensy)  to  RX  (LCD)
+// 3V    (teensy)  to  RAW (LCD)
+// GND   (teensy)  to  -   (LCD)
 void setupDisplay() {
-    Serial2.begin(9600);
+    Serial2.begin(9600); // Serial2 since pin 8 is TX2
     lcd.begin(Serial2);
     lcd.setBacklight(0x005F5F5F);
 
-    // splash screen
     delay(500);
     lcd.clear();
     lcd.print("Fuck this       Shit");  // 16x2 display
     lcd.saveSplash();
-    delay(5000);
+    delay(3000);
 }

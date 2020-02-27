@@ -1,1 +1,1 @@
-const int MAX_STRING_SIZE = 25;
+const int MAX_STRING_SIZE = 32; // 16x2 display
