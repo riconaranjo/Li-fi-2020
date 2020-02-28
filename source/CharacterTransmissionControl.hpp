@@ -38,8 +38,8 @@ protected:
 
 private:
     // data members
-    ConnectDevicesControl* connectControl;
-    TransmittingCharacterControl* characterControl;
+    ConnectDevicesControl connectControl;
+    TransmittingCharacterControl characterControl;
 };
 
 #endif // CHARACTERTRANSMISSIONCONTROL_H

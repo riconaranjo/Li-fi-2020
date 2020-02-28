@@ -25,65 +25,109 @@ Modem::Modem() {
 
 // destructor
 Modem::~Modem() {
-    // Serial.print("Modem::~Modem() not implemented\n");
+    if (fpgaResponse) delete fpgaResponse;
+    if (keyboardInput) delete keyboardInput;
 }
 
 // member functions //
 
 // sends the control message to the FPGA
 bool Modem::sendControlMessage(ControlMessage& message) {
-    // Serial.print("Modem::sendControlMessage() not implemented\n");
-    return false;
+    Serial.print("Modem::sendControlMessage() not completed\n");
+    return fpga.write(message);
 }
 
 // sends the data message to the FPGA
 bool Modem::sendDataMessage(DataMessage& message) {
-    // Serial.print("Modem::sendDataMessage() not implemented\n");
-    return false;
+    Serial.print("Modem::sendDataMessage() not completed\n");
+    return fpga.write(message);
 }
 
 // receives the control message from the FPGA
-ControlMessage& Modem::receiveControlMessage() {
-    // Serial.print("Modem::receiveControlMessage() not implemented\n");
-    ControlMessage* message = new ControlMessage();
-    return *message;
+// message will be added to end of Modem::controlMessages
+// if return value is true
+bool Modem::receiveControlMessage() {
+    Serial.print("Modem::receiveControlMessage() not complete\n");
+    // TODO: finish this
+
+    readFPGAInput();
+    if (!fpgaResponse) return false;
+
+    // message type M2-4 is data message
+    if (fpgaResponse.type == MessageType::M2_4) return false;
+
+    ControlMessage message = ControlMessage(fpgaResponse->message);
+    controlMessages.push_back(message);
+
+    return true;
 }
 
 // receives the data message to the FPGA
-DataMessage& Modem::receiveDataMessage() {
-    // Serial.print("Modem::receiveDataMessage() not implemented\n");
+// message will be added to end of Modem::dataMessages
+// if return value is true
+bool Modem::receiveDataMessage() {
+    Serial.print("Modem::receiveDataMessage() not completed\n");
+    // TODO: finish this
+
+    readFPGAInput();
+    if (!fpgaResponse) return false;
+
+    // message type M2-4 is data message
+    if (fpgaResponse.type != MessageType::M2_4) return false;
+
+    DataMessage message = DataMessage(fpgaResponse->message);
+    dataMessages.push_back(message);
+
     DataMessage* message = new DataMessage();
-    return *message;
+    return true;
+}
+
+void Modem::displayDataMessage() {
+    
+    DataMessage& message = dataMessages.back();
+    externalDisplay.write(message.getData());
 }
 
 bool Modem::addConnection(Connection& connection) {
     // Serial.print("Modem::addConnection() adding...\n");
     connections[connection.getConnectionID()] = connection;
-
-    return false;
+    return true;
 }
 
 bool Modem::endConnection(Connection& connection) {
     // Serial.print("Modem::endConnection() removing...\n");
     connections.erase(connection.getConnectionID());
-
-    return false;
+    return true;
 }
 
 KeyboardInput* Modem::readKeyboardInput() {
-    // Serial.print("Modem::readKeyboardInput() not implemented\n");
 
-    return keyboard.read();
+    KeyboardInput* input = keyboard.read();
+    if (!input) return nullptr;
+
+    if (keyboardInput) delete keyboardInput;
+    keyboardInput = input;
+
+    return keyboardInput;
 }
 
 FPGAResponse* Modem::readFPGAInput() {
-    // Serial.print("Modem::readFPGAInput() not implemented\n");
 
-    return fpga.read();;
+    FPGAResponse* input = fpga.read();
+    if (!input) return nullptr;
+
+    if (fpgaResponse) delete fpgaResponse;
+    fpgaResponse = input;
+
+    return fpgaResponse;
 }
 
-void Modem::display(KeyboardInput*) {
-    // Serial.print("Modem::display() not implemented\n");
+void Modem::display(KeyboardInput* input) {
+    externalDisplay.write(input->text);
+}
+
+void Modem::display(String text) {
+    externalDisplay.write(text);
 }
 
 // modem member functions
@@ -132,7 +176,8 @@ void Modem::SendUserRejectRequestToSendDataMessage() {
 
 // send M2-5 as user
 void Modem::SendUserDataMessageACK() {
-    // Serial.print("Modem::SendUserDataMessageACK() not implemented\n");
+    Serial.print("Modem::SendUserDataMessageACK() not implemented\n");
+    // TODO: implement this
 }
 
 // send M2-6 as user

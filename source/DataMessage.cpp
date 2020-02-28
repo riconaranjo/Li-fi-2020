@@ -1,6 +1,5 @@
 // include statements //
 
-#include <iostream>       // TODO: remove after testing
 #include "DataMessage.hpp"
 #include "Message.hpp"
 
@@ -26,6 +25,17 @@ DataHeader& DataMessage::getHeader() {
 
 Data& DataMessage::getData() {
     return *data;
+}
+
+String DataMessage::getDataString() {
+    std::vector<char> characters = data->getData().data;
+    String text = "";
+
+    for(int i = 0; i < characters.size(); i++) {
+        text += String(characters[i]);
+    }
+
+    return text;
 }
 
 SourceID& DataMessage::getSourceID() {

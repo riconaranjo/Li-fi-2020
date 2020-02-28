@@ -24,7 +24,7 @@ FPGA::~FPGA() {
 // member functions //
 
 bool FPGA::write(Message& message) {
-    // Serial.print("FPGA::FPGA() not implemented\n");
+    Serial.print("FPGA::write() not implemented\n");
 
     // TODO: figure out how to actually write data to FPGA
 
@@ -32,14 +32,14 @@ bool FPGA::write(Message& message) {
 }
 
 FPGAResponse* FPGA::read() {
-    // Serial.print("FPGA::FPGA() not implemented\n");
+    Serial.print("FPGA::read() not implemented\n");
     
     // TODO: figure out how to actually read data from FPGA
     Message* message = new ControlMessage(SourceID(), DestinationID());
 
     MessageType type = getMessageType(*message);
 
-    FPGAResponse* response = new FPGAResponse(); // TODO: make sure deallocated
+    FPGAResponse* response = new FPGAResponse();
     response->message = message;
     response->type = type;
 

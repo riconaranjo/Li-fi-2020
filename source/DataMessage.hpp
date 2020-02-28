@@ -23,6 +23,7 @@ public:
 
     DataHeader& getHeader();
     Data& getData();
+    String getDataString();
 
     SourceID& getSourceID();
     DestinationID& getDestinationID();

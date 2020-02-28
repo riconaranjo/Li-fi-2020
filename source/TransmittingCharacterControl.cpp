@@ -21,81 +21,91 @@ TransmittingCharacterControl::~TransmittingCharacterControl() {
 
 // UC-5.2.2.1
 bool TransmittingCharacterControl::receiveDataMessageRequest() {
-    // Serial.print("TransmittingCharacterControl::receiveDataMessageRequest() not implemented\n");
-    return false;
+
+    bool response = modem->receiveControlMessage();
+    int attempts
+    while (!response) {
+        delay(100);
+        response = modem->receiveControlMessage();
+    }
+    return true;
 }
 
 // UC-5.2.2.1
-bool TransmittingCharacterControl::acknowledgeDataMessageRequest() {
-    // Serial.print("TransmittingCharacterControl::acknowledgeDataMessageRequest() not implemented\n");
+void TransmittingCharacterControl::acknowledgeDataMessageRequest() {
+
+    modem->SendUserDataMessageACK();
     return false;
 }
 
 // UC-5.2.3.1
 bool TransmittingCharacterControl::receiveDataMessage() {
-    // Serial.print("TransmittingCharacterControl::receiveDataMessage() not implemented\n");
+    Serial.print("TransmittingCharacterControl::receiveDataMessage() not implemented\n");
     return false;
 }
 
 // UC-5.2.3.1
 bool TransmittingCharacterControl::acknowledgeDataMessage() {
-    // Serial.print("TransmittingCharacterControl::acknowledgeDataMessage() not implemented\n");
+    Serial.print("TransmittingCharacterControl::acknowledgeDataMessage() not implemented\n");
     return false;
 }
 
 // UC-5.2.4
-bool TransmittingCharacterControl::displayDataMessage() {
-    // Serial.print("TransmittingCharacterControl::displayDataMessage() not implemented\n");
+void TransmittingCharacterControl::displayDataMessage() {
+    Serial.print("TransmittingCharacterControl::displayDataMessage() not implemented\n");
+    modem->displayLastDataMessage();
     return false;
 }
 
 // modem device perspective //
 
-// UC-5.2
-bool TransmittingCharacterControl::readKeyboardInput() {
-    // Serial.print("TransmittingCharacterControl::readKeyboardInput() not implemented\n");
-    return false;
-}
+// // UC-5.2
+// bool TransmittingCharacterControl::readKeyboardInput() {
+//     // Serial.print("TransmittingCharacterControl::readKeyboardInput() not implemented\n");
+//     return false;
+// }
 
-// UC-5.2.1
-bool TransmittingCharacterControl::displayCharacter() {
-    // Serial.print("TransmittingCharacterControl::displayCharacter() not implemented\n");
-    return false;
-}
+// // UC-5.2.1
+// bool TransmittingCharacterControl::displayCharacter() {
+//     // Serial.print("TransmittingCharacterControl::displayCharacter() not implemented\n");
+//     return false;
+// }
 
 // UC-5.2.2
-bool TransmittingCharacterControl::sendDataMessageRequest() {
-    // Serial.print("TransmittingCharacterControl::sendDataMessageRequest() not implemented\n");
-    return false;
+void TransmittingCharacterControl::sendDataMessageRequest() {
+    Serial.print("TransmittingCharacterControl::sendDataMessageRequest() not implemented\n");
+    // TODO: send data message to fpga
+    // set up DataMessage
+    // send data message to FPGA
+    modem->sendDataMessage();
 }
 
 // UC-5.2.2.1
 bool TransmittingCharacterControl::receiveDataMessageRequestResponse() {
-    // Serial.print("TransmittingCharacterControl::receiveDataMessageRequestResponse() not implemented\n");
+    Serial.print("TransmittingCharacterControl::receiveDataMessageRequestResponse() not implemented\n");
+    // TODO: read fpga input for response for data message request
     return false;
 }
 
 // UC-5.2.3
-bool TransmittingCharacterControl::sendDataMessage() {
-    // Serial.print("TransmittingCharacterControl::sendDataMessage() not implemented\n");
+void TransmittingCharacterControl::sendDataMessage() {
+    Serial.print("TransmittingCharacterControl::sendDataMessage() not implemented\n");
     return false;
 }
 
 // UC-5.2.3.1
 bool TransmittingCharacterControl::receiveDataMessageResponse() {
-    // Serial.print("TransmittingCharacterControl::receiveDataMessageResponse() not implemented\n");
+    Serial.print("TransmittingCharacterControl::receiveDataMessageResponse() not implemented\n");
     return false;
 }
 
 // UC-5.2.4
-bool TransmittingCharacterControl::reattemptDataMessageRequest() {
-    // Serial.print("TransmittingCharacterControl::reattemptDataMessageRequest() not implemented\n");
-    return false;
+void TransmittingCharacterControl::resendDataMessageRequest() {
+    return this->sendDataMessageRequest();
 }
 
 // UC-5.2.3
-bool TransmittingCharacterControl::resendDataMessage() {
-    // Serial.print("TransmittingCharacterControl::resendDataMessage() not implemented\n");
-    return false;
+void TransmittingCharacterControl::resendDataMessage() {
+    return this->sendDataMessage();
 }
 

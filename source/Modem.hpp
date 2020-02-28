@@ -30,8 +30,9 @@ public:
     // member functions
     bool sendControlMessage(ControlMessage& message);
     bool sendDataMessage(DataMessage& message);
-    ControlMessage& receiveControlMessage();
-    DataMessage& receiveDataMessage();
+    bool receiveControlMessage();
+    bool receiveDataMessage();
+    void displayDataMessage();
     bool addConnection(Connection& connection);
     bool endConnection(Connection& connection);
     KeyboardInput* readKeyboardInput();
@@ -58,13 +59,14 @@ protected:
 
 private:
     // data members
-    std::unordered_map<std::string,Connection> connections; // key is Connection.connectionID
+    std::unordered_map<std::string,Connection> connections; // key is Connection::connectionID
     std::vector<ControlMessage> controlMessages;
     std::vector<DataMessage> dataMessages;
 
     FPGA fpga;
-    KeyboardInput keyboardInput;
     Keyboard keyboard;
+    FPGAResponse* fpgaResponse;
+    KeyboardInput* keyboardInput;
     // SevenSegmentDisplay sevenSegmentDisplay; // TODO: is an abstract class?
     ExternalDisplay externalDisplay;
 };

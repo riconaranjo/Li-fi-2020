@@ -39,9 +39,18 @@ bool CharacterTransmissionControl::receiveCharacter() {
     // send heartbeat if it's been at least 30 s since last heart beat
     // TODO: heartbeat logic omitted for demo
 
-    KeyboardInput* input = modem->readKeyboardInput();
-
     characterControl = new TransmittingCharacterControl();
+
+    // S1u - receive data request
+    characterControl.receiveDataMessageRequest(); // this is an infinite loop
+    // S2u - send data request ack
+    characterControl.acknowledgeDataMessageRequest();
+    // S3u - wait for data message
+    characterControl.receiveDataMessage();
+    // S4u - send data ack
+    characterControl.acknowledgeDataMessage();
+    // S5u - display data
+    characterControl.displayDataMessage();
 
     return false;
 
@@ -58,7 +67,6 @@ bool CharacterTransmissionControl::displayCharacter() {
 // UC-1.1 creates UC-3
 // S1m - creates UC-3
 bool CharacterTransmissionControl::acceptConnection() {
-    // Serial.print("CharacterTransmissionControl::acceptConnection() not implemented\n");
     connectControl = new ConnectDevicesControl();
     return false;
 }
@@ -66,13 +74,52 @@ bool CharacterTransmissionControl::acceptConnection() {
 // UC-1.2
 // S2m - handles connection signals
 bool CharacterTransmissionControl::getKeyboardInput() {
-    // Serial.print("CharacterTransmissionControl::getKeyboardInput() not implemented\n");
-    return false;
+    return modem->readKeyboardInput() != nullptr;
 }
 
 // UC-1.2 creates UC-5
 bool CharacterTransmissionControl::transmitCharacter() {
-    // Serial.print("CharacterTransmissionControl::transmitCharacter() not implemented\n");
-    characterControl = new TransmittingCharacterControl();
-    return false;
+    characterControl = TransmittingCharacterControl();
+
+    // S1m - send data request
+    characterControl.sendDataMessageRequest();
+
+    // S2m - wait for data request response
+    bool response = characterControl.receiveDataMessageRequestResponse();
+    int attempts = 0;
+
+    while (!response) {
+        attempts++;
+        if (attempts == 25) return false;
+
+        delay(100);
+
+        // S1m - resend data request
+        characterControl.resendDataMessageRequest();
+
+        // S2m - wait for data request response
+        response = characterControl.receiveDataMessageRequestResponse();
+    }
+
+    // S3m - send data message
+    characterControl.sendDataMessage();
+
+    // S4m - wait for data message ack
+    response = characterControl.receiveDataMessageResponse();
+    attempts = 0;
+
+    while (!response) {
+        attempts++;
+        if (attempts == 25) return false;
+
+        delay(100);
+
+        // S3m - resend data message
+        characterControl.resendDataMessage();
+
+        // S4m - wait for data message ack
+        response = characterControl.receiveDataMessageResponse();
+    }
+
+    return true;
 }

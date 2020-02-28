@@ -13,7 +13,7 @@
 struct KeyboardInput {
     String text;
 
-    KeyboardInput(): text(String())  { }
+    KeyboardInput(): text(String()) { }
 };
 
 // class //
