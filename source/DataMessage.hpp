@@ -3,6 +3,7 @@
 
 // include statements //
 
+#include "Arduino.h"
 #include "Message.hpp"
 #include "Data.hpp"
 

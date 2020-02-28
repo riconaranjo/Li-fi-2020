@@ -31,7 +31,7 @@ String DataMessage::getDataString() {
     std::vector<char> characters = data->getData().data;
     String text = "";
 
-    for(int i = 0; i < characters.size(); i++) {
+    for(uint i = 0; i < characters.size(); i++) {
         text += String(characters[i]);
     }
 

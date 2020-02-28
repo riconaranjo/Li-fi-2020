@@ -58,7 +58,9 @@ void Controller::LaunchUser() {
 }
 
 // main controller logic as modem device
-void Controller::LaunchModem() {
+void Controller::LaunchModem(SerLCD& display) {
+    modem->setupKeyboard(display);
+
     while (true) {
         // error checking
         if (inCharacterTransmissionMode && inDataTransmissionMode) {

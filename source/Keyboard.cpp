@@ -6,9 +6,7 @@
 // class //
 
 // constructors
-Keyboard::Keyboard() {
-    // Serial.print("Keyboard::Keyboard() not implemented\n");
-}
+Keyboard::Keyboard(SerLCD& lcd): display(lcd) { }
 
 // destructor
 Keyboard::~Keyboard() {

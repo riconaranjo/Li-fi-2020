@@ -1,46 +1,51 @@
 // include statements //
 
 // #include <iostream>       // TODO: remove after testing
-#include <unordered_map>  // std::unordered_map
-#include <vector>         // std::vector
-#include "Connection.hpp"
-#include "ControlMessage.hpp"
-#include "DataMessage.hpp"
-#include "Keyboard.hpp"
+// #include <unordered_map>  // std::unordered_map
+// #include <vector>         // std::vector
+// #include "Connection.hpp"
+// #include "ControlMessage.hpp"
+// #include "DataMessage.hpp"
+// #include "Keyboard.hpp"
 #include "Modem.hpp"
 
 // class //
 
 // constructors
-Modem::Modem() {
+Modem::Modem(): fpga(new FPGA()) {
     // Serial.print("Modem::Modem() not implemented\n");
     std::unordered_map<std::string,Connection> connections = std::unordered_map<std::string,Connection>();
     std::vector<ControlMessage> controlMessages = std::vector<ControlMessage>();
     std::vector<DataMessage> dataMessages = std::vector<DataMessage>();
 
-    Keyboard keyboard = Keyboard();
     // SevenSegmentDisplay sevenSegmentDisplay = SevenSegmentDisplay(); // TODO: abstract class??
     ExternalDisplay externalDisplay = ExternalDisplay();
 }
 
 // destructor
 Modem::~Modem() {
+    if (fpga) delete fpga;
+    if (keyboard) delete keyboard;
     if (fpgaResponse) delete fpgaResponse;
     if (keyboardInput) delete keyboardInput;
 }
 
 // member functions //
 
+void Modem::setupKeyboard(SerLCD& display) {
+    keyboard = new Keyboard(display);
+}
+
 // sends the control message to the FPGA
 bool Modem::sendControlMessage(ControlMessage& message) {
     Serial.print("Modem::sendControlMessage() not completed\n");
-    return fpga.write(message);
+    return fpga->write(message);
 }
 
 // sends the data message to the FPGA
 bool Modem::sendDataMessage(DataMessage& message) {
     Serial.print("Modem::sendDataMessage() not completed\n");
-    return fpga.write(message);
+    return fpga->write(message);
 }
 
 // receives the control message from the FPGA
@@ -54,9 +59,10 @@ bool Modem::receiveControlMessage() {
     if (!fpgaResponse) return false;
 
     // message type M2-4 is data message
-    if (fpgaResponse.type == MessageType::M2_4) return false;
+    if (fpgaResponse->type == MessageType::M2_4) return false;
 
-    ControlMessage message = ControlMessage(fpgaResponse->message);
+    ControlMessage* message = fpgaResponse->message;
+    // ControlMessage* message = (ControlMessage) fpgaResponse->message;
     controlMessages.push_back(message);
 
     return true;
@@ -73,19 +79,19 @@ bool Modem::receiveDataMessage() {
     if (!fpgaResponse) return false;
 
     // message type M2-4 is data message
-    if (fpgaResponse.type != MessageType::M2_4) return false;
+    if (fpgaResponse->type != MessageType::M2_4) return false;
 
-    DataMessage message = DataMessage(fpgaResponse->message);
+    DataMessage* message = fpgaResponse->message;
+    // DataMessage message = DataMessage(fpgaResponse->message);
     dataMessages.push_back(message);
 
-    DataMessage* message = new DataMessage();
     return true;
 }
 
 void Modem::displayDataMessage() {
     
-    DataMessage& message = dataMessages.back();
-    externalDisplay.write(message.getData());
+    DataMessage* message = dataMessages.back();
+    externalDisplay.write(message->getDataString());
 }
 
 bool Modem::addConnection(Connection& connection) {
@@ -102,7 +108,7 @@ bool Modem::endConnection(Connection& connection) {
 
 KeyboardInput* Modem::readKeyboardInput() {
 
-    KeyboardInput* input = keyboard.read();
+    KeyboardInput* input = keyboard->read();
     if (!input) return nullptr;
 
     if (keyboardInput) delete keyboardInput;
@@ -113,7 +119,7 @@ KeyboardInput* Modem::readKeyboardInput() {
 
 FPGAResponse* Modem::readFPGAInput() {
 
-    FPGAResponse* input = fpga.read();
+    FPGAResponse* input = fpga->read();
     if (!input) return nullptr;
 
     if (fpgaResponse) delete fpgaResponse;

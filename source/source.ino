@@ -4,6 +4,8 @@ unsigned __exidx_start;
 unsigned __exidx_end;
 unsigned _gettimeofday;
 
+SerLCD display;
+
 void setupDisplay();
 
 void setup() {
@@ -15,7 +17,7 @@ void setup() {
 
     // set up modem
     Controller controller;
-    controller.LaunchModem();
+    controller.LaunchModem(display);
 }
 
 void loop() {
@@ -28,12 +30,12 @@ void loop() {
 // GND   (teensy)  to  -   (LCD)
 void setupDisplay() {
     Serial2.begin(9600); // Serial2 since pin 8 is TX2
-    lcd.begin(Serial2);
-    lcd.setBacklight(0x005F5F5F);
+    display.begin(Serial2);
+    display.setBacklight(0x005F5F5F);
 
     delay(500);
-    lcd.clear();
-    lcd.print("Fuck this       Shit");  // 16x2 display
-    lcd.saveSplash();
+    display.clear();
+    display.print("Fuck this       Shit");  // 16x2 display
+    display.saveSplash();
     delay(3000);
 }

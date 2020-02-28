@@ -9,9 +9,6 @@ CharacterTransmissionControl::CharacterTransmissionControl(): AbstractController
 
 // destructor
 CharacterTransmissionControl::~CharacterTransmissionControl() {
-    // Serial.print("CharacterTransmissionControl::~CharacterTransmissionControl() not implemented\n");
-    delete connectControl;
-    delete characterControl;
 }
 
 // member functions //
@@ -23,10 +20,10 @@ CharacterTransmissionControl::~CharacterTransmissionControl() {
 bool CharacterTransmissionControl::initiateConnection() {
     // Serial.print("CharacterTransmissionControl::initiateConnection() not implemented\n");
 
-    connectControl = new ConnectDevicesControl();
+    connectControl = ConnectDevicesControl();
 
-    connectControl->requestToConnect();
-    bool response = connectControl->receiveConnectionResponse();
+    connectControl.requestToConnect();
+    bool response = connectControl.receiveConnectionResponse();
 
     return response;
 }
@@ -39,7 +36,7 @@ bool CharacterTransmissionControl::receiveCharacter() {
     // send heartbeat if it's been at least 30 s since last heart beat
     // TODO: heartbeat logic omitted for demo
 
-    characterControl = new TransmittingCharacterControl();
+    characterControl = TransmittingCharacterControl();
 
     // S1u - receive data request
     characterControl.receiveDataMessageRequest(); // this is an infinite loop
@@ -52,8 +49,7 @@ bool CharacterTransmissionControl::receiveCharacter() {
     // S5u - display data
     characterControl.displayDataMessage();
 
-    return false;
-
+    return true;
 }
 
 // UC-1.3
@@ -67,8 +63,10 @@ bool CharacterTransmissionControl::displayCharacter() {
 // UC-1.1 creates UC-3
 // S1m - creates UC-3
 bool CharacterTransmissionControl::acceptConnection() {
-    connectControl = new ConnectDevicesControl();
-    return false;
+    connectControl = ConnectDevicesControl();
+
+    bool response = connectControl.respondToConnectionRequest();
+    return response;
 }
 
 // UC-1.2

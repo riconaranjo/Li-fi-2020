@@ -23,7 +23,7 @@ TransmittingCharacterControl::~TransmittingCharacterControl() {
 bool TransmittingCharacterControl::receiveDataMessageRequest() {
 
     bool response = modem->receiveControlMessage();
-    int attempts
+
     while (!response) {
         delay(100);
         response = modem->receiveControlMessage();
@@ -33,9 +33,7 @@ bool TransmittingCharacterControl::receiveDataMessageRequest() {
 
 // UC-5.2.2.1
 void TransmittingCharacterControl::acknowledgeDataMessageRequest() {
-
     modem->SendUserDataMessageACK();
-    return false;
 }
 
 // UC-5.2.3.1
@@ -45,16 +43,14 @@ bool TransmittingCharacterControl::receiveDataMessage() {
 }
 
 // UC-5.2.3.1
-bool TransmittingCharacterControl::acknowledgeDataMessage() {
+void TransmittingCharacterControl::acknowledgeDataMessage() {
     Serial.print("TransmittingCharacterControl::acknowledgeDataMessage() not implemented\n");
-    return false;
 }
 
 // UC-5.2.4
 void TransmittingCharacterControl::displayDataMessage() {
     Serial.print("TransmittingCharacterControl::displayDataMessage() not implemented\n");
     modem->displayLastDataMessage();
-    return false;
 }
 
 // modem device perspective //
@@ -77,7 +73,8 @@ void TransmittingCharacterControl::sendDataMessageRequest() {
     // TODO: send data message to fpga
     // set up DataMessage
     // send data message to FPGA
-    modem->sendDataMessage();
+    DataMessage* message = new DataMessage();
+    modem->sendDataMessage(*message);
 }
 
 // UC-5.2.2.1
@@ -90,7 +87,6 @@ bool TransmittingCharacterControl::receiveDataMessageRequestResponse() {
 // UC-5.2.3
 void TransmittingCharacterControl::sendDataMessage() {
     Serial.print("TransmittingCharacterControl::sendDataMessage() not implemented\n");
-    return false;
 }
 
 // UC-5.2.3.1
@@ -101,11 +97,11 @@ bool TransmittingCharacterControl::receiveDataMessageResponse() {
 
 // UC-5.2.4
 void TransmittingCharacterControl::resendDataMessageRequest() {
-    return this->sendDataMessageRequest();
+    this->sendDataMessageRequest();
 }
 
 // UC-5.2.3
 void TransmittingCharacterControl::resendDataMessage() {
-    return this->sendDataMessage();
+    this->sendDataMessage();
 }
 

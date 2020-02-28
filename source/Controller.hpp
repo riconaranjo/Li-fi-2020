@@ -3,8 +3,8 @@
 
 // include statements //
 
+#include <SerLCD.h>
 #include "AbstractController.hpp"
-// #include "Modem.hpp" // TODO: remove
 
 // structs //
 
@@ -20,17 +20,14 @@ public:
     ~Controller();
 
     // general member functions
-    void LaunchModem();
+    void LaunchModem(SerLCD&);
     void LaunchUser();
 
 protected:
 
 private:
-    // data members
-    // bool isModem;
     bool inCharacterTransmissionMode;
     bool inDataTransmissionMode;
-    // Modem* modem;
 };
 
 #endif // CONTROLLER_H

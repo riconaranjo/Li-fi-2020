@@ -4,8 +4,10 @@
 // include statements //
 
 #include <vector>         // std::vector
+#include <SerLCD.h>
 #include <string>         // std::string
 #include <unordered_map>  // std::unordered_map
+#include "Arduino.h"
 #include "Connection.hpp"
 #include "ControlMessage.hpp"
 #include "DataMessage.hpp"
@@ -28,17 +30,20 @@ public:
     ~Modem();
 
     // member functions
-    bool sendControlMessage(ControlMessage& message);
-    bool sendDataMessage(DataMessage& message);
+    void setupKeyboard(SerLCD&);
+    bool sendControlMessage(ControlMessage&);
+    bool sendDataMessage(DataMessage&);
     bool receiveControlMessage();
     bool receiveDataMessage();
     void displayDataMessage();
-    bool addConnection(Connection& connection);
-    bool endConnection(Connection& connection);
+    bool addConnection(Connection&);
+    bool endConnection(Connection&);
     KeyboardInput* readKeyboardInput();
     FPGAResponse* readFPGAInput();
 
     void display(KeyboardInput*);
+    void display(String);
+    void displayLastDataMessage(); // TODO: implement
 
     // user member functions
     void SendUserRequestToConnect();                     // M1-1
@@ -60,11 +65,11 @@ protected:
 private:
     // data members
     std::unordered_map<std::string,Connection> connections; // key is Connection::connectionID
-    std::vector<ControlMessage> controlMessages;
-    std::vector<DataMessage> dataMessages;
+    std::vector<ControlMessage*> controlMessages;
+    std::vector<DataMessage*> dataMessages;
 
-    FPGA fpga;
-    Keyboard keyboard;
+    FPGA* fpga;
+    Keyboard* keyboard;
     FPGAResponse* fpgaResponse;
     KeyboardInput* keyboardInput;
     // SevenSegmentDisplay sevenSegmentDisplay; // TODO: is an abstract class?
