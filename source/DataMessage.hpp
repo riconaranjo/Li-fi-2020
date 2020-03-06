@@ -22,12 +22,15 @@ public:
     // destructor
     ~DataMessage();
 
+    // member functions
     DataHeader& getHeader();
     Data& getData();
     String getDataString();
 
     SourceID& getSourceID();
     DestinationID& getDestinationID();
+
+    bool setUpDataMessage();
 
 protected:
 

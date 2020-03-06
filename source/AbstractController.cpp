@@ -6,8 +6,11 @@
 
 // constructor
 AbstractController::AbstractController() {
-
     if(!modem) modem = new Modem();
+
+    // TODO: remove
+    Serial.println("abstract done...");
+    delay(1000);
 }
 
 // destructor

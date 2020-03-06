@@ -3,18 +3,15 @@
 
 // include statements //
 
-#include <vector>         // std::vector
+// #include "Arduino.h"      // String
 #include <SerLCD.h>
 #include <string>         // std::string
 #include <unordered_map>  // std::unordered_map
-#include "Arduino.h"
-#include "Connection.hpp"
-#include "ControlMessage.hpp"
-#include "DataMessage.hpp"
-#include "ExternalDisplay.hpp"
+#include <vector>         // std::vector
+
 #include "FPGA.hpp"
 #include "Keyboard.hpp"
-#include "SevenSegmentDisplay.hpp"
+#include "Modem.hpp"
 
 // structs //
 
@@ -24,25 +21,19 @@
 class Modem {
 public:
     // constructors
-    Modem();
+    Modem(SerLCD&);
 
     // destructor
     ~Modem();
 
     // member functions
-    void setupKeyboard(SerLCD&, PS2Keyboard&);
-    bool sendControlMessage(ControlMessage&);
-    bool sendDataMessage(DataMessage&);
-    bool receiveControlMessage();
-    bool receiveDataMessage();
-    bool addConnection(Connection&);
-    bool endConnection(Connection&);
+    void setupFPGA();
+    void setupKeyboard(PS2Keyboard&);
+
     KeyboardInput* readKeyboardInput();
     FPGAResponse* readFPGAInput();
 
-    void display(KeyboardInput*);
-    void display(String);
-    void displayDataMessage();
+    void print(String);
 
     // user member functions
     void sendUserRequestToConnect();                     // M1-1
@@ -63,16 +54,9 @@ protected:
 
 private:
     // data members
-    std::unordered_map<std::string,Connection> connections; // key is Connection::connectionID
-    std::vector<ControlMessage*> controlMessages;
-    std::vector<DataMessage*> dataMessages;
-
     FPGA* fpga;
     Keyboard* keyboard;
-    FPGAResponse* fpgaResponse;
-    KeyboardInput* keyboardInput;
-    // SevenSegmentDisplay sevenSegmentDisplay; // TODO: is an abstract class?
-    ExternalDisplay externalDisplay;
+    SerLCD& display;
 };
 
 #endif // MODEM_H

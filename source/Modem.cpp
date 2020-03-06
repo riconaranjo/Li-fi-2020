@@ -13,13 +13,17 @@
 
 // constructors
 Modem::Modem(): fpga(new FPGA()) {
-    // Serial.print("Modem::Modem() not implemented\n");
+
     std::unordered_map<std::string,Connection> connections = std::unordered_map<std::string,Connection>();
     std::vector<ControlMessage> controlMessages = std::vector<ControlMessage>();
     std::vector<DataMessage> dataMessages = std::vector<DataMessage>();
 
     // SevenSegmentDisplay sevenSegmentDisplay = SevenSegmentDisplay(); // TODO: abstract class??
     ExternalDisplay externalDisplay = ExternalDisplay();
+    
+    // TODO: remove
+    Serial.println("modem done...");
+    delay(1000);
 }
 
 // destructor
@@ -32,8 +36,8 @@ Modem::~Modem() {
 
 // member functions //
 
-void Modem::setupKeyboard(SerLCD& display) {
-    keyboard = new Keyboard(display);
+void Modem::setupKeyboard(SerLCD& display, PS2Keyboard& kb) {
+    keyboard = new Keyboard(display, kb);
 }
 
 // sends the control message to the FPGA
@@ -61,8 +65,8 @@ bool Modem::receiveControlMessage() {
     // message type M2-4 is data message
     if (fpgaResponse->type == MessageType::M2_4) return false;
 
-    ControlMessage* message = fpgaResponse->message;
-    // ControlMessage* message = (ControlMessage) fpgaResponse->message;
+    ControlMessage* message = (ControlMessage*) fpgaResponse->message;
+    // ControlMessage* message = (ControlMessage) fpgaResponse->message; // TODO: remove if this isn't needed
     controlMessages.push_back(message);
 
     return true;
@@ -81,17 +85,11 @@ bool Modem::receiveDataMessage() {
     // message type M2-4 is data message
     if (fpgaResponse->type != MessageType::M2_4) return false;
 
-    DataMessage* message = fpgaResponse->message;
-    // DataMessage message = DataMessage(fpgaResponse->message);
+    DataMessage* message = (DataMessage*) fpgaResponse->message;
+    // DataMessage message = DataMessage(fpgaResponse->message); // TODO: remove if this isn't needed
     dataMessages.push_back(message);
 
     return true;
-}
-
-void Modem::displayDataMessage() {
-    
-    DataMessage* message = dataMessages.back();
-    externalDisplay.write(message->getDataString());
 }
 
 bool Modem::addConnection(Connection& connection) {
@@ -108,6 +106,10 @@ bool Modem::endConnection(Connection& connection) {
 
 KeyboardInput* Modem::readKeyboardInput() {
 
+    // TODO: remove
+    Serial.println("Modem::readKeyboardInput()");
+    delay(1000);
+
     KeyboardInput* input = keyboard->read();
     if (!input) return nullptr;
 
@@ -118,6 +120,8 @@ KeyboardInput* Modem::readKeyboardInput() {
 }
 
 FPGAResponse* Modem::readFPGAInput() {
+
+    Serial.println("Modem::readFPGAInput()");
 
     FPGAResponse* input = fpga->read();
     if (!input) return nullptr;
@@ -136,62 +140,71 @@ void Modem::display(String text) {
     externalDisplay.write(text);
 }
 
+// displays last received data message on display
+void Modem::displayDataMessage() {
+    
+    DataMessage* message = dataMessages.back();
+    externalDisplay.write(message->getDataString());
+}
+
 // modem member functions
 
 // send M1-2 as modem
-void Modem::SendModemAcceptRequestToConnect() {
+void Modem::sendModemAcceptRequestToConnect() {
     // Serial.print("Modem::SendModemAcceptRequestToConnect() not implemented\n");
 }
 
 // send M1-3 as modem
-void Modem::SendModemRejectRequestToConnect() {
+void Modem::sendModemRejectRequestToConnect() {
     // Serial.print("Modem::SendModemRejectRequestToConnect() not implemented\n");
 }
 
 // send M2-1 as modem
-void Modem::SendModemRequestToSendDataMessage() {
+void Modem::sendModemRequestToSendDataMessage() {
     // Serial.print("Modem::SendModemRequestToSendDataMessage() not implemented\n");
 }
 
 // send M2-4 as modem
-void Modem::SendModemDataMessage() {
-    // Serial.print("Modem::SendModemDataMessage() not implemented\n");
+void Modem::sendModemDataMessage() {
+    Serial.print("Modem::SendModemDataMessage() not implemented\n");
+    // TODO: implement this
 }
 
 // send M3-2 as modem
-void Modem::SendModemHeartBeat() {
+void Modem::sendModemHeartBeat() {
     // Serial.print("Modem::SendModemHeartBeat() not implemented\n");
 }
 
-// user member functions
+// user member functions //
 
 // send M1-1 as user
-void Modem::SendUserRequestToConnect() {
+void Modem::sendUserRequestToConnect() {
     // Serial.print("Modem::SendUserRequestToConnect() not implemented\n");
 }
 
 // send M2-2 as user
-void Modem::SendUserAcceptRequestToSendDataMessage() {
-    // Serial.print("Modem::SendUserAcceptRequestToSendDataMessage() not implemented\n");
+void Modem::sendUserAcceptRequestToSendDataMessage() {
+    Serial.print("Modem::SendUserAcceptRequestToSendDataMessage() not implemented\n");
 }
 
 // send M2-3 as user
-void Modem::SendUserRejectRequestToSendDataMessage() {
+void Modem::sendUserRejectRequestToSendDataMessage() {
     // Serial.print("Modem::SendUserRejectRequestToSendDataMessage() not implemented\n");
 }
 
 // send M2-5 as user
-void Modem::SendUserDataMessageACK() {
+void Modem::sendUserDataMessageACK() {
     Serial.print("Modem::SendUserDataMessageACK() not implemented\n");
     // TODO: implement this
 }
 
 // send M2-6 as user
-void Modem::SendUserDataMessageNACK() {
+void Modem::sendUserDataMessageNACK() {
     // Serial.print("Modem::SendUserDataMessageNACK() not implemented\n");
 }
 
 // send M3-1 as user
-void Modem::SendUserHeartBeat() {
+void Modem::sendUserHeartBeat() {
     // Serial.print("Modem::SendUserHeartBeat() not implemented\n");
+    // omitted for demo
 }

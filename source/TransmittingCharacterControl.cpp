@@ -33,24 +33,23 @@ bool TransmittingCharacterControl::receiveDataMessageRequest() {
 
 // UC-5.2.2.1
 void TransmittingCharacterControl::acknowledgeDataMessageRequest() {
-    modem->SendUserDataMessageACK();
+    modem->sendUserAcceptRequestToSendDataMessage();
 }
 
 // UC-5.2.3.1
 bool TransmittingCharacterControl::receiveDataMessage() {
-    Serial.print("TransmittingCharacterControl::receiveDataMessage() not implemented\n");
-    return false;
+    bool response = modem->receiveDataMessage();
+    return response;
 }
 
 // UC-5.2.3.1
 void TransmittingCharacterControl::acknowledgeDataMessage() {
-    Serial.print("TransmittingCharacterControl::acknowledgeDataMessage() not implemented\n");
+    modem->sendUserDataMessageACK();
 }
 
 // UC-5.2.4
 void TransmittingCharacterControl::displayDataMessage() {
-    Serial.print("TransmittingCharacterControl::displayDataMessage() not implemented\n");
-    modem->displayLastDataMessage();
+    modem->displayDataMessage();
 }
 
 // modem device perspective //
@@ -69,30 +68,25 @@ void TransmittingCharacterControl::displayDataMessage() {
 
 // UC-5.2.2
 void TransmittingCharacterControl::sendDataMessageRequest() {
-    Serial.print("TransmittingCharacterControl::sendDataMessageRequest() not implemented\n");
-    // TODO: send data message to fpga
-    // set up DataMessage
-    // send data message to FPGA
     DataMessage* message = new DataMessage();
     modem->sendDataMessage(*message);
 }
 
 // UC-5.2.2.1
 bool TransmittingCharacterControl::receiveDataMessageRequestResponse() {
-    Serial.print("TransmittingCharacterControl::receiveDataMessageRequestResponse() not implemented\n");
-    // TODO: read fpga input for response for data message request
-    return false;
+    bool response = modem->receiveControlMessage();
+    return response;
 }
 
 // UC-5.2.3
 void TransmittingCharacterControl::sendDataMessage() {
-    Serial.print("TransmittingCharacterControl::sendDataMessage() not implemented\n");
+    modem->sendModemDataMessage();
 }
 
 // UC-5.2.3.1
 bool TransmittingCharacterControl::receiveDataMessageResponse() {
-    Serial.print("TransmittingCharacterControl::receiveDataMessageResponse() not implemented\n");
-    return false;
+    bool response = modem->receiveControlMessage();
+    return response;
 }
 
 // UC-5.2.4

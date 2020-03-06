@@ -63,9 +63,16 @@ bool CharacterTransmissionControl::displayCharacter() {
 // UC-1.1 creates UC-3
 // S1m - creates UC-3
 bool CharacterTransmissionControl::acceptConnection() {
+    // TODO: omitted for demo
+    return true;
+    Serial.println("CharacterTransmissionControl::acceptConnection()");
+    delay(1000);
     connectControl = ConnectDevicesControl();
 
     bool response = connectControl.respondToConnectionRequest();
+    
+    Serial.println("CharacterTransmissionControl::acceptConnection() done");
+    delay(1000);
     return response;
 }
 

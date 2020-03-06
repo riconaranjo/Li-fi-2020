@@ -10,6 +10,8 @@
 
 struct MessageOptions {
     std::bitset<12> options; // one bit high for each control message type, default bit value is zero
+
+    MessageOptions(): options(std::bitset<12>()) { }
 };
 
 // class //
@@ -19,7 +21,7 @@ struct MessageOptions {
 class ControlMessage: public Message {
 public:
     // constructor
-    ControlMessage(SourceID source, DestinationID destination);
+    ControlMessage(SourceID& source, DestinationID& destination);
     ControlMessage();
 
     // destructor

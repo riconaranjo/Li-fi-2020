@@ -11,26 +11,38 @@
 
 struct DataLength {
     std::bitset<12> length;
+
+    DataLength(): length(std::bitset<12>()) { }
 };
 
 struct FragmentOffset {
     std::bitset<12> fragment;
+
+    FragmentOffset(): fragment(std::bitset<12>()) { }
 };
 
 struct MoreFragments {
     std::bitset<1> moreFragments;
+
+    MoreFragments(): moreFragments(std::bitset<1>()) { }
 };
 
 struct Security {
     std::bitset<1> security;
+
+    Security(): security(std::bitset<1>()) { }
 };
 
 struct HeaderCRC {
     std::bitset<1> headerCRC;
+
+    HeaderCRC(): headerCRC(std::bitset<1>()) { }
 };
 
 struct BinaryData {
     std::vector<char> data; // max size is 2^12 bits
+
+    BinaryData(): data(std::vector<char>()) { }
 };
 
 struct DataHeader {

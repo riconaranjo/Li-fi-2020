@@ -1,17 +1,17 @@
 // include statements //
 
 #include "DataMessage.hpp"
+#include <bitset>         // std::bitset
+#include <vector>         // std::vector
 #include "Message.hpp"
 
 // class //
 
-// constructor
-DataMessage::DataMessage(DataHeader* header, Data* data): Message(header->source, header->destination), header(header), data(data) {
-    // Serial.print("DataMessage::Data(...) not implemented\n");
-}
+// constructors
+DataMessage::DataMessage(DataHeader* header, Data* data): Message(header->source, header->destination), header(header), data(data) { }
 
 DataMessage::DataMessage(): Message(), header(new DataHeader()), data(new Data()) {
-    // Serial.print("DataMessage::Data() not implemented\n");
+    this->setUpDataMessage();
 }
 
 // destructor
@@ -44,4 +44,18 @@ SourceID& DataMessage::getSourceID() {
 
 DestinationID& DataMessage::getDestinationID() {
     return destinationID;
+}
+
+bool DataMessage::setUpDataMessage() {
+    // TODO: actual values omitted for demo
+
+    header->source.id.set(); // set all bits high
+    header->destination.id.reset(); // set all bits low
+    header->length.length.set(); // high
+    header->fragment.fragment.reset(); // low
+    header->MF.moreFragments.set(); // high
+    header->security.security.reset(); // low
+    header->headerCRC.headerCRC.set(); // high
+
+    return false;
 }

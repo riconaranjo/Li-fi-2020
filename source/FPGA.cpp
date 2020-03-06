@@ -13,7 +13,10 @@
 
 // constructors
 FPGA::FPGA() {
-    // Serial.print("FPGA::FPGA() not implemented\n");
+    
+    // TODO: remove
+    Serial.print("FPGA::FPGA() not implemented\n");
+    delay(1000);
 }
 
 // destructor
@@ -33,9 +36,13 @@ bool FPGA::write(Message& message) {
 
 FPGAResponse* FPGA::read() {
     Serial.print("FPGA::read() not implemented\n");
+
+    return nullptr;
     
     // TODO: figure out how to actually read data from FPGA
-    Message* message = new ControlMessage(SourceID(), DestinationID());
+    SourceID* source = new SourceID();
+    DestinationID* destination = new DestinationID();
+    Message* message = new ControlMessage(*source, *destination);
 
     MessageType type = getMessageType(*message);
 

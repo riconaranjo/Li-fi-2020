@@ -5,23 +5,24 @@
 
 #include <SerLCD.h>
 #include <PS2Keyboard.h>
-#include "AbstractController.hpp"
+
+#include "Modem.hpp"
 
 // structs //
 
 // class //
 
 // main entity class for modem, manages all messages and connections
-class Controller: public AbstractController {
+class Controller {
 public:
     // constructors
-    Controller();
+    Controller(SerLCD&);
 
     // destructor
     ~Controller();
 
     // general member functions
-    void LaunchModem(SerLCD&, PS2Keyboard&);
+    void LaunchModem(PS2Keyboard&);
     void LaunchUser();
 
 protected:
@@ -29,6 +30,8 @@ protected:
 private:
     bool inCharacterTransmissionMode;
     bool inDataTransmissionMode;
+
+    Modem* modem;
 };
 
 #endif // CONTROLLER_H

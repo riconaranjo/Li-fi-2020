@@ -8,7 +8,7 @@
 // class //
 
 // constructor
-ControlMessage::ControlMessage(SourceID source, DestinationID destination): Message(source, destination), options(MessageOptions()) {
+ControlMessage::ControlMessage(SourceID& source, DestinationID& destination): Message(source, destination), options(MessageOptions()) {
     // Serial.print("ControlMessage::ControlMessage(...) not implemented\n");
 }
 

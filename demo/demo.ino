@@ -9,37 +9,34 @@ unsigned _gettimeofday;
 
 SerLCD display;
 PS2Keyboard keyboard;
-Controller controller;
+Controller controller = Controller(display);
 
 const int DataPin = 22; // keyboard data --> green
 const int IRQpin =  23; // keyboard clock -> red
 
 void setupDisplay();
+void setupKeyboard();
+void setupFPGA();
 
 void setup() {
+
     Serial.begin(9600);
     Serial.println("running setup...");
+    delay(100);
 
-    delay(1000);
-    Serial.println("going to set up keyboard...");
-
-    // setupDisplay();
+    setupDisplay();
     setupKeyboard();
-
-    delay(1000);
-
-    Serial.println("setting up controller?");
-    delay(1000);
-    // set up modem
-    // controller = Controller();
-    controller.LaunchModem(display, keyboard);
     
     Serial.println("done setup");
     delay(2000);
 }
 
 void loop() {
+
+    controller.LaunchModem(keyboard);
+
     Serial.println("~");
+    delay(1000);
 }
 
 // set up LCD display
@@ -47,24 +44,31 @@ void loop() {
 // 3V    (teensy)  to  RAW (LCD)
 // GND   (teensy)  to  -   (LCD)
 void setupDisplay() {
-    Serial.println("setup display...");
+
+    Serial.println("setting up display...");
+    delay(100);
     
-    Serial2.begin(9600); // Serial2 since pin 8 is TX2
+    Serial2.begin(9600);
     display.begin(Serial2);
     display.setBacklight(0x005F5F5F);
 
-    delay(250);
+    delay(100);
 
     display.clear();
     display.print("Fuck this       Shit");  // 16x2 display
     display.saveSplash();
-
     delay(3000);
-    Serial.println("done setup display...");
 }
 
+// pin connections for PS2 Keyboard
+// pin 23 (teensy) to  DATA (green)
+// pin 22 (teensy) to  IRQ  (red)
+// 5V     (teensy) to  PWR  (orange)
+// GND    (teensy) to  GND  (yellow)
 void setupKeyboard() {
-    Serial.println("setup keyboard...");
+
+    Serial.println("setting up keyboard...");
+    delay(100);
+
     keyboard.begin(DataPin, IRQpin);
-    Serial.println("done setting up keyboard...");
 }

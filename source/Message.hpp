@@ -28,10 +28,14 @@ enum MessageType {
 
 struct SourceID {
     std::bitset<8> id; // identifier code for message source
+    
+    SourceID(): id(std::bitset<8>()) { }
 };
 
 struct DestinationID {
     std::bitset<8> id; // identifier code for message destination
+    
+    DestinationID(): id(std::bitset<8>()) { }
 };
 
 // class //
@@ -40,7 +44,7 @@ struct DestinationID {
 class Message {
 public:
     // constructor
-    Message(SourceID source, DestinationID destination);
+    Message(SourceID& source, DestinationID& destination);
     Message();
 
     // destructor
@@ -51,8 +55,8 @@ public:
 
 protected:
     // data members
-    SourceID sourceID;
-    DestinationID destinationID;
+    SourceID& sourceID;
+    DestinationID& destinationID;
 
 private:
 
