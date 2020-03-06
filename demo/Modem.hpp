@@ -3,14 +3,15 @@
 
 // include statements //
 
-// #include "Arduino.h"      // String
+#include "Arduino.h"      // String
 #include <SerLCD.h>
+#include <PS2Keyboard.h>
 #include <string>         // std::string
 #include <unordered_map>  // std::unordered_map
 #include <vector>         // std::vector
 
 #include "FPGA.hpp"
-#include "Keyboard.hpp"
+// #include "Keyboard.hpp"
 #include "Modem.hpp"
 
 // structs //
@@ -21,7 +22,7 @@
 class Modem {
 public:
     // constructors
-    Modem(SerLCD&);
+    Modem(PS2Keyboard&, SerLCD&);
 
     // destructor
     ~Modem();
@@ -30,8 +31,8 @@ public:
     void setupFPGA();
     void setupKeyboard(PS2Keyboard&);
 
-    KeyboardInput* readKeyboardInput();
-    FPGAResponse* readFPGAInput();
+    String* readKeyboardInput();
+    String* readFPGAInput();
 
     void print(String);
 
@@ -55,7 +56,8 @@ protected:
 private:
     // data members
     FPGA* fpga;
-    Keyboard* keyboard;
+    // Keyboard* keyboard;
+    PS2Keyboard& keyboard;
     SerLCD& display;
 };
 

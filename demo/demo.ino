@@ -9,7 +9,7 @@ unsigned _gettimeofday;
 
 SerLCD display;
 PS2Keyboard keyboard;
-Controller controller = Controller(display);
+Controller controller = Controller(keyboard,display);
 
 const int DataPin = 22; // keyboard data --> green
 const int IRQpin =  23; // keyboard clock -> red
@@ -26,6 +26,7 @@ void setup() {
 
     setupDisplay();
     setupKeyboard();
+    setupFPGA();
     
     Serial.println("done setup");
     delay(2000);
@@ -33,7 +34,7 @@ void setup() {
 
 void loop() {
 
-    controller.LaunchModem(keyboard);
+    controller.LaunchModem();
 
     Serial.println("~");
     delay(1000);
@@ -50,7 +51,7 @@ void setupDisplay() {
     
     Serial2.begin(9600);
     display.begin(Serial2);
-    display.setBacklight(0x005F5F5F);
+    display.setBacklight(0sx005F5F5F);
 
     delay(100);
 
@@ -61,8 +62,8 @@ void setupDisplay() {
 }
 
 // pin connections for PS2 Keyboard
-// pin 23 (teensy) to  DATA (green)
-// pin 22 (teensy) to  IRQ  (red)
+// pin 22 (teensy) to  DATA (green)
+// pin 23 (teensy) to  IRQ  (red)
 // 5V     (teensy) to  PWR  (orange)
 // GND    (teensy) to  GND  (yellow)
 void setupKeyboard() {
@@ -71,4 +72,17 @@ void setupKeyboard() {
     delay(100);
 
     keyboard.begin(DataPin, IRQpin);
+}
+
+// pin connections for FPGA
+// pin 22 (teensy) to  DATA (green)
+// pin 23 (teensy) to  IRQ  (red)
+// 5V     (teensy) to  PWR  (orange)
+// GND    (teensy) to  GND  (yellow)
+void setupFPGA() {
+
+    Serial.println("setting up FPGA...");
+    delay(100);
+
+    Serial3.begin(9600); // FPGA serial connection
 }

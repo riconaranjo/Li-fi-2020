@@ -29,7 +29,7 @@ public:
 
     // member functions
     bool write(Message* message);
-    FPGAResponse* read();
+    String* read();
 
 protected:
 

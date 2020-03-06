@@ -7,7 +7,7 @@
 // class //
 
 // constructor
-Controller::Controller(SerLCD& display): modem(new Modem(display)) {
+Controller::Controller(PS2Keyboard& keyboard, SerLCD& display): modem(new Modem(keyboard, display)) {
     // TODO: verify these are correct
     inCharacterTransmissionMode = true;
     inDataTransmissionMode = false;
@@ -63,14 +63,15 @@ void Controller::LaunchUser() {
 }
 
 // main controller logic as modem device
-void Controller::LaunchModem(PS2Keyboard& keyboard) {
+void Controller::LaunchModem() {
 
-    modem->setupKeyboard(keyboard);
+    // modem->setupKeyboard(keyboard);
 
     // Serial.println("reading keyboard?");
     // delay(100);
 
     modem->readKeyboardInput();
+    modem->readFPGAInput();
 
     // while (true) {
     //     Serial.println("while true...");

@@ -16,13 +16,13 @@
 class Controller {
 public:
     // constructors
-    Controller(SerLCD&);
+    Controller(PS2Keyboard&, SerLCD&);
 
     // destructor
     ~Controller();
 
     // general member functions
-    void LaunchModem(PS2Keyboard&);
+    void LaunchModem();
     void LaunchUser();
 
 protected:

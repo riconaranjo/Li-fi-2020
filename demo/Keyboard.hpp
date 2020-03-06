@@ -1,41 +1,35 @@
-#ifndef KEYBOARD_H
-#define KEYBOARD_H
+// #ifndef KEYBOARD_H
+// #define KEYBOARD_H
 
-// include statements //
+// // include statements //
 
-#include <vector>         // std::vector
-#include <ctime>          // std::time
-#include <SerLCD.h>
-#include <PS2Keyboard.h>
-#include "Arduino.h"
+// #include <vector>         // std::vector
+// #include <ctime>          // std::time
+// #include <SerLCD.h>
+// #include <PS2Keyboard.h>
+// #include "Arduino.h"
 
-// structs //
+// // structs //
 
-struct KeyboardInput {
-    String text;
+// // class //
 
-    KeyboardInput(): text(String()) { }
-};
+// // containter class for connection ID and source ID
+// class Keyboard {
+// public:
+//     // constructors
+//     Keyboard(SerLCD&, PS2Keyboard&);
 
-// class //
+//     // destructor
+//     ~Keyboard();
 
-// containter class for connection ID and source ID
-class Keyboard {
-public:
-    // constructors
-    Keyboard(SerLCD&, PS2Keyboard&);
+//     // member functions
+//     KeyboardInput* read();
 
-    // destructor
-    ~Keyboard();
+// protected:
 
-    // member functions
-    KeyboardInput* read();
+// private:
+//     SerLCD& display;
+//     PS2Keyboard& keyboard;
+// };
 
-protected:
-
-private:
-    SerLCD& display;
-    PS2Keyboard& keyboard;
-};
-
-#endif // KEYBOARD_H
+// #endif // KEYBOARD_H
