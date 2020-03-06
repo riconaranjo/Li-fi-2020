@@ -51,7 +51,7 @@ void setupDisplay() {
     
     Serial2.begin(9600);
     display.begin(Serial2);
-    display.setBacklight(0sx005F5F5F);
+    display.setBacklight(0x005F5F5F);
 
     delay(100);
 

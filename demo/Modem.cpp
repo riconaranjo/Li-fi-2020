@@ -6,30 +6,57 @@
 // class //
 
 // constructors
-Modem::Modem(PS2Keyboard& kb, SerLCD& display): fpga(nullptr), keyboard(kb), display(display) { }
+Modem::Modem(PS2Keyboard& kb, SerLCD& display): keyboard(kb), display(display) { }
 
 // destructor
 Modem::~Modem() { }
 
 // member functions //
 
-void Modem::setupFPGA() {
-    if (fpga) return;
-    fpga = new FPGA();
-}
-
-void Modem::setupKeyboard(PS2Keyboard& kb) {
-    // if (keyboard) return;
-    // keyboard = new Keyboard(display, kb);
-}
-
 String* Modem::readFPGAInput() {
     // TODO: remove
     Serial.println("Modem::readFPGAInput()");
     delay(100);
 
-    String* input = fpga->read();
-    if (!input) return nullptr;
+    if (!Serial3.available()) return nullptr;
+
+    for(int x = 0; x < 50; x++) Serial.println();   // TODO: remove clear monitor
+    Serial.println("FPGA input:");
+
+    int size;
+    char characters[MAX_STRING_SIZE];
+    characters[0] = Serial3.read();  // will not be -1
+
+    // display.clear();
+
+    Serial.print(characters[0]);    // TODO: remove
+    // display.print(characters[0]);
+
+    for (size = 1; size < MAX_STRING_SIZE; size++) {
+
+        if (!Serial3.available()) {
+            size--;
+            continue;
+        }
+
+        char input = Serial3.read();
+        characters[size] = input;
+
+        // Serial.print(characters[size]); // TODO: remove
+        Serial.print(characters[size]); // TODO: remove
+        // display.print(characters[size]);
+    }
+
+    // convert to String object
+    String* input = new String(); 
+    for (int j = 0; j < size; j++) {
+      *input += String(characters[j]);
+    }    
+
+    // TODO: remove after debugging
+    for(int x = 0; x < 50; x++) Serial.println();   // clear monitor
+    Serial.print("FPGA input:  ");
+    Serial.println(*input);
 
     return input;
 }
@@ -42,7 +69,6 @@ void Modem::print(String text) {
 // modem member functions
 
 String* Modem::readKeyboardInput() {
-
 
     if (!keyboard.available()) return nullptr;
 
@@ -80,7 +106,6 @@ String* Modem::readKeyboardInput() {
                 display.print(characters[j]);
             }
             continue;
-
         }
 
         characters[size] = input;

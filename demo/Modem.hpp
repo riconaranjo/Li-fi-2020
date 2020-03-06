@@ -10,9 +10,8 @@
 #include <unordered_map>  // std::unordered_map
 #include <vector>         // std::vector
 
-#include "FPGA.hpp"
-// #include "Keyboard.hpp"
 #include "Modem.hpp"
+#include "constants.cpp"
 
 // structs //
 
@@ -28,12 +27,8 @@ public:
     ~Modem();
 
     // member functions
-    void setupFPGA();
-    void setupKeyboard(PS2Keyboard&);
-
     String* readKeyboardInput();
     String* readFPGAInput();
-
     void print(String);
 
     // user member functions
@@ -55,8 +50,6 @@ protected:
 
 private:
     // data members
-    FPGA* fpga;
-    // Keyboard* keyboard;
     PS2Keyboard& keyboard;
     SerLCD& display;
 };
