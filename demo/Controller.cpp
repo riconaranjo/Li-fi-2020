@@ -1,7 +1,8 @@
 // include statements //
 
+#include "Arduino.h"      // String
 #include "Controller.hpp"
-// #include "CharacterTransmissionControl.hpp"
+#include "CharacterTransmissionControl.hpp"
 // #include "SpeedTransmissionControl.hpp"
 
 // class //
@@ -14,12 +15,11 @@ Controller::Controller(PS2Keyboard& keyboard, SerLCD& display): modem(new Modem(
 
     // TODO: remove
     Serial.println("controller created");
-    delay(100);
+    delay(10);
 }
 
 // destructor
 Controller::~Controller() {
-    // delete modem;
 }
 
 // main controller logic as user device
@@ -65,67 +65,78 @@ void Controller::LaunchUser() {
 // main controller logic as modem device
 void Controller::LaunchModem() {
 
-    // modem->setupKeyboard(keyboard);
-
-    // Serial.println("reading keyboard?");
-    // delay(100);
-
     modem->readKeyboardInput();
     modem->readFPGAInput();
 
-    // while (true) {
-    //     Serial.println("while true...");
-    //     delay(1000);
-    //     // error checking
-    //     if (inCharacterTransmissionMode && inDataTransmissionMode) {
-    //         // throw "cannot not be in both character and data transmission modes at the same time!"; // need to enable exceptions...
-    //         Serial.print("!! cannot not be in both character and data transmission modes at the same time!");
-    //         exit(-1);
-    //     }
+    String* last_FPGA_input;
+    String* last_keyboard_input;
 
-    //     KeyboardInput* last_keyboard_input = nullptr;
-    //     FPGAResponse* last_FPGA_input = nullptr;
+    while (true) {
+        Serial.println("while true...");
+        delay(1000);
+        // error checking
+        if (inCharacterTransmissionMode && inDataTransmissionMode) {
+            // throw "cannot not be in both character and data transmission modes at the same time!"; // need to enable exceptions...
+            Serial.print("!! cannot not be in both character and data transmission modes at the same time!");
+            delay(1000);
+            exit(-1);
+        }
 
-    //     Serial.println("reading inputs?");
-    //     delay(100);
+        // read FPGA for new messages
+        last_FPGA_input = modem->readFPGAInput();
+        last_keyboard_input = modem->readKeyboardInput();
 
-    //     // read FPGA for new messages
-    //     last_FPGA_input = modem->readFPGAInput();
-    //     last_keyboard_input = modem->readKeyboardInput();
+        // TODO: remove after debug
+        Serial.println("inputs read");
+        delay(10);
 
-    //     Serial.println("inputs read");
-    //     delay(100);
-
-    //     if (inCharacterTransmissionMode) {
-    //         Serial.println("starting character mode");
-    //         delay(100);
-    //         // starts UC-1
-    //         CharacterTransmissionControl uc_1 = CharacterTransmissionControl(); // SO
+        if (inCharacterTransmissionMode) {
+            // TODO: remove after debug
+            Serial.println("starting character mode");
+            delay(10);
+            // starts UC-1
+            CharacterTransmissionControl uc_1 = CharacterTransmissionControl(modem); // SO
             
-    //         Serial.println("starting UC-3");
-    //         delay(100);
-    //         uc_1.acceptConnection();  // S1m - creates UC-3
+            // TODO: remove after debug
+            Serial.println("starting UC-3");
+            delay(10);
+            int count = 0;
+            while (count < 25) {
+                bool connection = uc_1.acceptConnection();  // S1m - creates UC-3
+                delay(10);
+                if (connection) break;
+                count++;
+            }
 
-    //         Serial.println("done starting UC-3");
-    //         delay(100);
+            while (true) {
+                last_keyboard_input = uc_1.getKeyboardInput();    // S2m - handles connection signals
+                if(!last_keyboard_input) {
+                    // TODO: remove after debug
+                    Serial.println("no keyboard input...");
+                    delay(10);
+                    continue;
+                }
 
-    //         while (true) {
-    //             Serial.println("getting uc-1 keyboard input???");
-    //             delay(100);
-    //             uc_1.getKeyboardInput();    // S2m - handles connection signals
-    //             Serial.println("going to transmit??");
-    //             delay(100);
-    //             uc_1.transmitCharacter();   // S3m - creates UC-5
-    //         }
+                // TODO: remove after debug
+                Serial.println("going to transmit??");
+                delay(10);
 
-    //     } else if (inDataTransmissionMode) {
-    //         // starts UC-2
-    //         SpeedTransmissionControl uc_2 = SpeedTransmissionControl();
-    //         uc_2.acceptConnection();  // S1m - creates UC-3
-    //         while (true) {
-    //             uc_2.waitForCue();          // S2m - handles connection signals
-    //             uc_2.transmitData();        // S3m - creates UC-6
-    //         }
-    //     }
-    // } // end while
+                bool success = uc_1.transmitCharacter(last_keyboard_input);   // S3m - creates UC-5
+                if(!success) {
+                    // TODO: remove after debug
+                    Serial.println("unable to transmit characters...");
+                    delay(10);
+                }
+            }
+
+        } else if (inDataTransmissionMode) {
+            // // starts UC-2
+            // SpeedTransmissionControl uc_2 = SpeedTransmissionControl();
+            // uc_2.acceptConnection();  // S1m - creates UC-3
+            // while (true) {
+            //     uc_2.waitForCue();          // S2m - handles connection signals
+            //     uc_2.transmitData();        // S3m - creates UC-6
+            // }
+        }
+    } // end while
 }

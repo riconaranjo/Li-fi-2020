@@ -22,7 +22,7 @@ void setup() {
 
     Serial.begin(9600);
     Serial.println("running setup...");
-    delay(100);
+    delay(10);
 
     setupDisplay();
     setupKeyboard();
@@ -47,13 +47,13 @@ void loop() {
 void setupDisplay() {
 
     Serial.println("setting up display...");
-    delay(100);
+    delay(10);
     
     Serial2.begin(9600);
     display.begin(Serial2);
     display.setBacklight(0x005F5F5F);
 
-    delay(100);
+    delay(10);
 
     display.clear();
     display.print("Fuck this       Shit");  // 16x2 display
@@ -69,12 +69,13 @@ void setupDisplay() {
 void setupKeyboard() {
 
     Serial.println("setting up keyboard...");
-    delay(100);
+    delay(10);
 
     keyboard.begin(DataPin, IRQpin);
 }
 
 // pin connections for FPGA
+// TODO: update these
 // pin 22 (teensy) to  DATA (green)
 // pin 23 (teensy) to  IRQ  (red)
 // 5V     (teensy) to  PWR  (orange)
@@ -82,7 +83,7 @@ void setupKeyboard() {
 void setupFPGA() {
 
     Serial.println("setting up FPGA...");
-    delay(100);
+    delay(10);
 
     Serial3.begin(9600); // FPGA serial connection
 }

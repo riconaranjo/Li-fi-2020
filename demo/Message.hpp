@@ -20,11 +20,13 @@ public:
 
     void setData(String);
 
+    // data members
+    unsigned char data[16];
+
 protected:
 
 private:
-    // data members
-    unsigned char data[16];
+
 };
 
 #endif // MESSAGE_H

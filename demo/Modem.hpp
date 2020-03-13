@@ -10,8 +10,9 @@
 #include <unordered_map>  // std::unordered_map
 #include <vector>         // std::vector
 
-#include "Modem.hpp"
 #include "constants.cpp"
+#include "Modem.hpp"
+#include "Message.hpp"
 
 // structs //
 
@@ -30,21 +31,20 @@ public:
     String* readKeyboardInput();
     String* readFPGAInput();
     void print(String);
+    void print(String*);
 
     // user member functions
-    void sendUserRequestToConnect();                     // M1-1
+    void sendUserRequestToConnect();                     // M1-1 -> omitted
     void sendUserAcceptRequestToSendDataMessage();       // M2-2
-    void sendUserRejectRequestToSendDataMessage();       // M2-3
-    void sendUserDataMessageACK();                       // M2-5
-    void sendUserDataMessageNACK();                      // M2-6
-    void sendUserHeartBeat();                            // M3-1
+    void sendUserRejectRequestToSendDataMessage();       // M2-3 -> omitted
+    void sendUserHeartBeat();                            // M3-1 -> omitted
 
     // modem member functions
-    void sendModemAcceptRequestToConnect();              // M1-2
-    void sendModemRejectRequestToConnect();              // M1-3
+    void sendModemAcceptRequestToConnect();              // M1-2 -> omitted
+    void sendModemRejectRequestToConnect();              // M1-3 -> omitted
     void sendModemRequestToSendDataMessage();            // M2-1
-    void sendModemDataMessage();                         // M2-4
-    void sendModemHeartBeat();                           // M3-2
+    void sendModemDataMessage(String*);                  // M2-4
+    void sendModemHeartBeat();                           // M3-2 -> omitted
 
 protected:
 
