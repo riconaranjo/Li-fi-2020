@@ -42,7 +42,7 @@ public:
     // modem member functions
     void sendModemAcceptRequestToConnect();              // M1-2 -> omitted
     void sendModemRejectRequestToConnect();              // M1-3 -> omitted
-    void sendModemRequestToSendDataMessage();            // M2-1
+    void sendModemRequestToSendDataMessage();            // M2-1 -> omitted
     void sendModemDataMessage(String*);                  // M2-4
     void sendModemHeartBeat();                           // M3-2 -> omitted
 

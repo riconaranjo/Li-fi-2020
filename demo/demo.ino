@@ -56,7 +56,7 @@ void setupDisplay() {
     delay(10);
 
     display.clear();
-    display.print("Fuck this       Shit");  // 16x2 display
+    display.print("Fuck this       Shit (demo)");  // 16x2 display
     display.saveSplash();
     delay(3000);
 }

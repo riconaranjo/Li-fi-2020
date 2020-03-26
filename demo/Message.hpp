@@ -6,6 +6,7 @@
 #include <bitset>         // std::bitset
 #include <cstddef>        // std::byte
 #include "Arduino.h"      // String
+#include "constants.cpp"
 
 // class //
 
@@ -21,7 +22,7 @@ public:
     void setData(String);
 
     // data members
-    unsigned char data[16];
+    unsigned char data[MAX_STRING_SIZE];
 
 protected:
 

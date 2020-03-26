@@ -20,17 +20,9 @@ String* Modem::readFPGAInput() {
 
     if (!Serial3.available()) return nullptr;
 
-    for(int x = 0; x < 50; x++) Serial.println();   // TODO: remove clear monitor
-    Serial.println("FPGA input:");
-
     int size;
     char characters[MAX_STRING_SIZE];
     characters[0] = Serial3.read();  // will not be -1
-
-    // display.clear();
-
-    Serial.print(characters[0]);    // TODO: remove
-    // display.print(characters[0]);
 
     for (size = 1; size < MAX_STRING_SIZE; size++) {
 
@@ -41,21 +33,21 @@ String* Modem::readFPGAInput() {
 
         char input = Serial3.read();
         characters[size] = input;
-
-        Serial.print(characters[size]); // TODO: remove
-        // display.print(characters[size]);
     }
 
     // convert to String object
     String* input = new String(); 
     for (int j = 0; j < size; j++) {
-      *input += String(characters[j]);
-    }    
+        *input += String(characters[j]);
+    }
 
     // TODO: remove after debugging
     for(int x = 0; x < 50; x++) Serial.println();   // clear monitor
-    Serial.print("FPGA input:  ");
-    Serial.println(*input);
+    Serial.print("FPGA input: (");
+    Serial.print(*input);
+    Serial.print(")\nsize = ");
+    Serial.print(size);
+    Serial.print("\n");
 
     return input;
 }
@@ -79,7 +71,7 @@ String* Modem::readKeyboardInput() {
     Serial.println("keyboard input:");
 
     int size;
-    char characters[MAX_STRING_SIZE+1];
+    char characters[MAX_STRING_SIZE];
     characters[0] = keyboard.read();  // will not be -1
 
     display.clear();
@@ -87,7 +79,7 @@ String* Modem::readKeyboardInput() {
     Serial.print(characters[0]);    // TODO: remove
     display.print(characters[0]);
 
-    for (size = 1; size < MAX_STRING_SIZE+1; size++) {
+    for (size = 1; size < MAX_STRING_SIZE; size++) {
 
         if (!keyboard.available()) {
             size--;
@@ -125,9 +117,14 @@ String* Modem::readKeyboardInput() {
       *input += String(characters[j]);
     }
 
+    // pad end of string with spaces for 32 bytes long message
+    for (int j = size; j < MAX_STRING_SIZE; j++) {
+      *input += String('\b');
+    }
+
     // TODO: remove after debugging
     for(int x = 0; x < 50; x++) Serial.println();   // clear monitor
-    Serial.print("keyboard input:  ");
+    Serial.print("keyboard input: ");
     Serial.println(*input);
 
     return input;
@@ -140,16 +137,17 @@ void Modem::sendUserRequestToConnect() {
     // Serial.print("Modem::SendUserRequestToConnect() not implemented\n");
 }
 
-// send M2-2 as user
+// send M2-2 as user -> omitted for demo
 void Modem::sendUserAcceptRequestToSendDataMessage() {
     Serial.print("Modem::SendUserAcceptRequestToSendDataMessage()\n");
     delay(10);
 
     // TODO: convert to char array
     // unsigned char request = 0xFFFFCCDDFFFFCCDDFFFFCCDDFFFFCCDDFFFFCCDDFFFFCCDDFFFFCCDDFFFFCCDD;
-    unsigned char request = 2;
 
-    Serial3.print(request);
+    // int message[32] = { 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD };
+
+    // for (int i = 0; i < 32; i++) Serial3.print(message[i]);
 }
 
 // send M2-3 as user -> omitted for demo
@@ -165,26 +163,24 @@ void Modem::sendUserHeartBeat() {
 
 // modem member functions //
 
-// send M1-2 as modem
+// send M1-2 as modem -> omitted for demo
 void Modem::sendModemAcceptRequestToConnect() {
     // Serial.print("Modem::SendModemAcceptRequestToConnect() not implemented\n");
 }
 
-// send M1-3 as modem
+// send M1-3 as modem -> omitted for demo
 void Modem::sendModemRejectRequestToConnect() {
     // Serial.print("Modem::SendModemRejectRequestToConnect() not implemented\n");
 }
 
-// send M2-1 as modem
+// send M2-1 as modem -> omitted for demo
 void Modem::sendModemRequestToSendDataMessage() {
     Serial.print("Modem::SendModemRequestToSendDataMessage()\n");
     delay(10);
 
-    // TODO: convert to char array
-    // unsigned char request = 0xAAAACCDDAAAACCDDAAAACCDDAAAACCDDAAAACCDDAAAACCDDAAAACCDDAAAACCDD;
-    unsigned char request = 1;
+    // int message[32] = { 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD, 0xAA, 0xBB, 0xCC, 0xDD };
 
-    Serial3.print(request);
+    // for (int i = 0; i < 32; i++) Serial3.print(message[i]);
 }
 
 // send M2-4 as modem

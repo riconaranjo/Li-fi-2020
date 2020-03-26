@@ -22,6 +22,7 @@ bool CharacterTransmissionControl::initiateConnection() {
     Serial.print("CharacterTransmissionControl::initiateConnection() not implemented\n");
     delay(10);
 
+    // TODO: omitted for demo
     return false;
 
     // connectControl = new ConnectDevicesControl();
